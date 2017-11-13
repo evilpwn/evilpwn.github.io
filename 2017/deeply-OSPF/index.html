@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="evilpwn,evilpwn.me,evlim,evilpwn's note" />
+  <meta name="keywords" content="路由,OSPF协议," />
 
 
 
@@ -95,17 +95,30 @@
 
 
 
-<meta name="description" content="Command_Ghost">
-<meta name="keywords" content="evilpwn,evilpwn.me,前端博客,JavaScript,html5,css3,Jquery,NodeJs,Ubuntu">
-<meta property="og:type" content="website">
-<meta property="og:title" content="evilpwn&#39;s Note">
-<meta property="og:url" content="https://evilpwn.me/archives/2017/10/index.html">
+<meta name="description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
+<meta name="keywords" content="路由,OSPF协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解OSPF开放式最短路径优先协议">
+<meta property="og:url" content="https://evilpwn.me/2017/deeply-OSPF/index.html">
 <meta property="og:site_name" content="evilpwn&#39;s Note">
-<meta property="og:description" content="Command_Ghost">
+<meta property="og:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_09.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_10.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_11.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_01.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_02.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_03.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_04.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_05.jpg">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_06.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_07.PNG">
+<meta property="og:updated_time" content="2017-11-13T17:49:32.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="evilpwn&#39;s Note">
-<meta name="twitter:description" content="Command_Ghost">
+<meta name="twitter:title" content="深入理解OSPF开放式最短路径优先协议">
+<meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG">
 
 
 
@@ -135,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://evilpwn.me/archives/2017/10/"/>
+  <link rel="canonical" href="https://evilpwn.me/2017/deeply-OSPF/"/>
 
 
 
 
 
-  <title>归档 | evilpwn's Note</title>
+  <title>深入理解OSPF开放式最短路径优先协议 | evilpwn's Note</title>
   
 
 
@@ -160,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,74 +301,376 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 27 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/deeply-OSPF/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/OpenGL_entry/" itemprop="url">
-              
-                <span itemprop="name">OpenGL简单示例</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">深入理解OSPF开放式最短路径优先协议</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-09T21:08:14+08:00"
-              content="2017-10-09" >
-          10-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T23:17:55+08:00">
+                2017-11-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Routing-Switching/" itemprop="url" rel="index">
+                    <span itemprop="name">路由与交换</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/deeply-OSPF/" class="leancloud_visitors" data-flag-title="深入理解OSPF开放式最短路径优先协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h1 id="RIP缺陷"><a href="#RIP缺陷" class="headerlink" title="RIP缺陷"></a>RIP缺陷</h1><ul>
+<li>以跳数评估的路由并非最优路径</li>
+<li>最大跳数16导致网络尺度小</li>
+<li>收敛速度慢</li>
+<li>更新发送全部路由表浪费网络资源</li>
+</ul>
+<h2 id="以跳数评估的路由并非最优路径"><a href="#以跳数评估的路由并非最优路径" class="headerlink" title="以跳数评估的路由并非最优路径"></a>以跳数评估的路由并非最优路径</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG" alt="跳数评估的路由并非最优路径"></p>
+<p>如果RTA选择S0/0传输，传输需时会大大缩短为3s</p>
+<h2 id="最大跳数16导致网络尺度小"><a href="#最大跳数16导致网络尺度小" class="headerlink" title="最大跳数16导致网络尺度小"></a>最大跳数16导致网络尺度小</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_09.PNG" alt="最大跳数16导致网络尺度小"></p>
+<p>RIP协议限制网络直径不能超过16跳！</p>
+<h2 id="收敛速度慢"><a href="#收敛速度慢" class="headerlink" title="收敛速度慢"></a>收敛速度慢</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_10.PNG" alt="收敛速度慢"></p>
+<p>RTA和RTB收到路由不可达信息后进入抑制时间<br>抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新</p>
+<h2 id="更新发送全部路由表浪费网络资源"><a href="#更新发送全部路由表浪费网络资源" class="headerlink" title="更新发送全部路由表浪费网络资源"></a>更新发送全部路由表浪费网络资源</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_11.PNG" alt="收敛速度慢"></p>
+<p>假设RTA和RTB各有1000条路由，每条路由需占用20个字节<br>每次路由更新时，RTA和RTB之间单向需消耗至少160Kb的带宽资源</p>
+<h1 id="链路状态路由协议的特点"><a href="#链路状态路由协议的特点" class="headerlink" title="链路状态路由协议的特点"></a>链路状态路由协议的特点</h1><ul>
+<li>对网络发生的变化能够快速响应。</li>
+<li>当网络发生变化的时候发送触发式更新（triggered update）。</li>
+<li>发送周期性更新（链路状态刷新），间隔时间为30分钟。</li>
+</ul>
+<p>OSPF是一种链路状态路由选择协议。</p>
+<a id="more"></a>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_01.PNG" alt="链路状态协议"></p>
+<p>链路状态路由协议只在网络拓扑发生变化以后产生路由更新。链路状态发生变化后，检测到变化的路由器生成并发送<font color="red">LSA（Link-State Advertisement，链路状态通告）</font>，并通过组播地址发送给所有的邻居路由器。接受到LSA的每个路由器会复制一份LSA，更新它自己的<font color="red">LSDB（Link-State Database）</font>，再将LSA转发给其他邻居。这种扩散机制被称为<font color="red">泛洪（Flooding）</font>。</p>
+<p>OSPF必须维护以下信息：</p>
+<ul>
+<li><p><font color="red">邻居表（neighbor table）</font>：<br>也叫邻接数据库（adjacency database）。存储了邻居路由器的信息，如果一个OSPF路由器和它的邻居路由器失去联系，在几秒中的时间内，它会标记所有到达那条路由均为无效并且重新计算到达目标网络的路径。</p>
+</li>
+<li><p><font color="red">拓扑表（topology table）</font>：<br>一般叫做LSDB，OSPF路由器通过LSA学习到其他的路由器和网络状况,LSA存储在LSDB中。</p>
+</li>
+<li><p><font color="red">路由表（routing table）</font>：<br>也就是我们所说的路由表了，也叫forwarding database，包含了到达目标网络的最佳路径的信息。</p>
+</li>
+</ul>
+<p>链路状态路由协议和距离矢量路由协议<font color="red">（OSPF和RIP）</font>的一个重要区别：距离矢量路由协议是基于流言的路由协议（Routing By Rumors）,即：距离矢量路由协议依靠邻居发给它的信息来作路由决策，而且路由器不需要保持完整的网络信息。而链路状态路由协议的路由器拥有完整的网络信息，而且每个路由器自己做出路由决策。</p>
+<h1 id="OSPF工作机制"><a href="#OSPF工作机制" class="headerlink" title="OSPF工作机制"></a>OSPF工作机制</h1><h2 id="OSPF对比RIP"><a href="#OSPF对比RIP" class="headerlink" title="OSPF对比RIP"></a>OSPF对比RIP</h2><p>OSPF不再采用跳数的概念，而是根据接口的吞吐率、拥塞状况、往返时间、可靠性等实际链路的负载能力定出路由的代价，同时选择最短、最优路由并允许保持到达同一目标地址的多条路由，从而平衡网络负荷；<br>OSPF支持不同服务类型的不同代价，从而实现不同QoS的路由服务；<br>OSPF路由器不再交换路由表，而是同步各路由器对网络状态的认识。</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>OSPF</th>
+<th>RIPv2</th>
+<th>RIPv1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议类型</td>
+<td>链路状态</td>
+<td>距离矢量</td>
+<td>距离矢量</td>
+</tr>
+<tr>
+<td>无类支持</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>VLSM支持</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>自动汇总</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>手动汇总</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>不连继支持</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>路由转播</td>
+<td>可变化转播</td>
+<td>周期性转播</td>
+<td>周期性转播</td>
+</tr>
+<tr>
+<td>路由度量</td>
+<td>宽带</td>
+<td>跳</td>
+<td>跳</td>
+</tr>
+<tr>
+<td>跳计数限制</td>
+<td>无</td>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr>
+<td>会聚</td>
+<td>快</td>
+<td>慢</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>对等认证</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>分层网络</td>
+<td>是（使用地区）</td>
+<td>否（只是平面）</td>
+<td>否（只是平面）</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>事件触发</td>
+<td>路由表更新</td>
+<td>路由表更新</td>
+</tr>
+<tr>
+<td>路由计算</td>
+<td>Dijkstra</td>
+<td>Bellman-Ford</td>
+<td>Bellman-Ford</td>
+</tr>
+</tbody>
+</table>
+<h2 id="OSPF邻居关系"><a href="#OSPF邻居关系" class="headerlink" title="OSPF邻居关系"></a>OSPF邻居关系</h2><p><b>广播网络中的Hello报文：</b><br><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_02.PNG" alt="广播网络中的Hello报文"><br>交换Hello报文进行邻接：</p>
+<ol>
+<li>路由器和别的路由器交换hello包,目标地址采用多播地址 </li>
+<li>hello包交换完毕，邻接关系形成。</li>
+<li>接下来通过交换LSA和对接收方的确认进行同步LSDB。对于OSPF路由器而言，进入完全邻接状态。</li>
+<li>如果需要的话，路由器转发新的LSA给其他的邻居，来保证整个区域内LSDB的完全同步。</li>
+</ol>
+<h2 id="OSPF泛洪机制"><a href="#OSPF泛洪机制" class="headerlink" title="OSPF泛洪机制"></a>OSPF泛洪机制</h2><p><b>LSA工作原理：</b><br><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_03.PNG" alt="LSA工作原理"></p>
+<h2 id="OSPF路由类型"><a href="#OSPF路由类型" class="headerlink" title="OSPF路由类型"></a>OSPF路由类型</h2><p>。。。。。。待补充。。。。。。</p>
+<h2 id="LSDB"><a href="#LSDB" class="headerlink" title="LSDB"></a>LSDB</h2><p>LSA：描述本地路由器或网络的数据单元，对路由器来说，它描述了路由器的接口状态和邻接状态。 </p>
+<table>
+<thead>
+<tr>
+<th>LSA类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1类</td>
+<td>路由器LSA</td>
+</tr>
+<tr>
+<td>2类</td>
+<td>网络LSA</td>
+</tr>
+<tr>
+<td>3类和4类</td>
+<td>汇总LSA</td>
+</tr>
+<tr>
+<td>5类</td>
+<td>AS外部LSA</td>
+</tr>
+<tr>
+<td>6类</td>
+<td>组播OSPF LSA</td>
+</tr>
+<tr>
+<td>7类</td>
+<td>为次未节区域定义的</td>
+</tr>
+<tr>
+<td>8类</td>
+<td>BGP的外部属性LSA</td>
+</tr>
+<tr>
+<td>9、10或11类</td>
+<td>不透明LSA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SPF算法"><a href="#SPF算法" class="headerlink" title="SPF算法"></a>SPF算法</h2><blockquote>
+<p>在地区内部,每台路由器都计算到达同一地区中每个网络的最佳/最短路径。这种计算基于拓扑数据库中收集的信息和一种称为最短路径优先(SPF)的算法。假想地区中的每台路由器都会构造一棵树,很像是一棵家谱树,在那里该路由器就是树根,而其他网络则沿树枝和树叶被编排。最短路径树被路由器用来将路由插人到路由表中。<br>如果某个路由器的接口存在于多个地区中,那么需要为每个地区都构建一棵单独的树。在路由器执行SPF算法时,一个关键标准是去往某网络的每个潜在路径的度量或开销值。</p>
+</blockquote>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_04.PNG" alt="SPF算法"><br>SPF算法也称Dijkstra算法（Dijkstra发明的），是OSPF路由协议的基础。</p>
+<p>。。。。。。待补充。。。。。。</p>
+<h1 id="OSPF报文类型"><a href="#OSPF报文类型" class="headerlink" title="OSPF报文类型"></a>OSPF报文类型</h1><h1 id="邻居状态和数据库同步"><a href="#邻居状态和数据库同步" class="headerlink" title="邻居状态和数据库同步"></a>邻居状态和数据库同步</h1><h1 id="OSPF区域"><a href="#OSPF区域" class="headerlink" title="OSPF区域"></a>OSPF区域</h1><h1 id="虚链路（Virtual-Link）"><a href="#虚链路（Virtual-Link）" class="headerlink" title="虚链路（Virtual Link）"></a>虚链路（Virtual Link）</h1><p>OSPF协议中要求每个区域与骨干区域（Area 0）必须直接相连，但是实际组网中，网络情况非常的复杂，有时候在划分区域时，无法保证每个区域都满足这个要求。这个时候就需要使用<font color="red">虚链接（Virtual Link）</font>技术来解决这个问题。</p>
+<blockquote>
+<p>常规区域只能和骨干区域交换LSA，常规区域与常规区域之间即使直连也无法互换LSA，</p>
+</blockquote>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_05.jpg" alt="虚链路"></p>
+<p>虚连接是指在两台ABR（Area Border Routers，区域边界路由器）之间，穿过一个非骨干区域（也称为转换区域，Transit Area），建立的一条逻辑上的连接通道（须在两端的ABR上同时配置）。如上图，在路由器C和路由器E之间建立了一条虚链接，使Area 3和骨干区域Area 0之间有了逻辑连接，Area 1为转换区域。<br>“逻辑通道”是指两台ABR之间的其它运行OSPF的路由器只是转发报文，相当于在两个ABR之间形成了一个点到点的连接。因此在这个连接上，和物理接口一样可以配置接口的各类参数。</p>
+<h2 id="常见模型"><a href="#常见模型" class="headerlink" title="常见模型"></a>常见模型</h2><h3 id="骨干区域被分割"><a href="#骨干区域被分割" class="headerlink" title="骨干区域被分割"></a>骨干区域被分割</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_06.PNG" alt="骨干区域被分割"></p>
+<h3 id="非骨干区域无法和骨干区域保持连通"><a href="#非骨干区域无法和骨干区域保持连通" class="headerlink" title="非骨干区域无法和骨干区域保持连通"></a>非骨干区域无法和骨干区域保持连通</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_07.PNG" alt="非骨干区域无法和骨干区域保持连通"></p>
+<h1 id="OSPF网络类型"><a href="#OSPF网络类型" class="headerlink" title="OSPF网络类型"></a>OSPF网络类型</h1><h1 id="OSPF基本配置"><a href="#OSPF基本配置" class="headerlink" title="OSPF基本配置"></a>OSPF基本配置</h1><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/路由/" rel="tag"># 路由</a>
+          
+            <a href="/tags/OSPF协议/" rel="tag"># OSPF协议</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/OpenGL_entry/" rel="next" title="OpenGL简单示例">
+                <i class="fa fa-chevron-left"></i> OpenGL简单示例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -363,6 +678,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
 
         </div>
         
@@ -385,8 +711,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -465,6 +800,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP缺陷"><span class="nav-number">1.</span> <span class="nav-text">RIP缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以跳数评估的路由并非最优路径"><span class="nav-number">1.1.</span> <span class="nav-text">以跳数评估的路由并非最优路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大跳数16导致网络尺度小"><span class="nav-number">1.2.</span> <span class="nav-text">最大跳数16导致网络尺度小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收敛速度慢"><span class="nav-number">1.3.</span> <span class="nav-text">收敛速度慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新发送全部路由表浪费网络资源"><span class="nav-number">1.4.</span> <span class="nav-text">更新发送全部路由表浪费网络资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路状态路由协议的特点"><span class="nav-number">2.</span> <span class="nav-text">链路状态路由协议的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF工作机制"><span class="nav-number">3.</span> <span class="nav-text">OSPF工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF对比RIP"><span class="nav-number">3.1.</span> <span class="nav-text">OSPF对比RIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF邻居关系"><span class="nav-number">3.2.</span> <span class="nav-text">OSPF邻居关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF泛洪机制"><span class="nav-number">3.3.</span> <span class="nav-text">OSPF泛洪机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF路由类型"><span class="nav-number">3.4.</span> <span class="nav-text">OSPF路由类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSDB"><span class="nav-number">3.5.</span> <span class="nav-text">LSDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPF算法"><span class="nav-number">3.6.</span> <span class="nav-text">SPF算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF报文类型"><span class="nav-number">4.</span> <span class="nav-text">OSPF报文类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#邻居状态和数据库同步"><span class="nav-number">5.</span> <span class="nav-text">邻居状态和数据库同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF区域"><span class="nav-number">6.</span> <span class="nav-text">OSPF区域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚链路（Virtual-Link）"><span class="nav-number">7.</span> <span class="nav-text">虚链路（Virtual Link）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模型"><span class="nav-number">7.1.</span> <span class="nav-text">常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#骨干区域被分割"><span class="nav-number">7.1.1.</span> <span class="nav-text">骨干区域被分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非骨干区域无法和骨干区域保持连通"><span class="nav-number">7.1.2.</span> <span class="nav-text">非骨干区域无法和骨干区域保持连通</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF网络类型"><span class="nav-number">8.</span> <span class="nav-text">OSPF网络类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF基本配置"><span class="nav-number">9.</span> <span class="nav-text">OSPF基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -591,6 +942,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -1104,26 +1459,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
