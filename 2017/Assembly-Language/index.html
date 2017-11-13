@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="汇编,逆向," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="机器语言、机器指令、目标程序机器指令：操作码和操作数两部分构成，CPU能直接识别并遵照执行的指令。机器语言：二进制编码的机器指令的集合及一组使用机器指令的规则。是CPU能直接识别的唯一语言。目标程序：是指用机器语言描述的程序。">
+<meta name="keywords" content="汇编,逆向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编基础">
+<meta property="og:url" content="https://evilpwn.me/2017/Assembly-Language/index.html">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
+<meta property="og:description" content="机器语言、机器指令、目标程序机器指令：操作码和操作数两部分构成，CPU能直接识别并遵照执行的指令。机器语言：二进制编码的机器指令的集合及一组使用机器指令的规则。是CPU能直接识别的唯一语言。目标程序：是指用机器语言描述的程序。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-01.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-02.PNG?imageView2/2/w/300/h/200/q/75|imageslim">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-03.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-04.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-05.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-06.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-07.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-08.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-09.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-10.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-11.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-12.PNG">
+<meta property="og:updated_time" content="2017-08-12T12:08:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编基础">
+<meta name="twitter:description" content="机器语言、机器指令、目标程序机器指令：操作码和操作数两部分构成，CPU能直接识别并遵照执行的指令。机器语言：二进制编码的机器指令的集合及一组使用机器指令的规则。是CPU能直接识别的唯一语言。目标程序：是指用机器语言描述的程序。">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/huibian-01.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://evilpwn.me/2017/Assembly-Language/"/>
+
+
+
+
+
+  <title>汇编基础 | evilpwn's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">evilpwn's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">随想随记</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/Assembly-Language/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">汇编基础</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T12:51:36+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reverse/" itemprop="url" rel="index">
+                    <span itemprop="name">reverse</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/Assembly-Language/" class="leancloud_visitors" data-flag-title="汇编基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="机器语言、机器指令、目标程序"><a href="#机器语言、机器指令、目标程序" class="headerlink" title="机器语言、机器指令、目标程序"></a>机器语言、机器指令、目标程序</h1><p>机器指令：操作码和操作数两部分构成，CPU能直接识别并遵照执行的指令。<br>机器语言：二进制编码的<font color="red">机器指令的集合</font>及一组使用机器指令的规则。是CPU能直接识别的唯一语言。<br>目标程序：是指用机器语言描述的程序。</p>
+<a id="more"></a>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>80x86中，常见寄存器（32位）有16个，包括4个数据寄存器、2个变址寄存器、2个指针寄存器、6个段寄存器、1个指令寄存器、1个标志寄存器。</p>
+<p><b>寄存器分类如下（FS、GS未列出）：</b><br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-01.PNG" alt="寄存器分类"></p>
+<ul>
+<li><p>数据寄存器<br>EAX/EBX/ECX/EDX<br>作用：存放程序运行中间数据，其中ECX常用做计数器<br>特点：可分割存取（EAX—AX—AL and AH）</p>
+</li>
+<li><p>变址寄存器<br>ESI(源地址)/EDI(目的地址)<br>作用：存放存储单元段内偏移量，用于寻址</p>
+</li>
+<li><p>指针寄存器<br>EBP(栈底)/ESP(栈顶)<br>作用：EBP是基地址指针寄存器，可以直接访问栈中数据，ESP指向堆栈栈顶</p>
+</li>
+<li><p>段寄存器<br>CS/DS/ES/SS/FS/GS<br>说明：32位CPU中，段寄存器作用根据工作方式不同而不同，在保护模式下，段寄存器中存放的不再是段值，而是称为“选择子(Selector)”的某个值<br>CS：代码段寄存器，用于存放应用程序代码所在的段的基址<br>DS：数据段寄存器，存放数据段的段基址<br>ES：附加段寄存器，存放程序使用的附加段基址<br>SS：堆栈段寄存器，存放栈段的段基址<br>FS：标志段寄存器，windows下，用于处理程序异常<br>GS：全局段寄存器，和附加段类似<br><b>表示方法：</b><br>段值：偏移<br><b>计算方法：</b><br>物理地址 = 段值×16 + 偏移<br><b>示例：</b><br>用16进制表示的逻辑地址1234：3456H所对应的存储单元的物理地址为15796H。<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-02.PNG?imageView2/2/w/300/h/200/q/75|imageslim" alt="物理地址转换"></p>
+</li>
+</ul>
+<ul>
+<li><p>指令寄存器<br>指令寄存器：EIP，存放下次要执行的指令的地址</p>
+</li>
+<li><p>标志寄存器<br>PSW<br>16位，包含9个标志位，主要用于反映处理器的状态和运算结果的某些特征。<br>9个标志位分为两组：<br>运算结果标志位：OF、SF、ZF、AF、PF、CF<br>状态控制标志位：DF、IF、TF<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-03.PNG" alt="各标志位含义"><br><a href="https://baike.baidu.com/item/%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8#1" target="_blank" rel="external">各标志位含义</a></p>
+</li>
+</ul>
+<h1 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h1><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>示例</th>
+<th>含义</th>
+<th>特殊说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOV</td>
+<td>MOV EAX,ECX</td>
+<td>EAX=ECX</td>
+<td></td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>ADD EAX,ECX</td>
+<td>EAX+=ECX</td>
+<td></td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>SUB EAX,ECX</td>
+<td>EAX-=ECX</td>
+<td></td>
+</tr>
+<tr>
+<td>INC</td>
+<td>INC EAX</td>
+<td>EAX++</td>
+<td></td>
+</tr>
+<tr>
+<td>DEC</td>
+<td>DEC EAX</td>
+<td>EAX- -</td>
+<td></td>
+</tr>
+<tr>
+<td>LEA</td>
+<td>LEA EAX,[ECX+4]</td>
+<td>EAX=ECX+4</td>
+<td>效率比MOV高</td>
+</tr>
+<tr>
+<td>CMP</td>
+<td>CMP EAX,ECX</td>
+<td>if(EAX==ECX) ZF=1<br>else ZF=0</td>
+<td>比较两个值<br>设置0标志位</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>AND EAX,ECX</td>
+<td></td>
+<td>按位相与，结果送到EAX</td>
+</tr>
+<tr>
+<td>TEST</td>
+<td>TEST EAX,EAX</td>
+<td>if(EAX==0) ZF=1<br>else ZF=0</td>
+<td>与AND类似，但结果不送回，只影响标志位<br>常用于测试寄存器是否为空</td>
+</tr>
+<tr>
+<td>JZ(JE)</td>
+<td>JZ 02001000</td>
+<td>if(ZF==1)<br>GOTO 02001000</td>
+<td></td>
+</tr>
+<tr>
+<td>JNZ(JNE)</td>
+<td>JNZ 02001000</td>
+<td>if(ZF==0)<br>GOTO 02001000</td>
+<td></td>
+</tr>
+<tr>
+<td>JMP</td>
+<td>JMP 02001000</td>
+<td>GOTO 02001000</td>
+<td></td>
+</tr>
+<tr>
+<td>CALL</td>
+<td>CALL abc</td>
+<td></td>
+<td>调用abc</td>
+</tr>
+<tr>
+<td>PUSH</td>
+<td>PUSH 000000001</td>
+<td></td>
+<td>000000001入栈</td>
+</tr>
+<tr>
+<td>POP</td>
+<td>POP EAX</td>
+<td></td>
+<td>出栈并将获取值存入EAX</td>
+</tr>
+</tbody>
+</table>
+<h1 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h1><p>8086共7种寻址方式：</p>
+<ul>
+<li>立即寻址</li>
+<li>直接寻址</li>
+<li>寄存器寻址</li>
+<li>寄存器间接寻址</li>
+<li>寄存器相对寻址</li>
+<li>基址加变址寻址</li>
+<li>相对基址加变址寻址</li>
+</ul>
+<h2 id="立即寻址"><a href="#立即寻址" class="headerlink" title="立即寻址"></a>立即寻址</h2><p>立即寻址方式是指操作数就包含在<font color="blue">指令中</font>，它作为指令的一部分，跟在操作码后存放在代码段。这种操作数称为立即数。<br>立即寻址方式主要用于给<font color="red">寄存器或存储单元赋初值</font>的场合。<br>示例：<br>MOV  AX,  1234H<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-04.PNG" alt="立即寻址"></p>
+<h2 id="直接寻址"><a href="#直接寻址" class="headerlink" title="直接寻址"></a>直接寻址</h2><p>直接寻址方式是指操作数在<font color="blue">存储器中</font>，指令直接包含有操作数的有效地址。<br>操作数一般存放在数据段，所以操作数的地址由DS加上指令中直接给出的16位偏移得到。<br>直接寻址方式用于处理单个存储器变量的情况。它可以实现在64K字节的段内寻找操作数。直接寻址的操作数通常是<font color="red">程序使用的变量</font>。<br>示例：<br>MOV  AX,[1234H] (DS为5000H)<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-05.PNG" alt="直接寻址"></p>
+<h2 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h2><p>寄存器寻址方式是指操作数在<font color="blue">CPU内部的寄存器中</font>，指令中指定寄存器号。如立即寻址方式示例中指令“MOV  AX,  1234H”目的操作数采用寄存器寻址。<br>寄存器寻址中16位操作数的寄存器可以有AX、BX、CX、DX、SI、DI、SP和BP等；对于8位操作数，寄存器可以是AL、AH、BL、BH、CL、CH、DL和DH。<br>由于操作数在寄存器中，不需要通过访问存储器来取得操作数，所以采用这种寻址方式的<font color="red">指令执行速度较快</font>。</p>
+<h2 id="寄存器间接寻址"><a href="#寄存器间接寻址" class="headerlink" title="寄存器间接寻址"></a>寄存器间接寻址</h2><p>寄存器间接寻址方式是指操作数在<font color="blue">存储器中</font>，操作数有效地址在SI、DI、BX、BP这四个寄存器之一中。<br>如果有效地址在SI、DI和BX中，则以DS段寄存器的内容为段值；如果有效地址在BP中，则以SS段寄存器的内容为段值。<br>注意与寄存器寻址方式的区别，例如指令“MOV [SI],AX”和“MOV SI,AX”的区别。<br>示例：<br>MOV  AX,[SI] (DS为5000H,SI为1234H)<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-06.PNG" alt="寄存器间接寻址"></p>
+<h2 id="寄存器相对寻址"><a href="#寄存器相对寻址" class="headerlink" title="寄存器相对寻址"></a>寄存器相对寻址</h2><p>寄存器相对寻址方式是指操作数在<font color="blue">存储器中</font>，操作数的有效地址是一个基址寄存器(BX、BP)或变址寄存器(SI、DI)内容加上指令中给定的8位或16位位移量之和。<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-07.PNG" alt="寄存器相对寻址"><br>示例：<br>MOV  AX,[DI+1223H] (DS为5000H,DI为3678H)<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-08.PNG" alt="寄存器相对寻址"></p>
+<h2 id="基址加变址寻址方式"><a href="#基址加变址寻址方式" class="headerlink" title="基址加变址寻址方式"></a>基址加变址寻址方式</h2><p>基址加变址寻址方式是指操作数在<font color="blue">存储器中</font>，操作数的有效地址由基址寄存器之一的内容与变址寄存器之一的内容相加得到。<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-09.PNG" alt="基址加变址寻址方式"><br>示例：<br>MOV  AX,[BX+DI] (DS为5000H,BX为1223H,DI为54H)<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-10.PNG" alt="基址加变址寻址方式"></p>
+<h2 id="相对基址加变址寻址方式"><a href="#相对基址加变址寻址方式" class="headerlink" title="相对基址加变址寻址方式"></a>相对基址加变址寻址方式</h2><p>相对基址加变址寻址方式是指操作数在<font color="blue">存储器中</font>，操作数的有效地址由基址寄存器之一的内容与变址寄存器之一的内容及指令中给定的8位或者16位位移量相加得到。<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-11.png" alt="相对基址加变址寻址方式"><br>示例：<br>MOV  AX,[BX+DI-2] (DS为5000H,BX为1223H,DI为54H)<br><img src="http://opkltmtvx.bkt.clouddn.com/huibian-12.PNG" alt="相对基址加变址寻址方式"></p>
+<h1 id="汇编代码的调试"><a href="#汇编代码的调试" class="headerlink" title="汇编代码的调试"></a>汇编代码的调试</h1><p>debug命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">debug 1.exe</div><div class="line">-r，查看、改变寄存器内容</div><div class="line">-d，查看内存中的内容</div><div class="line">-e，改写内存中的内容</div><div class="line">-u，将内存中的机器指令翻译成汇编指令</div><div class="line">-t， 执行一条机器指令</div><div class="line">-p，执行int指令</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/汇编/" rel="tag"># 汇编</a>
+          
+            <a href="/tags/逆向/" rel="tag"># 逆向</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/s03/" rel="next" title="算法03-贪心算法">
+                <i class="fa fa-chevron-left"></i> 算法03-贪心算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/windows_reverse/" rel="prev" title="Windows逆向基础">
+                Windows逆向基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="evilpwn" />
+          
+            <p class="site-author-name" itemprop="name">evilpwn</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/evilpwn" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:i@evilpwn.me" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器语言、机器指令、目标程序"><span class="nav-number">1.</span> <span class="nav-text">机器语言、机器指令、目标程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">2.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本指令"><span class="nav-number">3.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寻址方式"><span class="nav-number">4.</span> <span class="nav-text">寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#立即寻址"><span class="nav-number">4.1.</span> <span class="nav-text">立即寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接寻址"><span class="nav-number">4.2.</span> <span class="nav-text">直接寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器寻址"><span class="nav-number">4.3.</span> <span class="nav-text">寄存器寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器间接寻址"><span class="nav-number">4.4.</span> <span class="nav-text">寄存器间接寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器相对寻址"><span class="nav-number">4.5.</span> <span class="nav-text">寄存器相对寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基址加变址寻址方式"><span class="nav-number">4.6.</span> <span class="nav-text">基址加变址寻址方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对基址加变址寻址方式"><span class="nav-number">4.7.</span> <span class="nav-text">相对基址加变址寻址方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#汇编代码的调试"><span class="nav-number">5.</span> <span class="nav-text">汇编代码的调试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-hacker-news"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evilpwn</span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: window.location.pathname,
+               owner: 'evilpwn',
+               repo: 'evilpwn.github.io',
+               oauth: {
+                   client_id: '25b4d4d800924f5824fd',
+                   client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz", "BxBScgSxibHb3t956iPFXsAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

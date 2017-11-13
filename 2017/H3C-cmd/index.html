@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="H3C,路由," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="基本命令信息查看命令 查看当前配置：display current-configuration 显示接口信息：display interface 显示接口ip状态与配置：display ip interface brief 显示系统统计信息：display diagnostic-information 查看历史命令记录：display history-command">
+<meta name="keywords" content="H3C,路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H3C基础配置">
+<meta property="og:url" content="https://evilpwn.me/2017/H3C-cmd/index.html">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
+<meta property="og:description" content="基本命令信息查看命令 查看当前配置：display current-configuration 显示接口信息：display interface 显示接口ip状态与配置：display ip interface brief 显示系统统计信息：display diagnostic-information 查看历史命令记录：display history-command">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-01.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-02.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-03.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-04.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-05.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-06.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-07.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-08.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-09.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-11.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-12.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-10.png">
+<meta property="og:updated_time" content="2017-09-13T03:21:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H3C基础配置">
+<meta name="twitter:description" content="基本命令信息查看命令 查看当前配置：display current-configuration 显示接口信息：display interface 显示接口ip状态与配置：display ip interface brief 显示系统统计信息：display diagnostic-information 查看历史命令记录：display history-command">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/h3c-basic-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://evilpwn.me/2017/H3C-cmd/"/>
+
+
+
+
+
+  <title>H3C基础配置 | evilpwn's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">evilpwn's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">随想随记</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/H3C-cmd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">H3C基础配置</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T12:10:52+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Routing-Switching/" itemprop="url" rel="index">
+                    <span itemprop="name">路由与交换</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/H3C-cmd/" class="leancloud_visitors" data-flag-title="H3C基础配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><h2 id="信息查看命令"><a href="#信息查看命令" class="headerlink" title="信息查看命令"></a>信息查看命令</h2><ul>
+<li><font color="red">查看当前配置</font>：display current-configuration</li>
+<li><font color="red">显示接口信息</font>：display interface</li>
+<li><font color="red">显示接口ip状态与配置</font>：display ip interface brief</li>
+<li>显示系统统计信息：display diagnostic-information</li>
+<li>查看历史命令记录：display history-command</li>
+</ul>
+<a id="more"></a>
+<h2 id="设备管理命令"><a href="#设备管理命令" class="headerlink" title="设备管理命令"></a>设备管理命令</h2><ul>
+<li>进入系统视图：system-view</li>
+<li>配置设备名称：sysname</li>
+<li>配置系统时间：clock datetime</li>
+<li>显示系统时间：display clock</li>
+<li>配置欢迎/提示信息：header</li>
+</ul>
+<h1 id="Telnet配置"><a href="#Telnet配置" class="headerlink" title="Telnet配置"></a>Telnet配置</h1><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-01.png" alt="实验一"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;RT1&gt;system-view</div><div class="line">[RT1]sysname client</div><div class="line">[client]interface GigabitEthernet 0/0/0</div><div class="line">[client-GigabitEthernet0/0/0]ip add 192.168.1.1 24</div><div class="line">[client-GigabitEthernet0/0/0]quit</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;RT2&gt;system-view</div><div class="line">[RT2]sysname server</div><div class="line">[server]int GigabitEthernet 0/0/0</div><div class="line">[server-GigabitEthernet0/0/0]ip add 192.168.1.2 24</div><div class="line">[server-GigabitEthernet0/0/0]quit</div><div class="line">[server]ping 192.168.1.1</div><div class="line">  PING 192.168.1.1: 56  data bytes, press CTRL_C to break</div><div class="line">    Reply from 192.168.1.1: bytes=56 Sequence=1 ttl=255 time=34 ms</div><div class="line">    Reply from 192.168.1.1: bytes=56 Sequence=2 ttl=255 time=16 ms</div><div class="line">    Reply from 192.168.1.1: bytes=56 Sequence=3 ttl=255 time=15 ms</div><div class="line">    Reply from 192.168.1.1: bytes=56 Sequence=4 ttl=255 time=16 ms</div><div class="line">Reply from 192.168.1.1: bytes=56 Sequence=5 ttl=255 time=16 ms</div><div class="line">[server]telnet server enable                         # 开启telnet</div><div class="line">[server]local-user test                              # 添加本地用户</div><div class="line">[server-luser-test]password simple admin             # 设置密码</div><div class="line">[server-luser-test]service-type telnet               # 设置服务类型</div><div class="line">[server-luser-test]authorization-attribute level 3   # 设置用户级别（新版最高为15）</div><div class="line">[server-luser-test]quit</div><div class="line">[server]user-interface vty 0 4                       # 虚拟用户数量</div><div class="line">[server-ui-vty0-4]authentication-mode scheme         # 验证模式设为混合验证</div></pre></td></tr></table></figure>
+<h1 id="VLAN与链路聚合"><a href="#VLAN与链路聚合" class="headerlink" title="VLAN与链路聚合"></a>VLAN与链路聚合</h1><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-02.png" alt="实验二"><br>SW2为网关设备，SW2和SW1之间采用端口聚合。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;SW1&gt;system-view</div><div class="line">[SW1]vl 10                                        # 进入vl视图（不是int vl 10）</div><div class="line">[SW1-vlan10]port E 0/4/1                          # 把接口接入vl</div><div class="line">[SW1-vlan10]quit</div><div class="line">[SW1]int e 0/4/0</div><div class="line">[SW1-Ethernet0/4/0]port link-type trunk           # 配置trunk</div><div class="line">[SW1-Ethernet0/4/0]port trunk permit vl all       # 允许所有vl通过</div><div class="line"> Please wait........................................... Done.</div><div class="line"></div><div class="line">### 端口聚合 ###</div><div class="line">[SW1]int Bridge-Aggregation 1                     # 创建链路聚合组</div><div class="line">[SW1-Bridge-Aggregation1]int e 0/4/3</div><div class="line">[SW1-Ethernet0/4/3]port link-aggregation group 1  # 接入聚合组1</div><div class="line">[SW1-Ethernet0/4/3]int e 0/4/4                  </div><div class="line">[SW1-Ethernet0/4/4]port link-aggregation group 1</div><div class="line">[SW1-Ethernet0/4/4]int e 0/4/5                  </div><div class="line">[SW1-Ethernet0/4/5]port link-aggregation group 1</div><div class="line">[SW1-Ethernet0/4/5]quit</div><div class="line">[SW1]int Bridge-Aggregation 1 </div><div class="line">[SW1-Bridge-Aggregation1]port link-type trunk           # 配置聚合端口trunk</div><div class="line">[SW1-Bridge-Aggregation1]port trunk permit vl all       # 允许所有vl通过</div></pre></td></tr></table></figure></p>
+<h2 id="其他配置："><a href="#其他配置：" class="headerlink" title="其他配置："></a>其他配置：</h2><ul>
+<li>设置trunk端口的缺省vlan<br>[Switch-Ethernet1/0/1] port trunk pvid vlan vlan-id</li>
+<li>配置端口的链路类型为Hybrid类型<br>[Switch-Ethernet1/0/1] port link-type hybrid</li>
+<li>允许指定的VLAN通过当前Hybrid端口<br>[Switch-Ethernet1/0/1] port hybrid vlan vlan-id-list { tagged | untagged }</li>
+<li>设置Hybrid端口的缺省VLAN<br>[Switch-Ethernet1/0/1] port hybrid pvid vlan vlan-id</li>
+</ul>
+<h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-03.png" alt="实验三"><br>在交换机SW2上配置多个dhcp地址池，分配给不同vlan，利用静态路由实现全网互通，RT2和RT3使用dhcp分配ip。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">### DHCP配置 ###</div><div class="line">[SW2]dhcp server forbidden-ip 192.168.10.1 192.168.10.10   # DHCP服务中不参与分配的地址（范围）</div><div class="line"></div><div class="line">[SW2]dhcp server ip-pool 1                                 # 创建DHCP地址池1</div><div class="line">[SW2-dhcp-pool-1]network 192.168.10.0 mask 255.255.255.0   # 配置动态分配的ip地址范围</div><div class="line">[SW2-dhcp-pool-1]gateway-list 192.168.10.254     # 配置DHCP客户端分配的网关地址</div><div class="line">[SW2-dhcp-pool-1]dns-list 10.10.10.10            # 配置DHCP客户端分配的DNS服务器地址</div><div class="line">[SW2-dhcp-pool-1]expired day 1                   # 配置动态分配的IP地址的租用有效期限</div><div class="line">[SW2-dhcp-pool-1]qu</div><div class="line"></div><div class="line">[SW2]dhcp server ip-pool 2                                 # 创建DHCP地址池2</div><div class="line">[SW2-dhcp-pool-1]network 192.168.20.0 mask 255.255.255.0   # 配置动态分配的ip地址范围</div><div class="line">[SW2-dhcp-pool-1]gateway-list 192.168.20.254     # 配置DHCP客户端分配的网关地址</div><div class="line">[SW2-dhcp-pool-1]dns-list 20.20.20.20            # 配置DHCP客户端分配的DNS服务器地址</div><div class="line">[SW2-dhcp-pool-1]expired day 1                   # 配置动态分配的IP地址的租用有效期限</div><div class="line">[SW2-dhcp-pool-1]qu</div><div class="line"></div><div class="line">[SW2]dhcp enable     # dhcp开启</div><div class="line"></div><div class="line">### vl配置 ###</div><div class="line"># vl10 虚拟接口配dhcp地址池1中的地址，这里兼网关192.168.10.254 #</div><div class="line"># vl20 虚拟接口配dhcp地址池2中的地址，这里兼网关192.168.20.254 #</div><div class="line"># E 0/4/0 配置trunk，允许所有vl通过 #</div><div class="line"></div><div class="line">### 配置 G 0/0/0 ###</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RT2/RT3端口开启dhcp自动获取</div><div class="line">[RT-GigabitEthernet0/0/×]ip add dhcp-alloc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RT4配置ip和静态路由到172.16.10.254</div></pre></td></tr></table></figure>
+<h1 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h1><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-04.png" alt="单臂路由"><br>RT2,3,4模拟PC<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vlan-type dot1q vid 10  # 单臂路由协议封装</div></pre></td></tr></table></figure></p>
+<h1 id="OSPF单、多区域"><a href="#OSPF单、多区域" class="headerlink" title="OSPF单、多区域"></a>OSPF单、多区域</h1><h2 id="单区域配置"><a href="#单区域配置" class="headerlink" title="单区域配置"></a>单区域配置</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-05.png" alt="OSPF单区域"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[RTA] interface loopback 0</div><div class="line">[RTA-loopback-0]ip address 1.1.1.1 255.255.255.255</div><div class="line">[RTA-loopback-0]quit</div><div class="line">[RTA] router id 1.1.1.1    # 配置路由id</div><div class="line">[RTA] ospf                 # 启动ospf进程</div><div class="line">[RTA-ospf-1] area 0        # 配置ospf区域</div><div class="line">[RTA-ospf-1-area-0.0.0.0] network 1.1.1.1 0.0.0.0   # 在指定接口上启动ospf</div><div class="line">[RTA-ospf-1-area-0.0.0.0] network 10.0.0.0 0.0.0.255</div><div class="line">[RTA-ospf-1-area-0.0.0.0] network 20.0.0.0 0.0.0.255</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[RTB]interface loopback 0</div><div class="line">[RTB-loopback-0]ip address 2.2.2.2 255.255.255.255</div><div class="line">[RTB-loopback-0]quit</div><div class="line">[RTB]route id 2.2.2.2</div><div class="line">[RTB]ospf 1</div><div class="line">[RTB-ospf-1]area 0</div><div class="line">[RTB-ospf-1-area-0.0.0.0]network 2.2.2.2 0.0.0.0</div><div class="line">[RTB-ospf-1-area-0.0.0.0]network 10.0.0.0 0.0.0.255</div><div class="line">[RTB-ospf-1-area-0.0.0.0]network 30.0.0.0 0.0.0.255</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[RTC]interface loopback 0</div><div class="line">[RTC-loopback-0]ip address 3.3.3.3 255.255.255.255</div><div class="line">[RTC-loopback-0]quit</div><div class="line">[RTC]router id 3.3.3.3</div><div class="line">[RTC]ospf 1</div><div class="line">[RTC-ospf-1]area 0</div><div class="line">[RTC-ospf-1-area-0.0.0.0]network 3.3.3.3 0.0.0.0</div><div class="line">[RTC-ospf-1-area-0.0.0.0]network 20.0.0.0 0.0.0.255</div><div class="line">[RTC-ospf-1-area-0.0.0.0]network 30.0.0.0 0.0.0.255</div></pre></td></tr></table></figure>
+<h2 id="多区域-1"><a href="#多区域-1" class="headerlink" title="多区域 1"></a>多区域 1</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-06.png" alt="OSPF多区域"><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RTA和RTC配置域单区域OSPF配置相同。</div><div class="line">RTB需要加入两个区域，RTA和RTC有到达彼此的路由。</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[RTB] interface loopback 0</div><div class="line">[RTB-loopback-0] ip address 2.2.2.2 255.255.255.255</div><div class="line">[RTB-loopback-0] quit</div><div class="line">[RTB] route id 2.2.2.2</div><div class="line">[RTB] ospf 100</div><div class="line">[RTB-ospf-100] area 0</div><div class="line">[RTB-ospf-100-area-0.0.0.0] network 2.2.2.2 0.0.0.0</div><div class="line">[RTB-ospf-100-area-0.0.0.0] network 10.0.0.0 0.0.0.255</div><div class="line">[RTB-ospf-100-area-0.0.0.0] quit</div><div class="line">[RTB-ospf-100] area 192.168.10.1</div><div class="line">[RTB-ospf-100-area-192.168.10.1] network 20.0.0.0 0.0.0.255</div></pre></td></tr></table></figure>
+<h2 id="多区域-2"><a href="#多区域-2" class="headerlink" title="多区域 2"></a>多区域 2</h2><p>虚链接（Virtual Link）建立</p>
+<ul>
+<li>解决骨干区域被分割的问题<br><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-07.png" alt="OSPF多区域"></li>
+<li><p>解决非骨干区域无法和骨干区域保持连通的问题<br><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-08.png" alt="OSPF多区域"></p>
+</li>
+<li><p><font color="red">配置虚连接命令</font><br>[Router-ospf-area-0.0.0.1] vlink-peer router-id [hello seconds | retransmit seconds | trans-delay seconds | dead seconds]</p>
+</li>
+</ul>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-09.png" alt="OSPF多区域"></p>
+<h2 id="其他配置：-1"><a href="#其他配置：-1" class="headerlink" title="其他配置："></a>其他配置：</h2><ul>
+<li>配置OSPF接口优先级：<br>[Router-Ethernet0/0] ospf dr-priority priority </li>
+<li>配置OSPF接口cost：<br>[Router-Ethernet0/0] ospf cost value </li>
+<li>显示OSPF摘要<br>[Router] display ospf brief</li>
+<li>显示启动OSPF的接口信息<br>[Router] display ospf interface</li>
+<li>显示OSPF的出错信息<br>[Router] display ospf error</li>
+<li>显示OSPF的进程信息<br>[Router] display ospf INTEGER<1-16635></1-16635></li>
+<li>OSPF事件调试信息<br><router> debugging ospf event</router></li>
+<li>OSPF链路状态通告调试<br><router> debugging ospf lsa</router></li>
+<li>OSPF包调试信息<br><router> debugging ospf packet</router></li>
+<li>OSPF路由计算调试信息<br><router> debugging ospf spf</router></li>
+<li>OSPF进程调试信息<br><router> debugging ospf INTEGER<1-65535></1-65535></router></li>
+</ul>
+<h1 id="ACL访问列表详解"><a href="#ACL访问列表详解" class="headerlink" title="ACL访问列表详解"></a>ACL访问列表详解</h1><h2 id="通配符掩码"><a href="#通配符掩码" class="headerlink" title="通配符掩码"></a>通配符掩码</h2><ul>
+<li>通配符号掩码和IP地址结合使用以描述一个地址范围</li>
+<li>通配符掩码和子网掩码相似，但含义不同<br>0表示对应位须比较<br>1表示对应位不比较</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IP地址</th>
+<th style="text-align:center">通配符掩码</th>
+<th style="text-align:center">表示的地址范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">0.0.0.255</td>
+<td style="text-align:center">192.168.0.0/24</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">0.0.3.255</td>
+<td style="text-align:center">192.168.0.0/22</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">0.255.255.255</td>
+<td style="text-align:center">192.168.0.0/8</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">0.0.0.0</td>
+<td style="text-align:center">192.168.0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">255.255.255.255</td>
+<td style="text-align:center">0.0.0.0/0</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.0.1</td>
+<td style="text-align:center">0.0.2.255</td>
+<td style="text-align:center">192.168.0.0/24 或 192.168.2.0/24<br>有歧义，一般没这种情况</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACL标识"><a href="#ACL标识" class="headerlink" title="ACL标识"></a>ACL标识</h2><ul>
+<li>数字序号标识</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问控制列表的分类</th>
+<th style="text-align:center">数字序号的范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">基本访问控制列表</td>
+<td style="text-align:center">2000-2999</td>
+</tr>
+<tr>
+<td style="text-align:center">扩展访问控制列表</td>
+<td style="text-align:center">3000-3999</td>
+</tr>
+<tr>
+<td style="text-align:center">基于二层的访问控制列表</td>
+<td style="text-align:center">4000-4999</td>
+</tr>
+<tr>
+<td style="text-align:center">用户自定义的访问控制列表</td>
+<td style="text-align:center">5000-5999</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>名称标识</li>
+</ul>
+<blockquote>
+<p>基本ACL：根据报文的源MAC地址、目的MAC地址、802.1p优先级、二层协议类型等二层信息制定匹配规则<br>高级ACL：根据报文的源IP地址、目的IP地址、IP承载的协议类型、协议特性等三、四层信息制定规则<br>二层ACL：根据报文的源MAC地址、目的MAC地址、802.1p优先级、二层协议类型等二层信息制定匹配规则<br>用户自定义ACL：根据任意位置的任意字串制定匹配规则（报文的报文头、IP头等为基准，指定从第几个字节开始与掩码进行“与”操作，将从报文提取出来的字符串和用户定义的字符串进行比较，找到匹配的报文。）</p>
+</blockquote>
+<h2 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a><font color="red">配置流程</font></h2><ul>
+<li>启动包过滤防火墙功能，设置默认的过滤规则 </li>
+<li>根据需要选择合适的ACL分类</li>
+<li>创建正确的规则<br>设置匹配条件<br>设置合适的动作（Permit/Deny)</li>
+<li>在路由器的接口上应用ACL，并指明过滤报文的方向（入站/出站）</li>
+</ul>
+<h2 id="ACL配置"><a href="#ACL配置" class="headerlink" title="ACL配置"></a>ACL配置</h2><p>要求PCA不能访问NetworkA和NetworkB，但可以访问其他所有网络<br>两种部署方案：</p>
+<ol>
+<li><p>高级ACL部署：<br><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-11.png" alt="高级ACL"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[RTC] firewall enable      # 开启防火墙   </div><div class="line">### firewall default &#123; permit | deny &#125; # 防火墙默认是permit，此处可以不更改</div><div class="line">[RTC] acl number 3000      # 指定ACL序号</div><div class="line">[RTC-acl-adv-3000] rule deny ip source 172.16.0.1 0 destination 192.168.0.0 0.0.1.255  # 定义规则</div><div class="line">[RTC-Ethernet0/0] firewall packet-filter 3000 inbound  # 应用到接口</div></pre></td></tr></table></figure>
+</li>
+<li><p>基本ACL部署：<br><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-12.png" alt="基本ACL"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[RTA] firewall enable</div><div class="line">[RTA] acl number 2000</div><div class="line">[RTA-acl-basic-2000] rule deny source 172.16.0.1 0</div><div class="line">[RTA-Ethernet0/1] firewall packet-filter 2000 inbound</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><ul>
+<li><p>配置高级IPv4 ACL<br>高级IPv4 ACL的序号取值范围为3000～3999<br>定义规则来匹配源IP地址、目的IP地址、IP承载的协议类型、协议端口号等信息:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sysname-acl-adv-3000] rule [ rule-id ] &#123; deny | permit &#125; protocol [ destination &#123; dest-addr dest-wildcard | any &#125; | destination-port operator port1 [ port2 ] established | fragment | source &#123; sour-addr sour-wildcard | any &#125; | source-port operator port1 [ port2 ] | time-range time-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置二层 ACL，<br>二层ACL的序号取值范围为4000～4999<br>定义规则来匹配源MAC地址、目的MAC地址、802.1p优先级、二层协议类型等二层信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[sysname-acl-ethernetframe-3000] rule [ rule-id ] &#123; deny | permit &#125; [ cos vlan-pri | dest-mac dest-addr dest-mask | lsap lsap-code lsap-wildcard | source-mac sour-addr source-mask | time-range time-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁止FTP、telnet等协议<br>[SW1-acl-adv-3001]rule 0 deny tcp source 192.168.10.0 0.0.0.255 destination 192.168.1.2 0.0.0.255 destination-port eq telnet</p>
+</li>
+</ul>
+<h2 id="ACL包过滤的局限性"><a href="#ACL包过滤的局限性" class="headerlink" title="ACL包过滤的局限性"></a>ACL包过滤的局限性</h2><ol>
+<li>ACL包过滤防火墙是根据数据包头中的二、三、四层信息来进行报文过滤的，对应用层的信息无法识别<ul>
+<li>无法根据用户名来决定数据是否通过</li>
+<li>无法给不同的用户授予不同的权限级别</li>
+</ul>
+</li>
+<li>ACL包过滤防火墙是静态防火墙，无法对应用层协议进行动态检测</li>
+</ol>
+<h1 id="综合实验1"><a href="#综合实验1" class="headerlink" title="综合实验1"></a>综合实验1</h1><p>在学校内部署一个小型中心机房，组网如下图，RT1、RT2属于不同VLAN，并且能够通过自动湖区地址的方式配置IP地址，网关在核心层交换机上，并且与下行链路构成聚合链路，在所有交换机和路由器上配置telnet服务器，能够远程通过自己电脑登陆上去，配置合理的路由协议达到全网互通。<br><img src="http://opkltmtvx.bkt.clouddn.com/h3c-basic-10.png" alt="综合实验1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">SW1</div><div class="line">[SW1]vl 10</div><div class="line">[SW1-vlan10]int vl 10</div><div class="line">[SW1-Vlan-interface10]ip add 192.168.10.254 24</div><div class="line">[SW1-Vlan-interface10]vl 20</div><div class="line">[SW1-vlan20]int vl 20</div><div class="line">[SW1-Vlan-interface20]ip add 192.168.20.254 24</div><div class="line">[SW1-Vlan-interface20]qu</div><div class="line">[SW1]</div><div class="line">[SW1]dhcp server ip-pool 1</div><div class="line">[SW1-dhcp-pool-1]net 192.168.10.0 24</div><div class="line">[SW1-dhcp-pool-1]gateway-list 192.168.10.254</div><div class="line">[SW1-dhcp-pool-1]dns-list 10.10.10.10</div><div class="line">[SW1-dhcp-pool-1]expired day 1</div><div class="line">[SW1-dhcp-pool-1]qu</div><div class="line">[SW1]</div><div class="line">[SW1]dhcp server ip-pool 2</div><div class="line">[SW1-dhcp-pool-2]net 192.168.20.0 24</div><div class="line">[SW1-dhcp-pool-2]gateway-list 192.168.20.254</div><div class="line">[SW1-dhcp-pool-2]dns-list 20.20.20.20</div><div class="line">[SW1-dhcp-pool-2]qu</div><div class="line">[SW1]</div><div class="line">[SW1]dhcp enable</div><div class="line">DHCP is enabled successfully!</div><div class="line"></div><div class="line">[SW1]int g 0/0/0</div><div class="line">[SW1-GigabitEthernet0/0/0]ip add 192.168.1.1 24</div><div class="line">[SW1-GigabitEthernet0/0/0]qu</div><div class="line">[SW1]</div><div class="line">[SW1]</div><div class="line">[SW1]int Bridge-Aggregation 1</div><div class="line">[SW1-Bridge-Aggregation1]int e 0/4/2</div><div class="line">[SW1-Ethernet0/4/2]port link-aggregation group 1</div><div class="line">%Sep  8 08:25:47:453 2011 SW1 LAGG/5/LAGG_ACTIVE: Member port Ethernet0/4/2 of aggregation group BAGG1 becomes ACTIVE.</div><div class="line">%Sep  8 08:25:47:453 2011 SW1 IFNET/3/LINK_UPDOWN: Bridge-Aggregation1 link status is UP.</div><div class="line">[SW1-Ethernet0/4/2]int e 0/4/3                  </div><div class="line">[SW1-Ethernet0/4/3]port link-aggregation group 1</div><div class="line">%Sep  8 08:25:52:515 2011 SW1 LAGG/5/LAGG_ACTIVE: Member port Ethernet0/4/3 of aggregation group BAGG1 becomes ACTIVE.</div><div class="line">[SW1-Ethernet0/4/3]int Bridge-Aggregation 1     </div><div class="line">[SW1-Bridge-Aggregation1]port link-type trunk </div><div class="line">[SW1-Bridge-Aggregation1]port trunk permit vl all</div><div class="line"> Please wait...</div><div class="line">%Sep  8 08:26:14:422 2011 SW1 IFNET/3/LINK_UPDOWN: Vlan-interface10 link status is UP.</div><div class="line">%Sep  8 08:26:14:422 2011 SW1 IFNET/5/LINEPROTO_UPDOWN: Line protocol on the interface Vlan-interface10 is UP.</div><div class="line">%Sep  8 08:26:14:422 2011 SW1 IFNET/3/LINK_UPDOWN: Vlan-interface20 link status is UP.</div><div class="line">%Sep  8 08:26:14:422 2011 SW1 IFNET/5/LINEPROTO_UPDOWN: Line protocol on the interface Vlan-interface20 is UP......................................... Done.</div><div class="line"> Configuring Ethernet0/4/2........................................... Done.</div><div class="line"> Configuring Ethernet0/4/3........................................... Done.</div><div class="line">[SW1-Bridge-Aggregation1]qu</div><div class="line">[SW1]</div><div class="line">[SW1] </div><div class="line">[SW1]ospf </div><div class="line">[SW1-ospf-1]a 0</div><div class="line">[SW1-ospf-1-area-0.0.0.0]net 192.168.10.0 0.0.0.255</div><div class="line">[SW1-ospf-1-area-0.0.0.0]net 192.168.20.0 0.0.0.255</div><div class="line">[SW1-ospf-1-area-0.0.0.0]qu</div><div class="line">[SW1-ospf-1]a 1 </div><div class="line">[SW1-ospf-1-area-0.0.0.1]net 192.168.1.0 0.0.0.255</div><div class="line">[SW1-ospf-1-area-0.0.0.1]qu</div><div class="line">[SW1-ospf-1]qu</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">SW2</div><div class="line">[SW2]vl 10</div><div class="line">[SW2-vlan10]port e 0/4/0</div><div class="line">[SW2-vlan10]vl 20</div><div class="line">[SW2-vlan20]port e 0/4/1</div><div class="line">[SW2-vlan20]qu</div><div class="line">[SW2]</div><div class="line">[SW2]int Bridge-Aggregation 1 </div><div class="line">[SW2-Bridge-Aggregation1]int e 0/4/2</div><div class="line">[SW2-Ethernet0/4/2]port link-aggregation group 1</div><div class="line">[SW2-Ethernet0/4/2]</div><div class="line">[SW2-Ethernet0/4/2]int e 0/4/3</div><div class="line">[SW2-Ethernet0/4/3]port link-aggregation group 1</div><div class="line">[SW2-Ethernet0/4/3]qu    </div><div class="line">[SW2]</div><div class="line">[SW2]int Bridge-Aggregation 1</div><div class="line">[SW2-Bridge-Aggregation1]port link-type trunk </div><div class="line">[SW2-Bridge-Aggregation1]port trunk permit vl all</div><div class="line"> Please wait........................................... Done.</div><div class="line"> Configuring Ethernet0/4/2........................................... Done.</div><div class="line"> Configuring Ethernet0/4/3........................................... Done.</div><div class="line">[SW2-Bridge-Aggregation1]</div><div class="line">[SW2]</div><div class="line">[SW2]</div><div class="line">[SW2]int vl 10</div><div class="line">[SW2-Vlan-interface10]ip add 192.168.10.100 24</div><div class="line">[SW2-Vlan-interface10]qu</div><div class="line">[SW2]ip route-static 0.0.0.0 0  192.168.10.254          </div><div class="line">[SW2]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">RT1</div><div class="line">[RT1-GigabitEthernet0/0/0]ip add dhcp-alloc</div><div class="line"></div><div class="line">RT2</div><div class="line">[RT2-GigabitEthernet0/0/1]ip add dhcp-alloc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">RT3</div><div class="line">[RT3]int g 0/0/0 </div><div class="line">[RT3-GigabitEthernet0/0/0]ip ad 192.168.1.2 24</div><div class="line">[RT3-GigabitEthernet0/0/0]int g 0/0/1</div><div class="line">[RT3-GigabitEthernet0/0/1]ip add 172.16.10.1 26</div><div class="line">[RT3-GigabitEthernet0/0/1]qu</div><div class="line">[RT3]</div><div class="line">[RT3]</div><div class="line">[RT3]ospf</div><div class="line">[RT3-ospf-1]a 1</div><div class="line">[RT3-ospf-1-area-0.0.0.1]net 172.16.10.0 0.0.0.63</div><div class="line">[RT3-ospf-1-area-0.0.0.1]net 192.168.1.0 0.0.0.255</div><div class="line">[RT3-ospf-1-area-0.0.0.1]qu</div><div class="line">[RT3-ospf-1]qu</div><div class="line">[RT3]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">RT4</div><div class="line">[RT4]int g 0/0/1</div><div class="line">[RT4-GigabitEthernet0/0/1]ip add 172.16.10.2 26</div><div class="line">[RT4-GigabitEthernet0/0/1]qu</div><div class="line">[RT4]</div><div class="line">[RT4]ospf </div><div class="line">[RT4-ospf-1]a 1</div><div class="line">[RT4-ospf-1-area-0.0.0.1]net 172.16.10.0 0.0.0.63</div><div class="line">[RT4-ospf-1-area-0.0.0.1]int g 0/0/0 </div><div class="line">[RT4-GigabitEthernet0/0/0]ip add 202.114.10.1 24</div><div class="line">[RT4-GigabitEthernet0/0/0]qu</div><div class="line">[RT4]ospf</div><div class="line">[RT4-ospf-1]a 1</div><div class="line">[RT4-ospf-1-area-0.0.0.1]net 202.114.10.0 0.0.0.255</div><div class="line">[RT4-ospf-1-area-0.0.0.1]qu</div><div class="line">[RT4-ospf-1]</div><div class="line">[RT4-ospf-1]</div><div class="line">[RT4-ospf-1]int g 0/0/0               </div><div class="line">[RT4-GigabitEthernet0/0/0]ip add 202.114.10.1 24</div><div class="line">[RT4-GigabitEthernet0/0/0]qu</div><div class="line">[RT4]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">RT1-telnet配置</div><div class="line">[RT1]telnet server enable</div><div class="line">% Start Telnet server</div><div class="line">[RT1]user-interface vty 0 4</div><div class="line">[RT1-ui-vty0-4]set authentication password simple 123456</div><div class="line">[RT1-ui-vty0-4]authentication-mode password</div><div class="line">[RT1-ui-vty0-4]user privilege level 3</div><div class="line">[RT1-ui-vty0-4]qu</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/H3C/" rel="tag"># H3C</a>
+          
+            <a href="/tags/路由/" rel="tag"># 路由</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/Python-built-in-functions/" rel="next" title="Python内置函数">
+                <i class="fa fa-chevron-left"></i> Python内置函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/H3C-NAPT/" rel="prev" title="H3C-NAPT配置">
+                H3C-NAPT配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="evilpwn" />
+          
+            <p class="site-author-name" itemprop="name">evilpwn</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/evilpwn" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:i@evilpwn.me" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息查看命令"><span class="nav-number">1.1.</span> <span class="nav-text">信息查看命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备管理命令"><span class="nav-number">1.2.</span> <span class="nav-text">设备管理命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Telnet配置"><span class="nav-number">2.</span> <span class="nav-text">Telnet配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VLAN与链路聚合"><span class="nav-number">3.</span> <span class="nav-text">VLAN与链路聚合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置："><span class="nav-number">3.1.</span> <span class="nav-text">其他配置：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DHCP"><span class="nav-number">4.</span> <span class="nav-text">DHCP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单臂路由"><span class="nav-number">5.</span> <span class="nav-text">单臂路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF单、多区域"><span class="nav-number">6.</span> <span class="nav-text">OSPF单、多区域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单区域配置"><span class="nav-number">6.1.</span> <span class="nav-text">单区域配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多区域-1"><span class="nav-number">6.2.</span> <span class="nav-text">多区域 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多区域-2"><span class="nav-number">6.3.</span> <span class="nav-text">多区域 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置：-1"><span class="nav-number">6.4.</span> <span class="nav-text">其他配置：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACL访问列表详解"><span class="nav-number">7.</span> <span class="nav-text">ACL访问列表详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符掩码"><span class="nav-number">7.1.</span> <span class="nav-text">通配符掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACL标识"><span class="nav-number">7.2.</span> <span class="nav-text">ACL标识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置流程"><span class="nav-number">7.3.</span> <span class="nav-text">配置流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACL配置"><span class="nav-number">7.4.</span> <span class="nav-text">ACL配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">7.5.</span> <span class="nav-text">其他配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACL包过滤的局限性"><span class="nav-number">7.6.</span> <span class="nav-text">ACL包过滤的局限性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#综合实验1"><span class="nav-number">8.</span> <span class="nav-text">综合实验1</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-hacker-news"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evilpwn</span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: window.location.pathname,
+               owner: 'evilpwn',
+               repo: 'evilpwn.github.io',
+               oauth: {
+                   client_id: '25b4d4d800924f5824fd',
+                   client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz", "BxBScgSxibHb3t956iPFXsAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

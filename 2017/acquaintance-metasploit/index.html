@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="渗透测试,metasploit," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="渗透测试通过模拟恶意攻击者的技术和方法，挫败目标系统安全控制措施，取得访问控制权，并发现具有业务影响后安全隐患的一种安全测试与评估方式。 分类 黑盒测试：模拟一个对客户组织一无所知的攻击者，进行渗透攻击。 白盒测试：攻击者拥有客户组织所有知识的情况下，进行渗透攻击。">
+<meta name="keywords" content="渗透测试,metasploit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Metasploit">
+<meta property="og:url" content="https://evilpwn.me/2017/acquaintance-metasploit/index.html">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
+<meta property="og:description" content="渗透测试通过模拟恶意攻击者的技术和方法，挫败目标系统安全控制措施，取得访问控制权，并发现具有业务影响后安全隐患的一种安全测试与评估方式。 分类 黑盒测试：模拟一个对客户组织一无所知的攻击者，进行渗透攻击。 白盒测试：攻击者拥有客户组织所有知识的情况下，进行渗透攻击。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/meta-tx-01.png">
+<meta property="og:updated_time" content="2017-05-11T21:24:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识Metasploit">
+<meta name="twitter:description" content="渗透测试通过模拟恶意攻击者的技术和方法，挫败目标系统安全控制措施，取得访问控制权，并发现具有业务影响后安全隐患的一种安全测试与评估方式。 分类 黑盒测试：模拟一个对客户组织一无所知的攻击者，进行渗透攻击。 白盒测试：攻击者拥有客户组织所有知识的情况下，进行渗透攻击。">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/meta-tx-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://evilpwn.me/2017/acquaintance-metasploit/"/>
+
+
+
+
+
+  <title>初识Metasploit | evilpwn's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">evilpwn's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">随想随记</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/acquaintance-metasploit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">初识Metasploit</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T23:59:15+08:00">
+                2017-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/metasploit/" itemprop="url" rel="index">
+                    <span itemprop="name">metasploit</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/acquaintance-metasploit/" class="leancloud_visitors" data-flag-title="初识Metasploit">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h2><p>通过模拟恶意攻击者的技术和方法，挫败目标系统安全控制措施，取得访问控制权，并发现具有业务影响后安全隐患的一种安全测试与评估方式。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>黑盒测试：模拟一个对客户组织一无所知的攻击者，进行渗透攻击。</li>
+<li>白盒测试：攻击者拥有客户组织所有知识的情况下，进行渗透攻击。</li>
+</ul>
+<a id="more"></a>
+<h3 id="黑盒测试（Block-box-Testing）"><a href="#黑盒测试（Block-box-Testing）" class="headerlink" title="黑盒测试（Block-box Testing）"></a>黑盒测试（Block-box Testing）</h3><p>也称<strong>外部测试（External Testing）</strong>，从一个远程网络位置来评估目标网络基础设施，完全模拟真实网络中的攻击者，所以比较费时费力，同时需要渗透测试者具备较高的技术能力。</p>
+<h3 id="白盒测试（Write-box-Testing）"><a href="#白盒测试（Write-box-Testing）" class="headerlink" title="白盒测试（Write-box Testing）"></a>白盒测试（Write-box Testing）</h3><p>也称<strong>内部测试（Internal Tesing）</strong>，可以先了解到目标环境的所有内部与底知识，以最小的代价发现和验证系统中最严重的安全漏洞。如果实施到位，比黑盒测试消除更多目标环境中漏洞与弱点。<br>但白盒测试最大问题在于无法有效的测试客户组织的应急响应程序，也无法判断他们安全防护计划对监测特定攻击的效率。</p>
+<h3 id="灰盒测试（Grey-box-Testing）"><a href="#灰盒测试（Grey-box-Testing）" class="headerlink" title="灰盒测试（Grey-box Testing）"></a>灰盒测试（Grey-box Testing）</h3><p>以上两种方式的组合，渗透者能根据目标系统所掌握的有限知识与信息，来选择评估整体安全性的最佳途径。测试中，也需要从外部逐步渗透进入目标网络，但他所拥有的目标网络底层拓扑与架构有助于更好的决策攻击途径与方法。</p>
+<h3 id="规范测试的流程"><a href="#规范测试的流程" class="headerlink" title="规范测试的流程"></a>规范测试的流程</h3><ol>
+<li>前期交互阶段<br>确定渗透测试的范围、目标、限制条件以及服务合同细节。</li>
+<li>情报搜集阶段<br>获取更多关于目标组织网络拓扑、系统配置与安全防御措施的信息。<br>方法：公开来源信息查询、Google Hacking、社会工程学、网络踩点、扫描探测、被动监听、服务查点等。</li>
+<li>威胁建模阶段<br>针对获取的信息进行威胁建模与攻击规划。<br>目标：从大量的信息情报中理清头绪，确定出最可行的攻击通道。</li>
+<li>漏洞分析阶段<br>考虑该如何取得目标系统的访问控制权。<br>操作：通过搜索可获取的渗透代码资源，找出可以实施渗透攻击的攻击点，并在实验环境中进行验证。可以针对攻击通道上的一些关键系统与服务进行安全漏洞探测与挖掘。</li>
+<li>渗透攻击阶段<br>利用所找出的目标系统安全漏洞，来真正入侵系统当中，获得访问控制权。</li>
+<li>后渗透攻击阶段<br>渗透测试团队根据目标组织的业务经营模式、保护资产形式与安全防御计划的不同特点，自主设计出攻击目标，识别关键基础设施，并寻找客户组织最具价值和尝试安全保护的信息和资产，最终达成能够对客户组织造成最重要业务影响的攻击途径。</li>
+<li>报告阶段<br>一份凝聚了之前所有阶段之中渗透测试团队所获取的关键情报信息、探测和发掘出的系统安全漏洞、成功渗透攻击的过程、造成业务影响后果的攻击途径以及站在防御者的角度帮助他们分析安全防御体系中的薄弱环节、存在的问题和修补升级技术方案的报告。</li>
+</ol>
+<h2 id="Metasploit体系框架"><a href="#Metasploit体系框架" class="headerlink" title="Metasploit体系框架"></a>Metasploit体系框架</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/meta-tx-01.png" alt="Metasploit体系框架"></p>
+<ol>
+<li><p>基础库文件<br>源码在根目录下的libraries目录中，包括Rex、framework-core、framework-base三部分。</p>
+<ul>
+<li>Rex：整个Metasploit框架所依赖的最基础的一些组件，如：包装的网络套接字、网络应用协议客户端与服务端实现、日志子系统、渗透攻击支持例程、PostgreSQL及MySQL数据库支持等。</li>
+<li>framework-core库负责实现所有与各种类型的上层模块及插件的交互接口。</li>
+<li>framework-base库扩展了framework-core，提供更加简单的包装例程，并为处理框架各个方面的功能提供一些功能类，用于支持用户接口与功能程序调用框架本身功能及框架继承模块。</li>
+</ul>
+</li>
+<li><p>模块<br>按用途分为：辅助模块（Aux）、渗透攻击模块（Exploits）、后渗透攻击模块（Post）、攻击载荷模块（Payloads）、空指令模块（Nops）和编译器模块（Encoders）。</p>
+</li>
+<li><p>插件<br>扩充框架功能，或者组装已有功能构成高级特性的组件。还可集成现有的一些外部安全工具，如Nessus、OpenVAS漏洞扫描器等，为用户接口提供一些新的功能命令、记录所有的网络记录或提供创新的渗透测试功能。</p>
+</li>
+<li><p>接口<br>msfconsole控制台终端、msfcli命令行、msfgui图形化界面、armitage图形化界面及msfapi远程调用接口等</p>
+</li>
+<li><p>功能程序<br>除了框架主功能之外，还提供一系列可直接运行的功能程序，如msfpayload、msfencode和msfvenom可将攻击载荷封装为可执行文件、C语言、JavaScript语言等，并进行各种类型的编码。<br>msf*scan系列提供在PE、ELF等各种类型文件中搜索特定指令的功能，帮助定位指令地址。</p>
+</li>
+</ol>
+<h2 id="模块详解"><a href="#模块详解" class="headerlink" title="模块详解"></a>模块详解</h2><h3 id="辅助模块（Aux）"><a href="#辅助模块（Aux）" class="headerlink" title="辅助模块（Aux）"></a>辅助模块（Aux）</h3><p>帮助渗透测试之前得到目标系统丰富的情报信息，从而更具目标性的精准攻击</p>
+<h3 id="渗透攻击模块（Exploits）"><a href="#渗透攻击模块（Exploits）" class="headerlink" title="渗透攻击模块（Exploits）"></a>渗透攻击模块（Exploits）</h3><p>发现漏洞或配置弱点进行攻击，以植入和运行攻击载荷，从而获得访问权。<br>其按照漏洞所在位置分为<strong>主动渗透攻击</strong>和<strong>被动渗透攻击</strong>。</p>
+<ul>
+<li>主动渗透攻击<br>漏洞位于网络服务端软件与服务承载的上层应用程序之中。<br>服务端通常开启一些监听端口等待客户端连接，针对它们的渗透攻击可以主动发出。</li>
+<li>被动渗透攻击<br>漏洞位于客户端软件中，对于客户端软件的安全漏洞，渗透者无法主动的将数据从远程输入到客户端软件中，因此采用被动渗透攻击。<blockquote>
+<ol>
+<li>利用网络欺骗、劫持等各种技术，欺骗目标打开恶意内容的服务器、邮件附件等，从而触发客户端软件的安全漏洞。</li>
+<li>被动渗透可绕过防火强等网络边界防护措施。</li>
+<li>最常见的两类被动渗透：<strong>浏览器软件漏洞攻击</strong>、<strong>文件格式类漏洞攻击</strong>。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="攻击载荷模块（Payloads）"><a href="#攻击载荷模块（Payloads）" class="headerlink" title="攻击载荷模块（Payloads）"></a>攻击载荷模块（Payloads）</h3><p>攻击载荷：渗透攻击成功后促使目标系统执行一段植入代码。通常作用为打开目标系统上的控制会话连接。<br>该模块分为3类：独立（Singles），传输器（Stager），传输体（Stage）。<br>独立攻击载荷。</p>
+<ul>
+<li>独立攻击载荷是完全自包含的，可直接独立地植入目标系统进行执行。</li>
+<li>在一些特殊的渗透攻击场景中，可能会对攻击载荷的大小、运行条件有所限制，利用<strong>传输器</strong>和<strong>传输体</strong>配对分阶段植入的技术，由渗透攻击模块首先植入代码精悍短小且非常可靠的传输器载荷，然后在运行传输器载荷时进一步下载传输体载荷并执行。</li>
+</ul>
+<h3 id="空指令模块（NOP）"><a href="#空指令模块（NOP）" class="headerlink" title="空指令模块（NOP）"></a>空指令模块（NOP）</h3><p>对程序运行状态不会造成任何实质影响的空操作或无关操作指令。<br>如空操作，x86 CPU体系构架平台上的操作码是0x90。</p>
+<blockquote>
+<p>在渗透攻击构造数据缓冲区时，在真正要执行的Shellcode之前添加一段空指令区，当触发渗透攻击后跳转执行Shellcode时，有较大的安全着陆区，从而避免受到内存地址随机化、返回地址计算偏差等原因造成的Shellcode执行失败。</p>
+</blockquote>
+<h3 id="编译器模块（Encoders）"><a href="#编译器模块（Encoders）" class="headerlink" title="编译器模块（Encoders）"></a>编译器模块（Encoders）</h3><p>攻击载荷模块（Payloads）与空指令模块（NOP）组装完成一个指令序列后，进行编码（Encoding）。</p>
+<blockquote>
+<p>编译器模块的使命：</p>
+<ol>
+<li>确保渗透过程中，攻击载荷不会出现难以加载的<strong>“坏字符”</strong>，如：0x00空字节，字符串操作函数中输入字符串中的空字节，会将后面内容截断，攻击载荷无法完整运行；网络输入使用明文协议，那么攻击载荷的内容都是可打印字符。</li>
+<li>对攻击载荷进行免杀，逃避反病毒软件、IDS入侵检测系统和IPS入侵防御系统的检测和阻断。</li>
+</ol>
+</blockquote>
+<p><strong>注意：</strong>编码后，载荷体积增大，而每个渗透攻击模块能植入的邪恶缓冲区大小受漏洞触发条件限制（通常在渗透攻击模块的Space字段中指明），所以自动编码会找不到合适的编码器（编码后大小溢出），“No encoders encoded the buffer successfully”。<br>此时，就要选择一个<strong>传输器</strong>和<strong>传输体</strong>配对构成的攻击载荷，以短小精悍的传输器避免编码后超出空间限制，再运行传输器载荷就不受空间大小约束了。</p>
+<h3 id="后渗透攻击模块（Post）"><a href="#后渗透攻击模块（Post）" class="headerlink" title="后渗透攻击模块（Post）"></a>后渗透攻击模块（Post）</h3><p>v4版本中的新模块，主要在取得目标控制权后进行的各种攻击，如获取敏感信息、进一步拓展、实施跳板攻击等。其中最强大的是Meterperter模块。</p>
+<h2 id="Metasploit的使用接口"><a href="#Metasploit的使用接口" class="headerlink" title="Metasploit的使用接口"></a>Metasploit的使用接口</h2><ul>
+<li>msfgui图形化管理界面</li>
+<li>msfconsole控制台终端</li>
+<li>msfcli命令行程序<h3 id="控制台终端的优势"><a href="#控制台终端的优势" class="headerlink" title="控制台终端的优势"></a>控制台终端的优势</h3></li>
+</ul>
+<ol>
+<li>访问框架中每一项功能，并能直接执行外部shell命令和第三方（Nmap等）。</li>
+<li>更新及时，最稳定的Metasploit用户接口。</li>
+</ol>
+<p>输入<code>help xxx</code>显示该命令的参数列表。</p>
+<h3 id="msfcli命令行程序"><a href="#msfcli命令行程序" class="headerlink" title="msfcli命令行程序"></a>msfcli命令行程序</h3><p>为脚本自动化处理及与其他命令行工具互操作而设计的一种用户接口。<br>相对于msf终端，弱点在于支持的功能特性少以及不支持MSF终端中的高级自动化渗透测试特性。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/渗透测试/" rel="tag"># 渗透测试</a>
+          
+            <a href="/tags/metasploit/" rel="tag"># metasploit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/RIP/" rel="next" title="RIP协议">
+                <i class="fa fa-chevron-left"></i> RIP协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/ISCC-2017-writeup/" rel="prev" title="ISCC-2017-writeup">
+                ISCC-2017-writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="evilpwn" />
+          
+            <p class="site-author-name" itemprop="name">evilpwn</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/evilpwn" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:i@evilpwn.me" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渗透测试"><span class="nav-number">1.</span> <span class="nav-text">渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黑盒测试（Block-box-Testing）"><span class="nav-number">1.2.</span> <span class="nav-text">黑盒测试（Block-box Testing）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白盒测试（Write-box-Testing）"><span class="nav-number">1.3.</span> <span class="nav-text">白盒测试（Write-box Testing）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#灰盒测试（Grey-box-Testing）"><span class="nav-number">1.4.</span> <span class="nav-text">灰盒测试（Grey-box Testing）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范测试的流程"><span class="nav-number">1.5.</span> <span class="nav-text">规范测试的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metasploit体系框架"><span class="nav-number">2.</span> <span class="nav-text">Metasploit体系框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块详解"><span class="nav-number">3.</span> <span class="nav-text">模块详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助模块（Aux）"><span class="nav-number">3.1.</span> <span class="nav-text">辅助模块（Aux）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渗透攻击模块（Exploits）"><span class="nav-number">3.2.</span> <span class="nav-text">渗透攻击模块（Exploits）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#攻击载荷模块（Payloads）"><span class="nav-number">3.3.</span> <span class="nav-text">攻击载荷模块（Payloads）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空指令模块（NOP）"><span class="nav-number">3.4.</span> <span class="nav-text">空指令模块（NOP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器模块（Encoders）"><span class="nav-number">3.5.</span> <span class="nav-text">编译器模块（Encoders）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后渗透攻击模块（Post）"><span class="nav-number">3.6.</span> <span class="nav-text">后渗透攻击模块（Post）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metasploit的使用接口"><span class="nav-number">4.</span> <span class="nav-text">Metasploit的使用接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制台终端的优势"><span class="nav-number">4.1.</span> <span class="nav-text">控制台终端的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#msfcli命令行程序"><span class="nav-number">4.2.</span> <span class="nav-text">msfcli命令行程序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-hacker-news"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evilpwn</span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: window.location.pathname,
+               owner: 'evilpwn',
+               repo: 'evilpwn.github.io',
+               oauth: {
+                   client_id: '25b4d4d800924f5824fd',
+                   client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz", "BxBScgSxibHb3t956iPFXsAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="oracle," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="基本概念数据库(Database,DB)数据库管理系统(DataBase Management System,DBMS)数据库管理员(DataBase Administrator,DBA)数据库系统(DataBase System,DBS)关系型数据库(Relationship DataBase,RDB)关系型数据库管理系统(RDBMS)SQL语言（Structured Query Languag">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Oracle">
+<meta property="og:url" content="https://evilpwn.me/2017/Oracle-basic/index.html">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
+<meta property="og:description" content="基本概念数据库(Database,DB)数据库管理系统(DataBase Management System,DBMS)数据库管理员(DataBase Administrator,DBA)数据库系统(DataBase System,DBS)关系型数据库(Relationship DataBase,RDB)关系型数据库管理系统(RDBMS)SQL语言（Structured Query Languag">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-01.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-basic-02.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-03.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-04.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-05.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-07.png?imageMogr2/auto-orient/thumbnail/x300/blur/1x0/quality/75|imageslim">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-08.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-06.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-09.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-10.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-11.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-12.png">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-13.png">
+<meta property="og:updated_time" content="2017-08-12T23:06:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识Oracle">
+<meta name="twitter:description" content="基本概念数据库(Database,DB)数据库管理系统(DataBase Management System,DBMS)数据库管理员(DataBase Administrator,DBA)数据库系统(DataBase System,DBS)关系型数据库(Relationship DataBase,RDB)关系型数据库管理系统(RDBMS)SQL语言（Structured Query Languag">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://evilpwn.me/2017/Oracle-basic/"/>
+
+
+
+
+
+  <title>初识Oracle | evilpwn's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">evilpwn's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">随想随记</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/Oracle-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">初识Oracle</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T12:20:19+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">oracle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/Oracle-basic/" class="leancloud_visitors" data-flag-title="初识Oracle">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>数据库(Database,DB)<br>数据库管理系统(DataBase Management System,DBMS)<br>数据库管理员(DataBase Administrator,DBA)<br>数据库系统(DataBase System,DBS)<br>关系型数据库(Relationship DataBase,RDB)<br>关系型数据库管理系统(RDBMS)<br>SQL语言（Structured Query Language）</p>
+<a id="more"></a>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-01.png" alt="图1"><br><img src="http://opkltmtvx.bkt.clouddn.com/oracle-basic-02.png" alt="图2"></p>
+<h3 id="数据库-Database-DB"><a href="#数据库-Database-DB" class="headerlink" title="数据库(Database, DB)"></a>数据库(Database, DB)</h3><p>数据库是长期保存在计算机存储设备上的、有组织或按一定格式存放的、可以共享的数据集合。简单地说，就是存放数据的仓库，或者说是存储在一起的相关数据的集合。<br>数据库中的数据按一定的<font color="red">数据模型</font>组织、描述和存储，具有较小的冗余度和较高的数据独立性，并可以为各种用户共享。<br>数据库是由<font color="red">数据库管理系统</font>来管理的。</p>
+<h3 id="数据库管理系统-DataBase-System-DBS"><a href="#数据库管理系统-DataBase-System-DBS" class="headerlink" title="数据库管理系统(DataBase System,DBS)"></a>数据库管理系统(DataBase System,DBS)</h3><p>DBMS是建立在操作系统的基础上，对物理数据库进行统一管理和控制的软件，是位于用户和操作系统之间的一层数据管理软件。用户对数据库提出的访问请求是由DBMS来处理的。在DBMS中还提供了许多对数据库进行操作的使用程序。</p>
+<p>DBMS使得能够方便的完成以下操作：</p>
+<ul>
+<li>建立和维护数据库</li>
+<li>定义数据</li>
+<li>操作数据</li>
+<li>保证数据的安全性、完整性</li>
+<li>多用户实现数据的共享</li>
+<li>发生故障之后进行数据恢复</li>
+</ul>
+<h3 id="数据库系统-DataBase-System-DBS"><a href="#数据库系统-DataBase-System-DBS" class="headerlink" title="数据库系统(DataBase System, DBS)"></a>数据库系统(DataBase System, DBS)</h3><p>数据库系统是指在计算机系统中引入数据库后的系统，一般由数据库、数据库管理系统（及其开发工具）、应用系统、数据库管理员和用户构成。应当指出的是，数据库的建立、使用和维护等工作只靠一个DBMS远远不够，还要有专门的人员来完成，这些人被称为数据库管理员(DBA)。</p>
+<h3 id="数据库管理员-DataBase-Administrator-DBA"><a href="#数据库管理员-DataBase-Administrator-DBA" class="headerlink" title="数据库管理员(DataBase Administrator, DBA)"></a>数据库管理员(DataBase Administrator, DBA)</h3><p>负责整个数据库系统的建立、维护和协调的专门人员，是掌握数据库全局并进行数据库设计和管理的骨干人员。  </p>
+<h3 id="数据管理历程"><a href="#数据管理历程" class="headerlink" title="数据管理历程"></a>数据管理历程</h3><ol>
+<li>人工阶段<br>数据不保存<br>数据由应用程序管理<br>数据不能共享<br>数据不具有独立性，随其逻辑结构和物理结构而改变</li>
+<li>文件管理阶段<br>数据以文件形式长期存在<br>数据由文件系统管理<br>数据共享性差、独立性差</li>
+<li>数据库管理阶段<br>有利于实现数据共享<br>数据面向应用，而非面向程序</li>
+</ol>
+<h3 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h3><p>关系模型是在逻辑模型的基础上建立的适用于具体数据库实现的一种数据模型。关系模型是目前最重要的一种<font color="red">数据模型</font>。它是<code>实体、属性、关系</code>在数据库中的具体体现。为了将逻辑模型转换为关系模型，需要将实体映射为<font color="red">数据库表</font>，将<font color="red">属性</font>映射为<font color="red">数据库列</font>，将关系映射为数据库表的<font color="red">主键或外键</font>。<br> 在用户的观点下，关系模型中数据的逻辑结构是一张二维表，由行和列组成。 </p>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><ul>
+<li>关系：整个二维表</li>
+<li>关系名：表格名称</li>
+<li>元组：行数据（记录）</li>
+<li>属性：列数据（字段/分量）</li>
+<li>属性名：列名称（字段名）</li>
+<li>主键：唯一确定元组的属性组（关键字）</li>
+<li>域：属性的取值范围</li>
+<li>关系模式：对关系的描述，表示为：关系名（属性列表）<br>如：学生（学号，姓名，性别，系别，年龄，籍贯）</li>
+<li>关系的约束<br>域完整性约束<br>实体完整性约束<br>参照完整性约束</li>
+</ul>
+<h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h3><ul>
+<li>关系型数据库是建立在关系模型基础上的数据库。它由一些相关的表和其他数据库对象组成。</li>
+<li>这个定义包含几层含义：第一：建立在关系模型基础上；第二，信息被存放在表（二维表)中；第三，表之间是相互关联的；第四，除了表之外，还有其他数据库对象，如索引、视图、存储过程等。</li>
+<li>当前流行的大型关系型数据库： Oracle、IBM DB2、SQL Server、SyBase、Informix等。</li>
+<li>关系型数据库采用结构化查询语言（SQL）作为客户端程序与数据库服务器间沟通的桥梁——客户端发送SQL指令到服务器端，服务器端执行相关的指令并返回其查询的结果。</li>
+</ul>
+<h2 id="Oracle-与-SQL-Server-比较"><a href="#Oracle-与-SQL-Server-比较" class="headerlink" title="Oracle 与 SQL Server 比较"></a>Oracle 与 SQL Server 比较</h2><table>
+<thead>
+<tr>
+<th>比较</th>
+<th>Oracle</th>
+<th>SQL Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所支持操作系统</td>
+<td>UNIX、LINUX、SUN SOLARIS、WINDOWS</td>
+<td>WINDOWS</td>
+</tr>
+<tr>
+<td>数据吞吐量</td>
+<td>面对大中型应用，最大可管理170TG左右</td>
+<td>面对中小型应用，一般30-40G左右</td>
+</tr>
+<tr>
+<td>多语言支持</td>
+<td>不按照语言划分版本，共支持100多种语言</td>
+<td>分为各种语言的版本，每种版本只支持一种语言，语言支持的数目不多</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Oracle-11g-体系结构"><a href="#Oracle-11g-体系结构" class="headerlink" title="Oracle 11g 体系结构"></a>Oracle 11g 体系结构</h2><p>数据库的体系结构可以按照<font color="red">逻辑结构</font>和<font color="red">物理结构</font>来划分 :<br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-03.png" alt="图3"></p>
+<h3 id="数据库物理结构"><a href="#数据库物理结构" class="headerlink" title="数据库物理结构"></a>数据库物理结构</h3><ul>
+<li>Oracle将数据库按照规定的结构划分为不同级别的<font color="red">逻辑单元</font>。这里指的逻辑单元包括表、视图等常见的数据库组件。</li>
+<li>逻辑结构和物理结构是分离的，对物理结构的管理可以不影响对逻辑存储结构的访问。 </li>
+<li>物理结构由构成数据库的操作系统文件所决定。</li>
+<li>每个Oracle数据库都由3种类型的文件组成：<font color="red">数据文件、日志文件、控制文件</font>。 </li>
+</ul>
+<h4 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h4><p>Oracle数据库有一个或多个物理的数据文件。数据库的数据文件包含全部数据库数据。逻辑数据物理地存储在数据文件中。<br>数据文件有下列特征：</p>
+<ol>
+<li>一个数据文件仅与一个数据库联系。</li>
+<li>当数据库容量越界时，数据文件能够自动扩展。</li>
+<li>一个或多个数据文件组成一个表空间。</li>
+</ol>
+<h4 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h4><p>每个数据库有两个或多个日志文件组，日志文件组用于收集数据库日志。<br>日志的主要功能是记录对数据所作的修改，所以对数据库作的全部修改记录在日志中。</p>
+<h4 id="控制文件"><a href="#控制文件" class="headerlink" title="控制文件"></a>控制文件</h4><p>每个Oracle数据库有一个控制文件，记录数据库的物理结构。（类似Windows注册表的作用）<br>控制文件包含数据库名、数据库数据文件和日志文件的名字、位置和数据库建立日期等信息。</p>
+<h3 id="数据库逻辑结构"><a href="#数据库逻辑结构" class="headerlink" title="数据库逻辑结构"></a>数据库逻辑结构</h3><p>数据库由<font color="red">表空间</font>或者说由<font color="red">方案</font>组成。<br>Oracle 数据库的逻辑结构包括<font color="red">数据块（data block）、区间（extent）、段（segment）和表空间（tablespace）</font>等。数据库由若干个表空间组成，表空间由表组成，表由段组成，段由区间组成，区间则由数据块组成。<br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-04.png" alt="图4"><br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-05.png" alt="图5"></p>
+<h4 id="表，视图，索引，簇"><a href="#表，视图，索引，簇" class="headerlink" title="表，视图，索引，簇"></a>表，视图，索引，簇</h4><ul>
+<li>表：数据库中最常用的数据存储单元，它包括所有用户可以访问的数据。</li>
+<li>视图：<font color="red">虚拟的表</font>，它在物理上并不存在。视图可以把表或其他视图的数据按照一定的条件组合起来，所以也可以把它看成是一个存储的查询。视图并不包含数据，它只是从基表中读取数据。 </li>
+<li>索引：<font color="red">与表相关联的可选结构。</font>创建索引可以提高读取数据的效率。</li>
+<li>簇：<font color="red">有些表共享公共的列，并经常被同时访问，为了提高数据存取的效率，把这些表在物理上存储在一起，得到的表的组合就是簇。</font>与索引相似，簇并不影响应用程序的设计。用户和应用程序并不关心表是否是簇的一部分，因为无论表在不在簇中，访问表的SQL语句都是一样的。</li>
+</ul>
+<h4 id="数据块"><a href="#数据块" class="headerlink" title="数据块"></a>数据块</h4><p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-07.png?imageMogr2/auto-orient/thumbnail/x300/blur/1x0/quality/75|imageslim" alt="图7"></p>
+<ul>
+<li>数据块是<font color="red">Oracle管理数据库存储空间的最小数据存储单位。</font></li>
+<li>一个数据块对应磁盘上一定数量的数据库空间，标准的数据块大小由初始参数DB_BLOCK_SIZE指定。</li>
+<li><font color="red">数据块既是逻辑单位，也是物理单位。</font></li>
+<li>块的大小是操作系统块大小的整数倍。（以Win2K为例,操作系统块(OS block)的大小为4kb，所以Oracle Block的大小可以是4kb,8kb,16kb等等。）</li>
+</ul>
+<ul>
+<li>公共的变长头：包含数据块的通用信息，如块地址和段类型等</li>
+<li>表目录：包含在此块中有行数据的表的信息</li>
+<li>行目录：包含此块中实际行数据的信息（包括在行数据区中每个行数据片的地址）</li>
+<li>空闲空间：插入新行时需要存储空间，更新行数据时也可能造成存储空间的增加，这些存储空间都需要从空闲空间中分配</li>
+<li>行数据：包含表或索引数据。行数据的存储可以跨越数据块</li>
+</ul>
+<h4 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h4><ul>
+<li>区间是数据库存储空间中分配的一个逻辑单元，由一组相邻的数据块组成，它是<font color="red">Oracle分配磁盘空间的最小单位。</font></li>
+<li>，在创建段时，它所包含的区间数量只能为MINEXTENTS。随着段中数据的增加，区间数量也可以不断增加，但不能超过MAXEXTENTS中定义的数量，否则会出现错误。 </li>
+</ul>
+<h4 id="段"><a href="#段" class="headerlink" title="段"></a>段</h4><font color="red">段是由一组区间组成。</font>
+
+<table>
+<thead>
+<tr>
+<th>段类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据段</td>
+<td>每个不在簇中的表都有一个数据段。表中的所有数据都存储在数据段的区间中。每个簇都有一个数据段。簇中每个表的数据都存储在簇的数据段中</td>
+</tr>
+<tr>
+<td>索引段</td>
+<td>每个索引都有一个索引段，存储所有的索引数据</td>
+</tr>
+<tr>
+<td>临时段</td>
+<td>当执行SQL语句需要临时工作区时，Oracle将创建临时段。执行完毕后，临时段的区间将被系统回收，以备需要时分配使用</td>
+</tr>
+<tr>
+<td>回滚段</td>
+<td>如果当前系统处于自动重做管理模式，则数据库服务器使用表空间来管理重做空间。这是Oracle公司推荐使用的模式。<br>但是，如果使用手动重做管理模式，则数据库管理员需要创建一个或多个回滚段，用于临时存储重做信息。<br>回滚段中的信息将在数据库恢复过程中使用到</td>
+</tr>
+</tbody>
+</table>
+<h4 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h4><ul>
+<li>数据库可以划分<font color="red">为若干的逻辑存储单元</font>，这些存储单元被称为表空间。</li>
+<li><font color="red">每个数据库都至少有一个系统表空间（称为SYSTEM表空间）</font>。</li>
+<li>在创建表时，需要定义保存表的表空间。 </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">表空间</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">系统表空间<br>（SYSTEM Tablespace）</td>
+<td>Oracle数据库必须具备的部分。用于存放表空间名称、表空间所包含的数据文件等管理数据库自身所需要的信息</td>
+</tr>
+<tr>
+<td style="text-align:center">辅助表空间<br>（SYSAUX Tablespace）</td>
+<td>系统表空间的辅助表空间，很多数据库组件把系统表空间作为存储数据的默认位置</td>
+</tr>
+<tr>
+<td style="text-align:center">撤消表空间<br>（Undo Tablespace）</td>
+<td>用于事务的回滚和撤销的表空间</td>
+</tr>
+<tr>
+<td style="text-align:center">临时表空间<br>（Temporary Tablespace）</td>
+<td>用于存储数据库的临时表</td>
+</tr>
+<tr>
+<td style="text-align:center">用户表空间<br>（Users Tablespace）</td>
+<td>用于存储用户的私有数据</td>
+</tr>
+<tr>
+<td style="text-align:center">大文件表空间<br>（Bigfile Tablespaces）</td>
+<td>Oracle 10g提供的一种新的表空间，它只能包含一个大文件，但文件大小可以达到4G个数据块</td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据库、表空间和数据文件的关系"><a href="#数据库、表空间和数据文件的关系" class="headerlink" title="数据库、表空间和数据文件的关系"></a>数据库、表空间和数据文件的关系</h4><ul>
+<li>每个表空间由一个或多个数据文件组成。数据文件用于在物理上存储表空间中所有逻辑结构的数据。</li>
+<li>表空间中数据文件的大小之和就是表空间的存储容量。</li>
+<li>数据库中表空间的存储容量之和就是数据库的存储容量。</li>
+</ul>
+<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><ul>
+<li>方案是一组数据库对象的集合。在创建用户的时候，会同时生成一个与用户同名的方案，此方案归同名用户所有。</li>
+<li>方案对象直接处理数据库数据的逻辑结构，例如表（table）、视图（view）、索引（index）和簇（Clusters）等。 </li>
+</ul>
+<h4 id="表空间和方案之间的关系"><a href="#表空间和方案之间的关系" class="headerlink" title="表空间和方案之间的关系"></a>表空间和方案之间的关系</h4><ul>
+<li>同一方案中的对象可以存储在不同的表空间中</li>
+<li>表空间可以存储不同方案中的对象<br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-08.png" alt="图8"></li>
+</ul>
+<h3 id="逻辑和物理结构关系"><a href="#逻辑和物理结构关系" class="headerlink" title="逻辑和物理结构关系"></a>逻辑和物理结构关系</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-06.png" alt="图6"></p>
+<h2 id="数据库例程（Oracle-Instance）"><a href="#数据库例程（Oracle-Instance）" class="headerlink" title="数据库例程（Oracle Instance）"></a>数据库例程（Oracle Instance）</h2><ul>
+<li>当用户连接到数据库，使用数据库时，实际上连接到该数据库的例程，通过例程来连接、使用数据库。</li>
+<li><p>例程是用户和数据库之间的一个中间层。</p>
+<blockquote>
+<p>例程和数据库的区别：<br>数据库主要只用于<font color="red">存储数据的物理结构</font>，总是实际存在的<br>例程是由操作系统的<font color="red">内存结构</font>和<font color="red">一系列的进程</font>组成，可以启动和关闭</p>
+</blockquote>
+</li>
+<li><p>每个运行的Oracle数据库都对应一个Oracle例程（Instance），也可以称为实例。</p>
+</li>
+<li>一台计算机上可以创建多个Oracle数据库，一个数据库上可以有多个例程。<br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-09.png" alt="图9"></li>
+</ul>
+<h3 id="例程的组成"><a href="#例程的组成" class="headerlink" title="例程的组成"></a>例程的组成</h3><p>例程（INSTANCE）是存取和控制数据库的软件机制，它由系统全局区（System Global Area，简称SGA）和进程组成。<br><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-10.png" alt="图10"></p>
+<h2 id="内部存储结构"><a href="#内部存储结构" class="headerlink" title="内部存储结构"></a>内部存储结构</h2><ul>
+<li>系统全局区（System Global Area，SGA）</li>
+<li>程序全局区（Program Global Area，PGA） </li>
+</ul>
+<h3 id="系统全局区-SGA"><a href="#系统全局区-SGA" class="headerlink" title="系统全局区(SGA)"></a>系统全局区(SGA)</h3><p>SGA是ORACLE系统为实例分配的一组共享缓冲存储区，用于存放数据库数据和控制信息，以实现对数据库数据的管理和操作。</p>
+<font color="red"><br>每个例程都只有一个SGA.<br>它是不同用户进程与服务进程进行通信的中心,数据库的各种操作主要在SGA中进行。<br>创建例程时,Oracle为SGA分配内存；<br>终止例程时,释放SGA所占用的内存。<br></font>
+
+<p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-11.png" alt="图11"></p>
+<ul>
+<li>数据库缓冲区：保存最近从数据文件中读取的数据块；</li>
+<li>重做日志缓冲区：用于存储重做记录；</li>
+<li>SQL共享池：最近执行的SQL语句、PL/SQL程序和数据字典信息,是对SQL语句和PL/SQL程序进行语法分析、编译、执行的内存区；</li>
+<li>Java池：为Java命令提供语法分析；</li>
+<li>大池：DBA配置的可选内存区域，用于分配大量的内存；</li>
+<li>数据词典缓冲区：保存数据库对象的信息，如帐号、数据文件名、段名、表说明和权限等；</li>
+</ul>
+<h3 id="程序全局区-PGA"><a href="#程序全局区-PGA" class="headerlink" title="程序全局区(PGA)"></a>程序全局区(PGA)</h3><p>PGA是在用户进程连接到数据库，并创建一个对应的会话时，由oracle为服务进程分配的，专门用于当前用户会话的内存区。这个内存区是非共享的，只有服务进程本身才能访问它自己的PGA。<br>包含Oracle进程数据和控制信息的内存区域。</p>
+<font color="red"><br>PGA是非共享的，而SGA是共享的。<br>PGA大小由操作系统决定，并且分配后保持不变；<br>会话终止时，自动释放PGA所占的内存。<br></font>
+
+<p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-12.png" alt="图12"></p>
+<h2 id="进程结构"><a href="#进程结构" class="headerlink" title="进程结构"></a>进程结构</h2><p>进程是操作系统中的一个概念，是一个可以独立调用的活动，用于完成指定的任务。</p>
+<blockquote>
+<p>进程与程序的区别是：</p>
+<font color="red"><br>进程是动态创建的，完成后销毁；程序是静态的实体，可以复制、编辑。<br>进程强调执行过程，程序仅仅是指令的有序集合。<br>进程在内存中，程序在外存中。<br></font>
+
+</blockquote>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/Oracle-basic-13.png" alt="图13"></p>
+<h3 id="用户进程"><a href="#用户进程" class="headerlink" title="用户进程"></a>用户进程</h3><p>运行应用程序或Oracle工具。<br>当用户运行一个应用程序时，就建立一个用户进程。</p>
+<h3 id="服务器进程"><a href="#服务器进程" class="headerlink" title="服务器进程"></a>服务器进程</h3><p>用于处理连接到数据库例程的用户进程的请求。</p>
+<blockquote>
+<p>主要完成以下工作：<br>分析并运行应用程序中的SQL语句；<br>如果需要的数据块不在SGA中，则把它从数据文件中读取到SGA的共享数据库缓冲区中；<br>返回应用程序需要的结果；</p>
+</blockquote>
+<h3 id="后台进程"><a href="#后台进程" class="headerlink" title="后台进程"></a>后台进程</h3><p>为了实现系统的最佳性能，并协调多个用户，在多进程Oracle系统中使用的一些附加进程，多由操作系统自动创建。</p>
+<blockquote>
+<p>主要的后台进程有：</p>
+<ul>
+<li>DBWn：数据库写进程</li>
+<li>LGWR：日志写进程</li>
+<li>CKPT：检查点写进程</li>
+<li>SMON：系统监控进程</li>
+<li>PMON：进程监控进程</li>
+<li>ARCn：归档进程</li>
+<li>RECO：恢复进程</li>
+<li>LCKn：封锁进程</li>
+</ul>
+</blockquote>
+<h2 id="Oracle数据库用户类型"><a href="#Oracle数据库用户类型" class="headerlink" title="Oracle数据库用户类型"></a>Oracle数据库用户类型</h2><ul>
+<li>数据库管理员</li>
+<li>安全官员</li>
+<li>网络管理员</li>
+<li>应用程序开发员</li>
+<li>应用程序管理员</li>
+<li>数据库用户 </li>
+</ul>
+<h3 id="数据库管理员"><a href="#数据库管理员" class="headerlink" title="数据库管理员"></a>数据库管理员</h3><ul>
+<li>安装和升级Oracle数据库服务器和其他应用工具。</li>
+<li>分配系统存储空间，并计划数据库系统未来需要的存储空间。</li>
+<li>当应用程序开发员设计完成一个应用程序之后，为其创建主要的数据库存储结构，例如表空间。</li>
+<li>根据应用程序开发员的设计创建主要的数据库对象，例如表、视图和索引。</li>
+<li>根据应用程序开发员提供的信息修改数据库结构。</li>
+<li>管理用户，维护系统安全。</li>
+<li>确保对Oracle的使用符合Oracle的许可协议。</li>
+<li>控制和监视用户对数据库的访问。</li>
+<li>监视和优化数据库的行为。</li>
+<li>做好备份和恢复数据库的计划。</li>
+<li>维护磁带中归档的数据。</li>
+<li>备份和恢复数据库。</li>
+<li>在必要时联系Oracle公司获取技术支持。</li>
+</ul>
+<h3 id="安全管理员"><a href="#安全管理员" class="headerlink" title="安全管理员"></a>安全管理员</h3><p>安全官员可以管理用户、控制和监视用户对数据库的访问，以及维护数据库的安全。如果拥有单独的安全官员，则DBA就不需要关注这些问题。</p>
+<h3 id="网络管理员"><a href="#网络管理员" class="headerlink" title="网络管理员"></a>网络管理员</h3><p>网络管理员可以管理Oracle的网络产品。</p>
+<h3 id="应用程序开发员"><a href="#应用程序开发员" class="headerlink" title="应用程序开发员"></a>应用程序开发员</h3><ul>
+<li>设计和开发数据库应用程序。</li>
+<li>为应用程序设计数据库结构。</li>
+<li>估算应用程序需要的数据库存储空间。</li>
+<li>定义应用程序需要对数据库结构所进行的修改。</li>
+<li>将上述信息提供给数据库管理员。</li>
+<li>在开发过程中对应用程序进行调整。</li>
+<li>在开发过程中对应用程序的安全性进行检测。</li>
+</ul>
+<h3 id="应用程序管理员"><a href="#应用程序管理员" class="headerlink" title="应用程序管理员"></a>应用程序管理员</h3><p>应用程序管理员可以对指定的应用程序进行管理，每个应用程序都可以有自己的管理员。</p>
+<h3 id="数据库用户"><a href="#数据库用户" class="headerlink" title="数据库用户"></a>数据库用户</h3><p>数据库用户通过应用程序与数据库打交道。<br>数据库用户最常用的权限如下：</p>
+<ul>
+<li>在权限的范围内添加、修改和删除数据。</li>
+<li>从数据库中生成统计报表。</li>
+</ul>
+<h3 id="默认数据库管理员用户"><a href="#默认数据库管理员用户" class="headerlink" title="默认数据库管理员用户"></a>默认数据库管理员用户</h3><p><font color="red">数据库管理员</font>可以拥有两种类型的用户:</p>
+<ul>
+<li>操作系统账户</li>
+<li>Oracle数据库账户</li>
+</ul>
+<ol>
+<li>数据库管理员的操作系统账户。<br>为了完成许多数据库管理任务，数据库管理员必须能够执行操作系统命令，因此数据库管理员需要拥有一个操作系统账户用于访问操作系统。</li>
+<li>数据库管理员的用户名。<br>在创建Oracle数据库时，如下两个用户被自动创建：<br>SYS，默认密码为CHANGE_ON_INSTALL。<br>SYSTEM，默认密码为MANAGER。</li>
+</ol>
+<blockquote>
+<p>sys和system用户区别</p>
+<ol>
+<li>最重要的区别，存储的数据的重要性不同<br>sys所有oracle的数据字典的基表和视图都存放在sys用户中，这些基表和视图对于oracle的运行是至关重要的，由数据库自己维护，任何用户都不能手动更改。sys用户拥有sysdba，sysoper等角色或权限，是oracle权限最高的用户。<br>system用户用于存放次一级的内部数据，如oracle的一些特性或工具的管理信息。system用户拥有sysdba角色权限。</li>
+<li>其次的区别，权限的不同<br>system用户只能用normal身份登陆em，除非你对它授予了sysdba的系统权限或者syspoer系统权限。sys用户具有“SYSDBA”或者“SYSOPER”系统权限，登陆em也只能用这两个身份，不能用normal。<br>以sys用户登陆Oracle，执行select * from V_$PWFILE_USERS;可查询到具有sysdba权限的用户。</li>
+</ol>
+</blockquote>
+<p>SYSDBA与SYSOPER权限的区别</p>
+<table>
+<thead>
+<tr>
+<th>SYSDBA</th>
+<th>SYSOPER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startup</td>
+<td>startup</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>shutdown</td>
+</tr>
+<tr>
+<td>alter database Open/mount/backup</td>
+<td>alter database Open/mount/backup</td>
+</tr>
+<tr>
+<td>改变字符集</td>
+<td></td>
+</tr>
+<tr>
+<td>create database</td>
+<td></td>
+</tr>
+<tr>
+<td>drop database</td>
+<td></td>
+</tr>
+<tr>
+<td>create spfile</td>
+<td>create spfile</td>
+</tr>
+<tr>
+<td>alter database archivelog</td>
+<td>alter database archivelog</td>
+</tr>
+<tr>
+<td>alter database recover</td>
+<td>alter database recover</td>
+</tr>
+<tr>
+<td>拥有restricted session权限</td>
+<td>拥有restricted session权限</td>
+</tr>
+<tr>
+<td>对应的方案是SYS</td>
+<td>对应的方案是PUBLIC</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oracle/" rel="tag"># oracle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/Oracle-services/" rel="prev" title="常用的Oracle服务及其作用">
+                常用的Oracle服务及其作用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="evilpwn" />
+          
+            <p class="site-author-name" itemprop="name">evilpwn</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/evilpwn" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:i@evilpwn.me" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库-Database-DB"><span class="nav-number">1.1.</span> <span class="nav-text">数据库(Database, DB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库管理系统-DataBase-System-DBS"><span class="nav-number">1.2.</span> <span class="nav-text">数据库管理系统(DataBase System,DBS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库系统-DataBase-System-DBS"><span class="nav-number">1.3.</span> <span class="nav-text">数据库系统(DataBase System, DBS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库管理员-DataBase-Administrator-DBA"><span class="nav-number">1.4.</span> <span class="nav-text">数据库管理员(DataBase Administrator, DBA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据管理历程"><span class="nav-number">1.5.</span> <span class="nav-text">数据管理历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系模型"><span class="nav-number">1.6.</span> <span class="nav-text">关系模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本术语"><span class="nav-number">1.7.</span> <span class="nav-text">基本术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系型数据库"><span class="nav-number">1.8.</span> <span class="nav-text">关系型数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle-与-SQL-Server-比较"><span class="nav-number">2.</span> <span class="nav-text">Oracle 与 SQL Server 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle-11g-体系结构"><span class="nav-number">3.</span> <span class="nav-text">Oracle 11g 体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库物理结构"><span class="nav-number">3.1.</span> <span class="nav-text">数据库物理结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据文件"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">日志文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制文件"><span class="nav-number">3.1.3.</span> <span class="nav-text">控制文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库逻辑结构"><span class="nav-number">3.2.</span> <span class="nav-text">数据库逻辑结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表，视图，索引，簇"><span class="nav-number">3.2.1.</span> <span class="nav-text">表，视图，索引，簇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据块"><span class="nav-number">3.2.2.</span> <span class="nav-text">数据块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区间"><span class="nav-number">3.2.3.</span> <span class="nav-text">区间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#段"><span class="nav-number">3.2.4.</span> <span class="nav-text">段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表空间"><span class="nav-number">3.2.5.</span> <span class="nav-text">表空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库、表空间和数据文件的关系"><span class="nav-number">3.2.6.</span> <span class="nav-text">数据库、表空间和数据文件的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案"><span class="nav-number">3.2.7.</span> <span class="nav-text">方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表空间和方案之间的关系"><span class="nav-number">3.2.8.</span> <span class="nav-text">表空间和方案之间的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑和物理结构关系"><span class="nav-number">3.3.</span> <span class="nav-text">逻辑和物理结构关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库例程（Oracle-Instance）"><span class="nav-number">4.</span> <span class="nav-text">数据库例程（Oracle Instance）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例程的组成"><span class="nav-number">4.1.</span> <span class="nav-text">例程的组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部存储结构"><span class="nav-number">5.</span> <span class="nav-text">内部存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统全局区-SGA"><span class="nav-number">5.1.</span> <span class="nav-text">系统全局区(SGA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序全局区-PGA"><span class="nav-number">5.2.</span> <span class="nav-text">程序全局区(PGA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程结构"><span class="nav-number">6.</span> <span class="nav-text">进程结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户进程"><span class="nav-number">6.1.</span> <span class="nav-text">用户进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器进程"><span class="nav-number">6.2.</span> <span class="nav-text">服务器进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台进程"><span class="nav-number">6.3.</span> <span class="nav-text">后台进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oracle数据库用户类型"><span class="nav-number">7.</span> <span class="nav-text">Oracle数据库用户类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库管理员"><span class="nav-number">7.1.</span> <span class="nav-text">数据库管理员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全管理员"><span class="nav-number">7.2.</span> <span class="nav-text">安全管理员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络管理员"><span class="nav-number">7.3.</span> <span class="nav-text">网络管理员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用程序开发员"><span class="nav-number">7.4.</span> <span class="nav-text">应用程序开发员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用程序管理员"><span class="nav-number">7.5.</span> <span class="nav-text">应用程序管理员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库用户"><span class="nav-number">7.6.</span> <span class="nav-text">数据库用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认数据库管理员用户"><span class="nav-number">7.7.</span> <span class="nav-text">默认数据库管理员用户</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-hacker-news"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evilpwn</span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: window.location.pathname,
+               owner: 'evilpwn',
+               repo: 'evilpwn.github.io',
+               oauth: {
+                   client_id: '25b4d4d800924f5824fd',
+                   client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz", "BxBScgSxibHb3t956iPFXsAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

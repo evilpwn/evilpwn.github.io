@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="路由,RIP协议," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="RIP协议RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。 使用距离矢量来决定最优路径 跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。 下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把">
+<meta name="keywords" content="路由,RIP协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RIP协议">
+<meta property="og:url" content="https://evilpwn.me/2017/RIP/index.html">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
+<meta property="og:description" content="RIP协议RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。 使用距离矢量来决定最优路径 跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。 下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-01.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-02.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-03.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-04.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-005.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-06.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-07.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-08.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-09.PNG">
+<meta property="og:updated_time" content="2017-05-10T12:52:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RIP协议">
+<meta name="twitter:description" content="RIP协议RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。 使用距离矢量来决定最优路径 跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。 下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把">
+<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/RIP-01.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://evilpwn.me/2017/RIP/"/>
+
+
+
+
+
+  <title>RIP协议 | evilpwn's Note</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">evilpwn's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">随想随记</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/RIP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">RIP协议</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T18:22:53+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Routing-Switching/" itemprop="url" rel="index">
+                    <span itemprop="name">路由与交换</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/RIP/" class="leancloud_visitors" data-flag-title="RIP协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h2><p>RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。</p>
+<h3 id="使用距离矢量来决定最优路径"><a href="#使用距离矢量来决定最优路径" class="headerlink" title="使用距离矢量来决定最优路径"></a>使用距离矢量来决定最优路径</h3><ul>
+<li>跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。</li>
+<li>下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把此报文送到某个中转站点，此中转站点称为下一跳。</li>
+<li>跳（hop） ：报文转发的中转过程。</li>
+</ul>
+<h3 id="RIP特点"><a href="#RIP特点" class="headerlink" title="RIP特点"></a>RIP特点</h3><p>原理和配置方法均简单，但有时不能准确地选择最优路径，收敛的时间也较长。</p>
+<ul>
+<li>最多支持的跳数为15 ，跳数16表示不可达 </li>
+<li>跳数最小即为最优路由，跳数相同则为等代价路由</li>
+<li>使用UDP 520端口交换路由信息</li>
+<li>周期性更新，路由更新为完整的路由表</li>
+<li>路由信息每经过一个路由器，跳数加1</li>
+<li>使用多个时钟以保证路由的有效性与及时性</li>
+</ul>
+<a id="more"></a>
+<h2 id="RIP工作过程和计时器"><a href="#RIP工作过程和计时器" class="headerlink" title="RIP工作过程和计时器"></a>RIP工作过程和计时器</h2><h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-01.PNG" alt="图1"></p>
+<p>路由器初始的路由表中只有自己的直连路由，路由器A的更新周期首先到达（更新计时器：30s），路由器B收到A发出的路由更新，将1.0.0.0加入路由表，跳数为1。随后，路由器B的更新周期到达，路由器A和C收到B发出的路由更新。接着，路由器C到达更新周期，路由器B收到路由更新，刷新路由表，并在更新周期到来时发送新的路由更新。随着这个过程的不断重复，所有路由器都学习到了全部的路由——收敛完毕。</p>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-02.PNG" alt="图2"></p>
+<h3 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h3><ul>
+<li>更新计时器<br>30s（为了防止同时更新，叠加一个随机变量，一般为5s之内）</li>
+<li>无效计时器<br>180s，6倍更新时间内未收到更新，该路由被标记为16跳（不可达）</li>
+<li>刷新计时器<br>120s，无效路由在刷新计时器时间内仍未被更新，则被删除</li>
+</ul>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-03.PNG" alt="计时过程"></p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-04.PNG" alt="RIP更新路由表"></p>
+<h2 id="路由更新原则"><a href="#路由更新原则" class="headerlink" title="路由更新原则"></a>路由更新原则</h2><ol>
+<li>直连路由的可信度最高。不会被更新。</li>
+<li>本路由表已有的路由表项，当下一跳不同时，只有度量值减小才更新该路由表项。</li>
+<li>对本路由表已有的路由表项，当下一跳相同时，不论度量值增大还是减少，都更新该路由表项。</li>
+</ol>
+<h2 id="路由环路"><a href="#路由环路" class="headerlink" title="路由环路"></a>路由环路</h2><h3 id="路由毒化"><a href="#路由毒化" class="headerlink" title="路由毒化"></a>路由毒化</h3><p>（更新规则3可能会导致路由毒化，从而形成路由环路）<br>使用无穷大的度量（16跳）传播关于路由失效的坏消息 。</p>
+<h3 id="防止路由环路"><a href="#防止路由环路" class="headerlink" title="防止路由环路"></a>防止路由环路</h3><ul>
+<li><p>水平分割<br>路由器记住每一条路由信息的来源，并且不在收到这条信息的端口上再次发送它<br>。这是保证不产生路由环路的最基本措施。</p>
+</li>
+<li><p>触发更新<br>在改变一条路由度量时立即广播一条更新消息，而不管30秒更新计时器还剩多少时间 </p>
+</li>
+<li><p>毒性逆转<br>当路由器学习到一条毒化路由（度量值为16）时，对这条路由忽略水平分割的规则，并通告毒化的路由。</p>
+</li>
+</ul>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-005.PNG" alt="毒性逆转"></p>
+<p>C失去网段4.0.0.0/8，立即发送一个触发的部分更新，仅包含变化的信息，即4.0.0.0/8的毒化路由。<br>B相应这个更新，修改自己的路由表，并立即会送（触发）包含4.0.0.0/8、度量值为16的更新，这就是毒性逆转。<br>到C的下一个更新周期，它会通过所有路由，包括4.0.0.0/8的毒化路由；同样，B到达下一个更新周期时，也是如此。<br>C通告的毒化路由不被认为时毒性逆转路由，因为它本来就应当通告这条路由；而B通告的毒化路由则被认为时毒性逆转路由，因为它把这条路由又通告给力C，这条失效路由原本就是从那里学习到的。</p>
+<ul>
+<li>抑制计数器<br>水平分割在<strong>环形拓扑</strong>（即存在冗余链路构成的环路）中水平分割不能很好的预防计数到无穷大的问题。<br><img src="http://opkltmtvx.bkt.clouddn.com/RIP-06.PNG" alt="环路水平分割01"><br>B先收到4.0.0.0/8的毒化路由的部分更新，修改度量值为16，然后可能会收到C发出的周期性更新，里面声明到达4.0.0.0/8的度量值为2，结果再把度量值更新为2，下一跳为路由器C。</li>
+</ul>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/RIP-07.PNG" alt="环路水平分割02"><br>此时，C收到A的触发更新，度量值改16，但在C到达下一个更新周期时，B向A发送一个周期更新，度量值改3，之后C的周期性更新才到达，B更改度量值为16。</p>
+<p>这样的过程不断循环，最终还是导致了计数到无穷大。</p>
+<p>这时需要另一个防止路由环路的方法，抑制及时器（一般是180s）。<br>一条路由信息失效后，便处于抑制状态，在抑制时间内，失效的路由不接受任何更新信息（除非这条信息是从原始通告这条路由的路由器来的），以确保每台路由器都学习到这个信息。<br>抑制计时器减少了路由的浮动，增加了网络的稳定性。</p>
+<h2 id="RIPv1-amp-RIPv2"><a href="#RIPv1-amp-RIPv2" class="headerlink" title="RIPv1 &amp; RIPv2"></a>RIPv1 &amp; RIPv2</h2><h3 id="RIPv1"><a href="#RIPv1" class="headerlink" title="RIPv1"></a>RIPv1</h3><ul>
+<li>使用广播的方式发送路由更新</li>
+<li>路由更新信息中不携带子网掩码，为有类路由协议</li>
+<li>RIP报文大小限制是512字节，最多可以携带25条路由信息<br><img src="http://opkltmtvx.bkt.clouddn.com/RIP-08.PNG" alt="RIPv1报文格式"></li>
+</ul>
+<h3 id="RIPv2"><a href="#RIPv2" class="headerlink" title="RIPv2"></a>RIPv2</h3><ul>
+<li>RIPv2发送更新报文的方式为组播，组播地址为224.0.0.9 </li>
+<li>路由信息中加入了子网掩码，无类的路由协议 </li>
+<li>支持认证</li>
+</ul>
+<h3 id="RIPv1和RIPv2比较"><a href="#RIPv1和RIPv2比较" class="headerlink" title="RIPv1和RIPv2比较"></a>RIPv1和RIPv2比较</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>RIPV1</th>
+<th>RIPV2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采用跳数为度量值</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>15是最大的有效度量值，16为无穷大</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>默认30s更新周期</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>周期性更新时发送全部路由信息</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>拓扑改变时发送只针对变化的触发更新</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>使用路由毒化、水平分割、毒性逆转</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>使用抑制计时器</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>发送更新的方式</td>
+<td>广播</td>
+<td>组播</td>
+</tr>
+<tr>
+<td>使用UDP 520端口发送报文</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>更新中携带子网掩码，支持VLSM</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>支持认证</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置RIP"><a href="#配置RIP" class="headerlink" title="配置RIP"></a>配置RIP</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>创建RIP进程<br><code>Router(config)# router rip</code></li>
+<li>定义关联网络<br><code>Router(config-router)# network network-number</code><br>关联网络有两层意思：</li>
+</ul>
+<ol>
+<li>RIP 只对外通告关联网络的路由信息</li>
+<li>RIP 只向关联网络所属接口通告路由信息<blockquote>
+<p>network 需要有类网络号（无子网掩码），如果使用子网号或IP地址，路由器会自动修改为ABC三类网络号。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>定义RIP版本<br><code>Router(config-router)# version {1|2}</code><br>默认1</li>
+<li>关闭RIPv2自动汇总<br><code>Router(config-router)# no auto-summary</code><br>路由自动汇总：当子网路由穿越有类网络边界时，将自动汇总成有类网络路由。<br>RIPv2 缺省情况下将进行路由自动汇聚，RIPv1 不支持该功能。</li>
+<li>调整RIP时钟<br><code>Router(config-router)# timers basci update invalid flush</code><br>默认更新30s，无效时间180s，刷新120s。<br>调整可能会加快路由协议的收敛时间以及故障恢复时间。<br>注意：同一网络上的设备，RIP时钟值一定要一致。</li>
+<li><p>关闭水平分割<br><code>Router(config-if)# no ip split-horizon</code></p>
+</li>
+<li><p>示例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RouterA(config)<span class="comment">#router rip</span></div><div class="line">RouterA(config-router)<span class="comment">#network 1.0.0.0</span></div><div class="line">RouterA(config-router)<span class="comment">#network 2.0.0.0</span></div><div class="line">RouterA(config-router)<span class="comment">#end</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="配置单播更新和被动接口"><a href="#配置单播更新和被动接口" class="headerlink" title="配置单播更新和被动接口"></a>配置单播更新和被动接口</h3><ul>
+<li>RIP被动接口：RIP路由器的某个端口仅仅学习RIP路由，并不进行RIP路由通告<br>(非RIP请求仍会相应)<br><code>Router(config-router)#passive-interface {default | interface-type interface-num}</code></li>
+<li>RIP报文单播更新 ：RIP路由信息需要通过非广播网络传输，或需要限制一个接口通告广播式的路由更新报文<br><code>Router(config-router)# neighbor ip-address</code></li>
+</ul>
+<p>示例：实现A发出的更新报文只能被B接受，而不被C接受。<br><img src="http://opkltmtvx.bkt.clouddn.com/RIP-09.PNG" alt="单播更新和被动接口"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RouterA(config)<span class="comment">#router rip</span></div><div class="line">RouterA(config-router)<span class="comment">#passive-interface fastEthernet 0/0</span></div><div class="line">RouterA(config-router)<span class="comment">#neighbor 4.0.0.2</span></div><div class="line">RouterA(config-router)<span class="comment">#end</span></div></pre></td></tr></table></figure></p>
+<h2 id="debug-命令进行排错"><a href="#debug-命令进行排错" class="headerlink" title="debug 命令进行排错"></a>debug 命令进行排错</h2><ul>
+<li>debug命令让路由器执行以下：</li>
+</ul>
+<ol>
+<li>监视内部过程（例如RIP发送和接收的更新）</li>
+<li>当某些进程发生一些事件后，产生日志信息</li>
+<li>持续产生日志信息，直到用no debug命令关闭</li>
+</ol>
+<blockquote>
+<p>Debug命令可用于观察RIP的内部工作过程，以便发现存在的问题。<br>调试排错结束后，应当关闭debug。<br>no debug ip rip<br>no debug all </p>
+</blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><blockquote>
+<ol>
+<li>更新计时器、无效计时器和刷新计时器<br>RIP协议中，路由接口将周期性地发送全部路由更新，<strong>更新计时器（Update Timer）</strong>为30s；成功建立一条RIP路由条目后，加上一个180s（6倍的更新时间）的<strong>无效计时器（InvalidTimer）</strong>，180s后未收到针对该路由的更新，则把该路由的度量值标记为16跳，表示不可达，但并不从路由表中删除。标记后，RIP路由立即启动<strong>刷新计时器（Flush Timer，也称为清除计时器）</strong>，120s，超时后，删除。</li>
+<li>计数到无穷大的情况<br>存在路由环路（逻辑环路或者物理环路）,导致路由器互相之间不断发送针对同一条失效路由的错误更新，每发一次，top+1，直到无穷大。</li>
+<li>防止路由环路的技术<ul>
+<li>路由毒化：当一条路径信息变为无效之后，路由器并不立即将它从路由表中删除，而是用 16，即不可达的度量值将它广播出去。 </li>
+<li>水平分割：路由器将记住每一条路由信息的来源，并且不在收到这条信息的端口上再次发送它。这是保证不产生路由循环的最基本措施。 </li>
+<li>毒性逆转：当路由器收到一条毒化路由后，立即将这条毒化路由以触发更新的方式通告出去，并不再遵循水平分割的原则，也就是同样会通告给初始发送这条路由的路由器。 </li>
+<li>触发更新：当路由表发生变化时，更新报文立即广播给相邻的所有路由器，而不是等待30 秒的更新周期。这样，网络拓扑的变化会最快地在网络上传播开，减少了路由循环产生的可能性。 </li>
+<li>抑制计时：一条路由信息无效之后，一段时间内这条路由都处于抑制状态，即在一定时间内不再接收关于同一目的地址的路由更新。 如果， 路由器从一个网段上得知一条路径失效，然后，立即在另一个网段上得知这个路由有效。这个有效的信息往往是不正确的，抑制计时避免了这个问题，而且，当一条链路频繁起停时，抑制计时减少了路由的浮动，增加了网络的稳定性。</li>
+</ul>
+</li>
+<li>RIPv1 和 和 V2  的区别<br>上表总结的有</li>
+<li>network命令作用<br>定义关联网络，关联网络有两层意思：<br>RIP 只对外通告关联网络的路由信息；<br>RIP 只向关联网络所属接口通告路由信息。<br>即：network 命令告诉路由器哪个接口开始使用 RIP，然后从这个接口发送路由更新，通告这个接口直连的网络，并从这个接口监听从其他路由器发来的 RIP 更新。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/路由/" rel="tag"># 路由</a>
+          
+            <a href="/tags/RIP协议/" rel="tag"># RIP协议</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/Routing-technology/" rel="next" title="路由技术">
+                <i class="fa fa-chevron-left"></i> 路由技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/acquaintance-metasploit/" rel="prev" title="初识Metasploit">
+                初识Metasploit <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+       
+         <div id="gitment-container"></div>
+       
+
+	  
+	  
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="evilpwn" />
+          
+            <p class="site-author-name" itemprop="name">evilpwn</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/evilpwn" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:i@evilpwn.me" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP协议"><span class="nav-number">1.</span> <span class="nav-text">RIP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用距离矢量来决定最优路径"><span class="nav-number">1.1.</span> <span class="nav-text">使用距离矢量来决定最优路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RIP特点"><span class="nav-number">1.2.</span> <span class="nav-text">RIP特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP工作过程和计时器"><span class="nav-number">2.</span> <span class="nav-text">RIP工作过程和计时器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作过程"><span class="nav-number">2.1.</span> <span class="nav-text">工作过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计时器"><span class="nav-number">2.2.</span> <span class="nav-text">计时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-number">2.3.</span> <span class="nav-text">思维导图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由更新原则"><span class="nav-number">3.</span> <span class="nav-text">路由更新原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由环路"><span class="nav-number">4.</span> <span class="nav-text">路由环路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由毒化"><span class="nav-number">4.1.</span> <span class="nav-text">路由毒化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防止路由环路"><span class="nav-number">4.2.</span> <span class="nav-text">防止路由环路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIPv1-amp-RIPv2"><span class="nav-number">5.</span> <span class="nav-text">RIPv1 & RIPv2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RIPv1"><span class="nav-number">5.1.</span> <span class="nav-text">RIPv1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RIPv2"><span class="nav-number">5.2.</span> <span class="nav-text">RIPv2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RIPv1和RIPv2比较"><span class="nav-number">5.3.</span> <span class="nav-text">RIPv1和RIPv2比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置RIP"><span class="nav-number">6.</span> <span class="nav-text">配置RIP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">6.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置单播更新和被动接口"><span class="nav-number">6.2.</span> <span class="nav-text">配置单播更新和被动接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug-命令进行排错"><span class="nav-number">7.</span> <span class="nav-text">debug 命令进行排错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-hacker-news"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">evilpwn</span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: window.location.pathname,
+               owner: 'evilpwn',
+               repo: 'evilpwn.github.io',
+               oauth: {
+                   client_id: '25b4d4d800924f5824fd',
+                   client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz", "BxBScgSxibHb3t956iPFXsAd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
