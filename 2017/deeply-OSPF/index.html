@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
+<meta name="description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
 <meta name="keywords" content="路由,OSPF协议">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解OSPF开放式最短路径优先协议">
 <meta property="og:url" content="https://evilpwn.me/2017/deeply-OSPF/index.html">
 <meta property="og:site_name" content="evilpwn&#39;s Note">
-<meta property="og:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
+<meta property="og:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_09.PNG">
@@ -114,10 +114,10 @@
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_05.jpg">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_06.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_07.PNG">
-<meta property="og:updated_time" content="2017-11-13T17:49:32.489Z">
+<meta property="og:updated_time" content="2017-11-13T17:54:37.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解OSPF开放式最短路径优先协议">
-<meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源  以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新">
+<meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
 <meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG">
 
 
@@ -421,6 +421,7 @@
 <li>收敛速度慢</li>
 <li>更新发送全部路由表浪费网络资源</li>
 </ul>
+<a id="more"></a>
 <h2 id="以跳数评估的路由并非最优路径"><a href="#以跳数评估的路由并非最优路径" class="headerlink" title="以跳数评估的路由并非最优路径"></a>以跳数评估的路由并非最优路径</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG" alt="跳数评估的路由并非最优路径"></p>
 <p>如果RTA选择S0/0传输，传输需时会大大缩短为3s</p>
 <h2 id="最大跳数16导致网络尺度小"><a href="#最大跳数16导致网络尺度小" class="headerlink" title="最大跳数16导致网络尺度小"></a>最大跳数16导致网络尺度小</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_09.PNG" alt="最大跳数16导致网络尺度小"></p>
@@ -435,7 +436,6 @@
 <li>发送周期性更新（链路状态刷新），间隔时间为30分钟。</li>
 </ul>
 <p>OSPF是一种链路状态路由选择协议。</p>
-<a id="more"></a>
 <p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_01.PNG" alt="链路状态协议"></p>
 <p>链路状态路由协议只在网络拓扑发生变化以后产生路由更新。链路状态发生变化后，检测到变化的路由器生成并发送<font color="red">LSA（Link-State Advertisement，链路状态通告）</font>，并通过组播地址发送给所有的邻居路由器。接受到LSA的每个路由器会复制一份LSA，更新它自己的<font color="red">LSDB（Link-State Database）</font>，再将LSA转发给其他邻居。这种扩散机制被称为<font color="red">泛洪（Flooding）</font>。</p>
 <p>OSPF必须维护以下信息：</p>

@@ -412,20 +412,6 @@
 <li>收敛速度慢</li>
 <li>更新发送全部路由表浪费网络资源</li>
 </ul>
-<h2 id="以跳数评估的路由并非最优路径"><a href="#以跳数评估的路由并非最优路径" class="headerlink" title="以跳数评估的路由并非最优路径"></a>以跳数评估的路由并非最优路径</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_08.PNG" alt="跳数评估的路由并非最优路径"></p>
-<p>如果RTA选择S0/0传输，传输需时会大大缩短为3s</p>
-<h2 id="最大跳数16导致网络尺度小"><a href="#最大跳数16导致网络尺度小" class="headerlink" title="最大跳数16导致网络尺度小"></a>最大跳数16导致网络尺度小</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_09.PNG" alt="最大跳数16导致网络尺度小"></p>
-<p>RIP协议限制网络直径不能超过16跳！</p>
-<h2 id="收敛速度慢"><a href="#收敛速度慢" class="headerlink" title="收敛速度慢"></a>收敛速度慢</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_10.PNG" alt="收敛速度慢"></p>
-<p>RTA和RTB收到路由不可达信息后进入抑制时间<br>抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新</p>
-<h2 id="更新发送全部路由表浪费网络资源"><a href="#更新发送全部路由表浪费网络资源" class="headerlink" title="更新发送全部路由表浪费网络资源"></a>更新发送全部路由表浪费网络资源</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_11.PNG" alt="收敛速度慢"></p>
-<p>假设RTA和RTB各有1000条路由，每条路由需占用20个字节<br>每次路由更新时，RTA和RTB之间单向需消耗至少160Kb的带宽资源</p>
-<h1 id="链路状态路由协议的特点"><a href="#链路状态路由协议的特点" class="headerlink" title="链路状态路由协议的特点"></a>链路状态路由协议的特点</h1><ul>
-<li>对网络发生的变化能够快速响应。</li>
-<li>当网络发生变化的时候发送触发式更新（triggered update）。</li>
-<li>发送周期性更新（链路状态刷新），间隔时间为30分钟。</li>
-</ul>
-<p>OSPF是一种链路状态路由选择协议。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/deeply-OSPF/#more" rel="contents">
