@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://evilpwn.me/2017/test/</loc>
-    
-    <lastmod>2017-11-13T13:34:31.998Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://evilpwn.me/2017/Python-turtle/</loc>
     
     <lastmod>2017-11-06T12:56:27.894Z</lastmod>
