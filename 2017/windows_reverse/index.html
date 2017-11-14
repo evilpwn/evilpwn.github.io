@@ -104,7 +104,7 @@
 <meta property="og:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Windows-reverse-01.PNG">
-<meta property="og:updated_time" content="2017-08-12T21:55:44.000Z">
+<meta property="og:updated_time" content="2017-11-14T14:13:33.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows逆向基础">
 <meta name="twitter:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
@@ -411,6 +411,9 @@
 <li><p>Unicode<br>是ASCII的扩展，Windows中，用<font color="red">两个字节（16位）</font>对其进行编码，也称<font color="red">宽字节集（Widechars）</font>。高位填充0。<br>如：“good”的Unicode编码：67 00 6f 00 6f 00 64 00 （左低右高）</p>
 </li>
 </ul>
+<blockquote>
+<p>更多编码详解见我的另一篇文章：<a href="/2017/Python-file-and-dict/" title="[Python文件与字典]">[Python文件与字典]</a> 中“常用的编码”。</p>
+</blockquote>
 <h1 id="Windows-API"><a href="#Windows-API" class="headerlink" title="Windows API"></a>Windows API</h1><p>Windows 提供了应用程序可利用的丰富的函数调用，这些函数采用<font color="red">动态链接库(即DLL)</font>的形式实现。<br>三个主要的动态链接库：<font color="red">kernel32.dll、user32.dll、gdi32.dll</font>，分别提供操作系统核心功能服务、用户接口、图形设备接口。</p>
 <a id="more"></a>
 <h1 id="API常见函数"><a href="#API常见函数" class="headerlink" title="API常见函数"></a>API常见函数</h1><h2 id="MessageBox"><a href="#MessageBox" class="headerlink" title="MessageBox"></a>MessageBox</h2><p>在user32.dll用户模块中，<font color="red">创建和显示信息框</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MessageBox</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">  HWND hWnd,         <span class="comment">//父窗口句柄</span></span></span></div><div class="line"><span class="function"><span class="params">  LPCTSTR IpTest,    <span class="comment">//消息框文本地址（内容）</span></span></span></div><div class="line"><span class="function"><span class="params">  LPCTSTR IpCation,  <span class="comment">//消息框标题地址</span></span></span></div><div class="line"><span class="function"><span class="params">  UNIT uType         <span class="comment">//消息框样式</span></span></span></div><div class="line"><span class="function"><span class="params">)</span></span>;</div></pre></td></tr></table></figure></p>

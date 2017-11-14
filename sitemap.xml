@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://evilpwn.me/2017/windows_reverse/</loc>
+    
+    <lastmod>2017-11-14T14:13:33.109Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://evilpwn.me/2017/Python-file-and-dict/</loc>
     
-    <lastmod>2017-11-14T14:03:56.932Z</lastmod>
+    <lastmod>2017-11-14T14:08:49.952Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>https://evilpwn.me/2017/PE-file/</loc>
     
     <lastmod>2017-08-12T23:01:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://evilpwn.me/2017/windows_reverse/</loc>
-    
-    <lastmod>2017-08-12T21:55:44.000Z</lastmod>
     
   </url>
   
