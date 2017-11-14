@@ -111,10 +111,11 @@
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_02.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_03.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_04.PNG">
+<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_12.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_05.jpg">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_06.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_07.PNG">
-<meta property="og:updated_time" content="2017-11-13T17:54:37.886Z">
+<meta property="og:updated_time" content="2017-11-14T06:30:52.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解OSPF开放式最短路径优先协议">
 <meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
@@ -602,7 +603,36 @@
 </blockquote>
 <p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_04.PNG" alt="SPF算法"><br>SPF算法也称Dijkstra算法（Dijkstra发明的），是OSPF路由协议的基础。</p>
 <p>。。。。。。待补充。。。。。。</p>
-<h1 id="OSPF报文类型"><a href="#OSPF报文类型" class="headerlink" title="OSPF报文类型"></a>OSPF报文类型</h1><h1 id="邻居状态和数据库同步"><a href="#邻居状态和数据库同步" class="headerlink" title="邻居状态和数据库同步"></a>邻居状态和数据库同步</h1><h1 id="OSPF区域"><a href="#OSPF区域" class="headerlink" title="OSPF区域"></a>OSPF区域</h1><h1 id="虚链路（Virtual-Link）"><a href="#虚链路（Virtual-Link）" class="headerlink" title="虚链路（Virtual Link）"></a>虚链路（Virtual Link）</h1><p>OSPF协议中要求每个区域与骨干区域（Area 0）必须直接相连，但是实际组网中，网络情况非常的复杂，有时候在划分区域时，无法保证每个区域都满足这个要求。这个时候就需要使用<font color="red">虚链接（Virtual Link）</font>技术来解决这个问题。</p>
+<h1 id="OSPF报文类型"><a href="#OSPF报文类型" class="headerlink" title="OSPF报文类型"></a>OSPF报文类型</h1><h1 id="邻居状态和数据库同步"><a href="#邻居状态和数据库同步" class="headerlink" title="邻居状态和数据库同步"></a>邻居状态和数据库同步</h1><h1 id="OSPF区域"><a href="#OSPF区域" class="headerlink" title="OSPF区域"></a>OSPF区域</h1><p>将OSPF创建为层次结构的原因包括:</p>
+<ul>
+<li>减少路由选择的开销</li>
+<li>加速会聚（收敛）</li>
+<li>用单一的网络地区来缩小网络的不稳定性</li>
+</ul>
+<p>OSPF区域是一组逻辑上的的OSPF路由器，每个区域都是通过自己的链路状态数据库描述的，而且每台路由器也都只需要维护路由器本身所在的区域的链路状态数据库。</p>
+<h2 id="双层层次化"><a href="#双层层次化" class="headerlink" title="双层层次化"></a>双层层次化</h2><p>OSPF的网络设计要求是双层层次化（2-layer hierarchy），包括如下2层：</p>
+<ul>
+<li><font color="red">中转区域（Backbone或area 0，也叫骨干区域)</font></li>
+<li><font color="red">常规区域（Nonbackbone或areas)</font>
+
+</li>
+</ul>
+<h3 id="中转区域（骨干区域）"><a href="#中转区域（骨干区域）" class="headerlink" title="中转区域（骨干区域）"></a>中转区域（骨干区域）</h3><p>中转区域主要功能是IP包快速和有效的传输，它互连OSPF其他区域，一般不会出现端用户。</p>
+<h3 id="常规区域"><a href="#常规区域" class="headerlink" title="常规区域"></a>常规区域</h3><p>常规区域主要功能是连接用户和资源，一般根据功能和地理位置划分。一般不允许其他区域的流量通过它到达另一个区域，必须穿越中转区域。</p>
+<h2 id="区域特征"><a href="#区域特征" class="headerlink" title="区域特征"></a>区域特征</h2><ul>
+<li>减少了路由选择表条目。</li>
+<li>将区域内拓扑变化的影响限制在本地。</li>
+<li>将LSA扩散限制在区域内。</li>
+<li>要求采取层次网络设计。</li>
+</ul>
+<p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_12.PNG" alt="OSPF区域"><br>A,B骨干路由器，C,D,E是ABR（区域边界路由器）</p>
+<p>ABR特征：</p>
+<ul>
+<li>分隔LSA泛洪的区域</li>
+<li>是区域间路由汇总的位置</li>
+<li>为每个区域维护LSDB</li>
+</ul>
+<h1 id="虚链路（Virtual-Link）"><a href="#虚链路（Virtual-Link）" class="headerlink" title="虚链路（Virtual Link）"></a>虚链路（Virtual Link）</h1><p>OSPF协议中，骨干区域（Area 0）必须连续，同时也要求每个区域与骨干区域必须直接相连，但是实际组网中，网络情况非常的复杂，有时候在划分区域时，无法保证每个区域都满足这个要求。这个时候就需要使用<font color="red">虚链接（Virtual Link）</font>技术来解决这个问题。</p>
 <blockquote>
 <p>常规区域只能和骨干区域交换LSA，常规区域与常规区域之间即使直连也无法互换LSA，</p>
 </blockquote>
@@ -810,7 +840,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP缺陷"><span class="nav-number">1.</span> <span class="nav-text">RIP缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以跳数评估的路由并非最优路径"><span class="nav-number">1.1.</span> <span class="nav-text">以跳数评估的路由并非最优路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大跳数16导致网络尺度小"><span class="nav-number">1.2.</span> <span class="nav-text">最大跳数16导致网络尺度小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收敛速度慢"><span class="nav-number">1.3.</span> <span class="nav-text">收敛速度慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新发送全部路由表浪费网络资源"><span class="nav-number">1.4.</span> <span class="nav-text">更新发送全部路由表浪费网络资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路状态路由协议的特点"><span class="nav-number">2.</span> <span class="nav-text">链路状态路由协议的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF工作机制"><span class="nav-number">3.</span> <span class="nav-text">OSPF工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF对比RIP"><span class="nav-number">3.1.</span> <span class="nav-text">OSPF对比RIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF邻居关系"><span class="nav-number">3.2.</span> <span class="nav-text">OSPF邻居关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF泛洪机制"><span class="nav-number">3.3.</span> <span class="nav-text">OSPF泛洪机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF路由类型"><span class="nav-number">3.4.</span> <span class="nav-text">OSPF路由类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSDB"><span class="nav-number">3.5.</span> <span class="nav-text">LSDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPF算法"><span class="nav-number">3.6.</span> <span class="nav-text">SPF算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF报文类型"><span class="nav-number">4.</span> <span class="nav-text">OSPF报文类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#邻居状态和数据库同步"><span class="nav-number">5.</span> <span class="nav-text">邻居状态和数据库同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF区域"><span class="nav-number">6.</span> <span class="nav-text">OSPF区域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚链路（Virtual-Link）"><span class="nav-number">7.</span> <span class="nav-text">虚链路（Virtual Link）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模型"><span class="nav-number">7.1.</span> <span class="nav-text">常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#骨干区域被分割"><span class="nav-number">7.1.1.</span> <span class="nav-text">骨干区域被分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非骨干区域无法和骨干区域保持连通"><span class="nav-number">7.1.2.</span> <span class="nav-text">非骨干区域无法和骨干区域保持连通</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF网络类型"><span class="nav-number">8.</span> <span class="nav-text">OSPF网络类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF基本配置"><span class="nav-number">9.</span> <span class="nav-text">OSPF基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP缺陷"><span class="nav-number">1.</span> <span class="nav-text">RIP缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以跳数评估的路由并非最优路径"><span class="nav-number">1.1.</span> <span class="nav-text">以跳数评估的路由并非最优路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大跳数16导致网络尺度小"><span class="nav-number">1.2.</span> <span class="nav-text">最大跳数16导致网络尺度小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收敛速度慢"><span class="nav-number">1.3.</span> <span class="nav-text">收敛速度慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新发送全部路由表浪费网络资源"><span class="nav-number">1.4.</span> <span class="nav-text">更新发送全部路由表浪费网络资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路状态路由协议的特点"><span class="nav-number">2.</span> <span class="nav-text">链路状态路由协议的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF工作机制"><span class="nav-number">3.</span> <span class="nav-text">OSPF工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF对比RIP"><span class="nav-number">3.1.</span> <span class="nav-text">OSPF对比RIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF邻居关系"><span class="nav-number">3.2.</span> <span class="nav-text">OSPF邻居关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF泛洪机制"><span class="nav-number">3.3.</span> <span class="nav-text">OSPF泛洪机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF路由类型"><span class="nav-number">3.4.</span> <span class="nav-text">OSPF路由类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSDB"><span class="nav-number">3.5.</span> <span class="nav-text">LSDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPF算法"><span class="nav-number">3.6.</span> <span class="nav-text">SPF算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF报文类型"><span class="nav-number">4.</span> <span class="nav-text">OSPF报文类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#邻居状态和数据库同步"><span class="nav-number">5.</span> <span class="nav-text">邻居状态和数据库同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF区域"><span class="nav-number">6.</span> <span class="nav-text">OSPF区域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#双层层次化"><span class="nav-number">6.1.</span> <span class="nav-text">双层层次化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中转区域（骨干区域）"><span class="nav-number">6.1.1.</span> <span class="nav-text">中转区域（骨干区域）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常规区域"><span class="nav-number">6.1.2.</span> <span class="nav-text">常规区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区域特征"><span class="nav-number">6.2.</span> <span class="nav-text">区域特征</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚链路（Virtual-Link）"><span class="nav-number">7.</span> <span class="nav-text">虚链路（Virtual Link）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模型"><span class="nav-number">7.1.</span> <span class="nav-text">常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#骨干区域被分割"><span class="nav-number">7.1.1.</span> <span class="nav-text">骨干区域被分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非骨干区域无法和骨干区域保持连通"><span class="nav-number">7.1.2.</span> <span class="nav-text">非骨干区域无法和骨干区域保持连通</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF网络类型"><span class="nav-number">8.</span> <span class="nav-text">OSPF网络类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF基本配置"><span class="nav-number">9.</span> <span class="nav-text">OSPF基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
