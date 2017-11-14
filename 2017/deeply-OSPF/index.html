@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_05.jpg">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_06.PNG">
 <meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_07.PNG">
-<meta property="og:updated_time" content="2017-11-14T06:30:52.139Z">
+<meta property="og:updated_time" content="2017-11-14T14:27:29.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解OSPF开放式最短路径优先协议">
 <meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
@@ -431,6 +431,7 @@
 <p>RTA和RTB收到路由不可达信息后进入抑制时间<br>抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新</p>
 <h2 id="更新发送全部路由表浪费网络资源"><a href="#更新发送全部路由表浪费网络资源" class="headerlink" title="更新发送全部路由表浪费网络资源"></a>更新发送全部路由表浪费网络资源</h2><p><img src="http://opkltmtvx.bkt.clouddn.com/deeply_OSPF_11.PNG" alt="收敛速度慢"></p>
 <p>假设RTA和RTB各有1000条路由，每条路由需占用20个字节<br>每次路由更新时，RTA和RTB之间单向需消耗至少160Kb的带宽资源</p>
+<p>由此可见，RIP协议并不适合大规模的网络，OSPF可以很好地解决了上述问题，因此得到广泛使用。</p>
 <h1 id="链路状态路由协议的特点"><a href="#链路状态路由协议的特点" class="headerlink" title="链路状态路由协议的特点"></a>链路状态路由协议的特点</h1><ul>
 <li>对网络发生的变化能够快速响应。</li>
 <li>当网络发生变化的时候发送触发式更新（triggered update）。</li>
