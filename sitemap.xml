@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://evilpwn.me/uploads/icos/manifest.json</loc>
+    
+    <lastmod>2017-11-15T04:43:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://evilpwn.me/2017/deeply-OSPF/</loc>
     
     <lastmod>2017-11-14T14:27:29.329Z</lastmod>
