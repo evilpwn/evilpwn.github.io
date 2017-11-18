@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="文件 存储在外部介质上的数据或信息集合 有序的数据序列  常用的编码ASCII码 7位二进制位编码 表示128个字符 最通用的单字节编码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-14T14:08:49.952Z">
+<meta property="og:updated_time" content="2017-11-18T14:48:30.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python文件与字典">
 <meta name="twitter:description" content="文件 存储在外部介质上的数据或信息集合 有序的数据序列  常用的编码ASCII码 7位二进制位编码 表示128个字符 最通用的单字节编码">
@@ -359,15 +359,17 @@
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/Python-file-and-dict/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/Python-file-and-dict/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/Python-file-and-dict/" itemprop="commentsCount"></span>
                 </a>
               </span>
+              <!--/noindex-->
             
           
 
@@ -467,7 +469,75 @@
 <li>二进制文件编码是变长的，灵活利用率高。</li>
 <li>不同二进制文件解码方式不同。</li>
 </ul>
-<h1 id="文件的处理"><a href="#文件的处理" class="headerlink" title="文件的处理"></a>文件的处理</h1><h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1>
+<h1 id="文件的处理"><a href="#文件的处理" class="headerlink" title="文件的处理"></a>文件的处理</h1><ul>
+<li>打开文件<ul>
+<li>建立磁盘上的文件与程序中的对象相关联</li>
+<li>通过相关的文件对象获得</li>
+</ul>
+</li>
+<li>文件操作<ul>
+<li>读取</li>
+<li>写入</li>
+<li>定位</li>
+<li>其他：追加、计算</li>
+</ul>
+</li>
+<li>关闭文件<ul>
+<li>切断文件与程序的联系</li>
+<li>写入磁盘，并释放文件缓冲区</li>
+</ul>
+</li>
+</ul>
+<h2 id="打开文件-open"><a href="#打开文件-open" class="headerlink" title="打开文件 open()"></a>打开文件 open()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;variable&gt; = open(&lt;name&gt;, &lt;mode&gt;)</div><div class="line">&lt;name&gt;磁盘文件名</div><div class="line">&lt;mode&gt;打开模式</div><div class="line"></div><div class="line">infile = open (“numbers.dat”, “r”)</div><div class="line">infile = open (“music.mp3”, “rb”)</div></pre></td></tr></table></figure>
+<p><b>打开模式</b></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">r</td>
+<td>只读</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td>只写</td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td>附加文件末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">rb</td>
+<td>只读二进制</td>
+</tr>
+<tr>
+<td style="text-align:center">wb</td>
+<td>只写二进制</td>
+</tr>
+<tr>
+<td style="text-align:center">ab</td>
+<td>附加到二进制文件末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">r+</td>
+<td>读写</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>若文件不存在，w会创建，其他的（包括rw，r+）都会报错。</p>
+</blockquote>
+<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><ul>
+<li>read([size])<br>从文件读取指定的字符数，如果未给定或为负则读取所有。</li>
+<li>readline([size])<br>读取整行，包括 “\n” 字符，若size小于1行的字符，则读到size处。</li>
+<li>readlines()<br>返回值为整个文件内容的<font color="red">列表</font>，每项是以换行符为结尾的一行字符串。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">file=open(<span class="string">"1.txt"</span>,<span class="string">"r"</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    line=file.readline()</div><div class="line">    print(line[:<span class="number">-1</span>])    <span class="comment"># ①</span></div><div class="line">file.close()</div><div class="line">------</div><div class="line"><span class="number">123</span></div><div class="line"><span class="number">456</span></div><div class="line"><span class="number">789</span></div><div class="line">------</div><div class="line">① 若print(line)，则会输出“\n”：</div><div class="line"><span class="number">123</span></div><div class="line"></div><div class="line"><span class="number">456</span></div><div class="line"></div><div class="line"><span class="number">789</span></div><div class="line"></div><div class="line">------</div></pre></td></tr></table></figure>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1>
       
     </div>
     
@@ -544,9 +614,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="hypercomments_widget"></div>
     </div>
 
   
@@ -674,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的编码"><span class="nav-number">1.1.</span> <span class="nav-text">常用的编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII码"><span class="nav-number">1.1.1.</span> <span class="nav-text">ASCII码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8"><span class="nav-number">1.1.3.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBK编码"><span class="nav-number">1.1.4.</span> <span class="nav-text">GBK编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件数据"><span class="nav-number">1.2.</span> <span class="nav-text">文件数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本文件"><span class="nav-number">1.2.1.</span> <span class="nav-text">文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">1.2.3.</span> <span class="nav-text">对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件的处理"><span class="nav-number">2.</span> <span class="nav-text">文件的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">3.</span> <span class="nav-text">字典</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的编码"><span class="nav-number">1.1.</span> <span class="nav-text">常用的编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII码"><span class="nav-number">1.1.1.</span> <span class="nav-text">ASCII码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode"><span class="nav-number">1.1.2.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8"><span class="nav-number">1.1.3.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBK编码"><span class="nav-number">1.1.4.</span> <span class="nav-text">GBK编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件数据"><span class="nav-number">1.2.</span> <span class="nav-text">文件数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本文件"><span class="nav-number">1.2.1.</span> <span class="nav-text">文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">1.2.3.</span> <span class="nav-text">对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件的处理"><span class="nav-number">2.</span> <span class="nav-text">文件的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件-open"><span class="nav-number">2.1.</span> <span class="nav-text">打开文件 open()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读取"><span class="nav-number">2.2.</span> <span class="nav-text">文件读取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">3.</span> <span class="nav-text">字典</span></a></li></ol></div>
             
 
           </div>
@@ -838,59 +906,36 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 97961, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 97961, xid: "2017/Python-file-and-dict/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/97961/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
 
 
 
 
-  
 
 
 
 
 
-  
-
-
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'evilpwn',
-            repo: 'evilpwn.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
-            
-                client_id: '25b4d4d800924f5824fd'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 

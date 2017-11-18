@@ -361,15 +361,17 @@
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/windows_reverse/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/windows_reverse/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/windows_reverse/" itemprop="commentsCount"></span>
                 </a>
               </span>
+              <!--/noindex-->
             
           
 
@@ -413,7 +415,7 @@
 </li>
 </ul>
 <blockquote>
-<p>更多编码详解见我的另一篇文章：<a href="/2017/Python-file-and-dict/" title="[Python文件与字典]">[Python文件与字典]</a> 中“常用的编码”。</p>
+<p>更多编码详解见我的另一篇文章： 中“常用的编码”。</p>
 </blockquote>
 <h1 id="Windows-API"><a href="#Windows-API" class="headerlink" title="Windows API"></a>Windows API</h1><p>Windows 提供了应用程序可利用的丰富的函数调用，这些函数采用<font color="red">动态链接库(即DLL)</font>的形式实现。<br>三个主要的动态链接库：<font color="red">kernel32.dll、user32.dll、gdi32.dll</font>，分别提供操作系统核心功能服务、用户接口、图形设备接口。</p>
 <a id="more"></a>
@@ -498,9 +500,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="hypercomments_widget"></div>
     </div>
 
   
@@ -792,59 +792,36 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 97961, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 97961, xid: "2017/windows_reverse/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/97961/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
 
 
 
 
-  
 
 
 
 
 
-  
-
-
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'evilpwn',
-            repo: 'evilpwn.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
-            
-                client_id: '25b4d4d800924f5824fd'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="路由,RIP协议," />
+  <meta name="keywords" content="RIP协议,路由," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="RIP协议RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。 使用距离矢量来决定最优路径 跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。 下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把">
-<meta name="keywords" content="路由,RIP协议">
+<meta name="keywords" content="RIP协议,路由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RIP协议">
 <meta property="og:url" content="https://evilpwn.me/2017/RIP/index.html">
@@ -369,15 +369,17 @@
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/RIP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/RIP/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/RIP/" itemprop="commentsCount"></span>
                 </a>
               </span>
+              <!--/noindex-->
             
           
 
@@ -608,9 +610,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/路由/" rel="tag"># 路由</a>
-          
             <a href="/tags/RIP协议/" rel="tag"># RIP协议</a>
+          
+            <a href="/tags/路由/" rel="tag"># 路由</a>
           
         </div>
       
@@ -666,9 +668,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="hypercomments_widget"></div>
     </div>
 
   
@@ -960,59 +960,36 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 97961, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 97961, xid: "2017/RIP/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/97961/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
 
 
 
 
-  
 
 
 
 
 
-  
-
-
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'evilpwn',
-            repo: 'evilpwn.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '82b611af85fbdd2ec46721008cbcc62a744bcde2',
-            
-                client_id: '25b4d4d800924f5824fd'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
