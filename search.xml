@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[鹤形拆字]]></title>
+    <url>%2F2017%2Fhe_xing%2F</url>
+    <content type="text"><![CDATA[学习拆字时，才发现自己的汉字功底有多差啊，好多偏旁不认识，真对不起小学语文老师。。。。。 笔画部件字根图 小字根中一些不熟悉的字： 柬jiǎn、耒lěi、爿pán、豕shǐ、豸zhì、臾yú、聿yù、臼jiù、弋yì、戋jiān、廿niàn、巳sì、氏shì、氐dī、酉yǒu、夭yāo、禺yú 错字记录 字 全码 首形 末形 缺 qtfn 缶 捺 泰 tdfu 丰变形 氺 荼 tuch 艹 余下部(禾) 鼠 uujv 臼[jiù] 折 浅 qmdj 氵 戋[jiān] 耕 gglj 耒[lěi] 井 革 genl 廿（niàn） 竖 奘 zhpd 爿[pán] 大 切 qpqd 七 刀 肉 rznr 内 人 导 dcsc 巳[sì] 寸 丧 shun 十 捺 豹 bcvu 豸[zhì] 勺 逐 vuzu 辶 豕[shǐ] 氐 diud 氏 点 佚 yiru 亻 失 趸 dywr 万 人 缶 fzwk 午 凵 成 igwv 戊 折 咸 xmxk 戌 口 醒 xkyu 酉[yǒu] 生 乔 qnyl 夭[yāo] 竖 幻 hryv 幺 折 偶 oury 亻 禺[yú] 式 uiyg 弋[yì] 工 律 lviy 彳 聿[yù] 拽 vkfy 扌 曳 甜 tmqg 千 甘 乘 igqn 千 捺 哥 gedk 丁 口]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[深入理解OSPF开放式最短路径优先协议]]></title>
     <url>%2F2017%2Fdeeply-OSPF%2F</url>
     <content type="text"><![CDATA[RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源 以跳数评估的路由并非最优路径 如果RTA选择S0/0传输，传输需时会大大缩短为3s 最大跳数16导致网络尺度小 RIP协议限制网络直径不能超过16跳！ 收敛速度慢 RTA和RTB收到路由不可达信息后进入抑制时间抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新 更新发送全部路由表浪费网络资源 假设RTA和RTB各有1000条路由，每条路由需占用20个字节每次路由更新时，RTA和RTB之间单向需消耗至少160Kb的带宽资源 由此可见，RIP协议并不适合大规模的网络，OSPF可以很好地解决了上述问题，因此得到广泛使用。 链路状态路由协议的特点 对网络发生的变化能够快速响应。 当网络发生变化的时候发送触发式更新（triggered update）。 发送周期性更新（链路状态刷新），间隔时间为30分钟。 OSPF是一种链路状态路由选择协议。 链路状态路由协议只在网络拓扑发生变化以后产生路由更新。链路状态发生变化后，检测到变化的路由器生成并发送LSA（Link-State Advertisement，链路状态通告），并通过组播地址发送给所有的邻居路由器。接受到LSA的每个路由器会复制一份LSA，更新它自己的LSDB（Link-State Database），再将LSA转发给其他邻居。这种扩散机制被称为泛洪（Flooding）。 OSPF必须维护以下信息： 邻居表（neighbor table）：也叫邻接数据库（adjacency database）。存储了邻居路由器的信息，如果一个OSPF路由器和它的邻居路由器失去联系，在几秒中的时间内，它会标记所有到达那条路由均为无效并且重新计算到达目标网络的路径。 拓扑表（topology table）：一般叫做LSDB，OSPF路由器通过LSA学习到其他的路由器和网络状况,LSA存储在LSDB中。 路由表（routing table）：也就是我们所说的路由表了，也叫forwarding database，包含了到达目标网络的最佳路径的信息。 链路状态路由协议和距离矢量路由协议（OSPF和RIP）的一个重要区别：距离矢量路由协议是基于流言的路由协议（Routing By Rumors）,即：距离矢量路由协议依靠邻居发给它的信息来作路由决策，而且路由器不需要保持完整的网络信息。而链路状态路由协议的路由器拥有完整的网络信息，而且每个路由器自己做出路由决策。 OSPF工作机制OSPF对比RIPOSPF不再采用跳数的概念，而是根据接口的吞吐率、拥塞状况、往返时间、可靠性等实际链路的负载能力定出路由的代价，同时选择最短、最优路由并允许保持到达同一目标地址的多条路由，从而平衡网络负荷；OSPF支持不同服务类型的不同代价，从而实现不同QoS的路由服务；OSPF路由器不再交换路由表，而是同步各路由器对网络状态的认识。 特性 OSPF RIPv2 RIPv1 协议类型 链路状态 距离矢量 距离矢量 无类支持 是 是 否 VLSM支持 是 是 否 自动汇总 否 是 是 手动汇总 是 否 否 不连继支持 是 是 否 路由转播 可变化转播 周期性转播 周期性转播 路由度量 宽带 跳 跳 跳计数限制 无 15 15 会聚 快 慢 慢 对等认证 是 是 否 分层网络 是（使用地区） 否（只是平面） 否（只是平面） 更新 事件触发 路由表更新 路由表更新 路由计算 Dijkstra Bellman-Ford Bellman-Ford OSPF邻居关系广播网络中的Hello报文：交换Hello报文进行邻接： 路由器和别的路由器交换hello包,目标地址采用多播地址 hello包交换完毕，邻接关系形成。 接下来通过交换LSA和对接收方的确认进行同步LSDB。对于OSPF路由器而言，进入完全邻接状态。 如果需要的话，路由器转发新的LSA给其他的邻居，来保证整个区域内LSDB的完全同步。 OSPF泛洪机制LSA工作原理： OSPF路由类型。。。。。。待补充。。。。。。 LSDBLSA：描述本地路由器或网络的数据单元，对路由器来说，它描述了路由器的接口状态和邻接状态。 LSA类型 描述 1类 路由器LSA 2类 网络LSA 3类和4类 汇总LSA 5类 AS外部LSA 6类 组播OSPF LSA 7类 为次未节区域定义的 8类 BGP的外部属性LSA 9、10或11类 不透明LSA SPF算法 在地区内部,每台路由器都计算到达同一地区中每个网络的最佳/最短路径。这种计算基于拓扑数据库中收集的信息和一种称为最短路径优先(SPF)的算法。假想地区中的每台路由器都会构造一棵树,很像是一棵家谱树,在那里该路由器就是树根,而其他网络则沿树枝和树叶被编排。最短路径树被路由器用来将路由插人到路由表中。如果某个路由器的接口存在于多个地区中,那么需要为每个地区都构建一棵单独的树。在路由器执行SPF算法时,一个关键标准是去往某网络的每个潜在路径的度量或开销值。 SPF算法也称Dijkstra算法（Dijkstra发明的），是OSPF路由协议的基础。 。。。。。。待补充。。。。。。 OSPF报文类型邻居状态和数据库同步OSPF区域将OSPF创建为层次结构的原因包括: 减少路由选择的开销 加速会聚（收敛） 用单一的网络地区来缩小网络的不稳定性 OSPF区域是一组逻辑上的的OSPF路由器，每个区域都是通过自己的链路状态数据库描述的，而且每台路由器也都只需要维护路由器本身所在的区域的链路状态数据库。 双层层次化OSPF的网络设计要求是双层层次化（2-layer hierarchy），包括如下2层： 中转区域（Backbone或area 0，也叫骨干区域) 常规区域（Nonbackbone或areas) 中转区域（骨干区域）中转区域主要功能是IP包快速和有效的传输，它互连OSPF其他区域，一般不会出现端用户。 常规区域常规区域主要功能是连接用户和资源，一般根据功能和地理位置划分。一般不允许其他区域的流量通过它到达另一个区域，必须穿越中转区域。 区域特征 减少了路由选择表条目。 将区域内拓扑变化的影响限制在本地。 将LSA扩散限制在区域内。 要求采取层次网络设计。 A,B骨干路由器，C,D,E是ABR（区域边界路由器） ABR特征： 分隔LSA泛洪的区域 是区域间路由汇总的位置 为每个区域维护LSDB 虚链路（Virtual Link）OSPF协议中，骨干区域（Area 0）必须连续，同时也要求每个区域与骨干区域必须直接相连，但是实际组网中，网络情况非常的复杂，有时候在划分区域时，无法保证每个区域都满足这个要求。这个时候就需要使用虚链接（Virtual Link）技术来解决这个问题。 常规区域只能和骨干区域交换LSA，常规区域与常规区域之间即使直连也无法互换LSA， 虚连接是指在两台ABR（Area Border Routers，区域边界路由器）之间，穿过一个非骨干区域（也称为转换区域，Transit Area），建立的一条逻辑上的连接通道（须在两端的ABR上同时配置）。如上图，在路由器C和路由器E之间建立了一条虚链接，使Area 3和骨干区域Area 0之间有了逻辑连接，Area 1为转换区域。“逻辑通道”是指两台ABR之间的其它运行OSPF的路由器只是转发报文，相当于在两个ABR之间形成了一个点到点的连接。因此在这个连接上，和物理接口一样可以配置接口的各类参数。 常见模型骨干区域被分割 非骨干区域无法和骨干区域保持连通 OSPF网络类型OSPF基本配置总结]]></content>
@@ -84,8 +92,8 @@
         <category>路由与交换</category>
       </categories>
       <tags>
-        <tag>路由</tag>
         <tag>H3C</tag>
+        <tag>路由</tag>
       </tags>
   </entry>
   <entry>
@@ -96,8 +104,8 @@
         <category>路由与交换</category>
       </categories>
       <tags>
-        <tag>路由</tag>
         <tag>H3C</tag>
+        <tag>路由</tag>
       </tags>
   </entry>
   <entry>
@@ -137,7 +145,7 @@
   <entry>
     <title><![CDATA[Windows逆向基础]]></title>
     <url>%2F2017%2Fwindows_reverse%2F</url>
-    <content type="text"><![CDATA[ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00 6f 00 6f 00 64 00 （左低右高） 更多编码详解见我的另一篇文章： 中“常用的编码”。 Windows APIWindows 提供了应用程序可利用的丰富的函数调用，这些函数采用动态链接库(即DLL)的形式实现。三个主要的动态链接库：kernel32.dll、user32.dll、gdi32.dll，分别提供操作系统核心功能服务、用户接口、图形设备接口。 API常见函数MessageBox在user32.dll用户模块中，创建和显示信息框。123456int MessageBox( HWND hWnd, //父窗口句柄 LPCTSTR IpTest, //消息框文本地址（内容） LPCTSTR IpCation, //消息框标题地址 UNIT uType //消息框样式); 根据用户单击了的按钮返回一个整数值。ANSI版是MessageBoxA，Unicode版是MessageBoxW。 句柄Windows程序中，用来标识应用程序中的不同对象和同类中的不同的实例，如：一个窗口，按钮，图标，滚动条，输出设备，控件或者文件等。应用程序能够通过句柄访问相应的对象的信息，但句柄不是指针，程序不能利用句柄来直接阅读文件中的信息。句柄是Windows用来标志应用程序中建立的或是使用的唯一整数，Windows大量使用了句柄来标识对象。 GetDlgItemText在user32.dll用户模块中，获取对话框文本。123456Unit GetDlgItemText( HWND hDlg, //对话框句柄 int nlDDlgItem, //控件标识（ID号） LPCTSTR IpString, //文本缓冲区指针 int nMaxCount //字符缓冲区的长度); 执行成功返回缓冲区字符个数，失败返回0ANSI版是GetDlgItemTexA，Unicode版是GetDlgItemTexW。 Windows消息机制Windows是一个消息（Message）驱动的系统。Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。应用程序想要实现的功能由消息来触发，并且靠对消息的相应和处理来完成功能。Windows中，有两种消息队列：系统队列、应用程序消息队列。一个事件的发生，到达处理它的窗口函数，必须经过如下过程：]]></content>
+    <content type="text"><![CDATA[ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00 6f 00 6f 00 64 00 （左低右高） 更多编码详解见我的另一篇文章：[Python文件与字典] 中“常用的编码”。 Windows APIWindows 提供了应用程序可利用的丰富的函数调用，这些函数采用动态链接库(即DLL)的形式实现。三个主要的动态链接库：kernel32.dll、user32.dll、gdi32.dll，分别提供操作系统核心功能服务、用户接口、图形设备接口。 API常见函数MessageBox在user32.dll用户模块中，创建和显示信息框。123456int MessageBox( HWND hWnd, //父窗口句柄 LPCTSTR IpTest, //消息框文本地址（内容） LPCTSTR IpCation, //消息框标题地址 UNIT uType //消息框样式); 根据用户单击了的按钮返回一个整数值。ANSI版是MessageBoxA，Unicode版是MessageBoxW。 句柄Windows程序中，用来标识应用程序中的不同对象和同类中的不同的实例，如：一个窗口，按钮，图标，滚动条，输出设备，控件或者文件等。应用程序能够通过句柄访问相应的对象的信息，但句柄不是指针，程序不能利用句柄来直接阅读文件中的信息。句柄是Windows用来标志应用程序中建立的或是使用的唯一整数，Windows大量使用了句柄来标识对象。 GetDlgItemText在user32.dll用户模块中，获取对话框文本。123456Unit GetDlgItemText( HWND hDlg, //对话框句柄 int nlDDlgItem, //控件标识（ID号） LPCTSTR IpString, //文本缓冲区指针 int nMaxCount //字符缓冲区的长度); 执行成功返回缓冲区字符个数，失败返回0ANSI版是GetDlgItemTexA，Unicode版是GetDlgItemTexW。 Windows消息机制Windows是一个消息（Message）驱动的系统。Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。应用程序想要实现的功能由消息来触发，并且靠对消息的相应和处理来完成功能。Windows中，有两种消息队列：系统队列、应用程序消息队列。一个事件的发生，到达处理它的窗口函数，必须经过如下过程：]]></content>
       <categories>
         <category>reverse</category>
       </categories>
@@ -223,8 +231,8 @@
         <category>路由与交换</category>
       </categories>
       <tags>
-        <tag>RIP协议</tag>
         <tag>路由</tag>
+        <tag>RIP协议</tag>
       </tags>
   </entry>
   <entry>
@@ -305,8 +313,8 @@
         <category>oracle</category>
       </categories>
       <tags>
-        <tag>sqlplus</tag>
         <tag>oracle</tag>
+        <tag>sqlplus</tag>
       </tags>
   </entry>
   <entry>
