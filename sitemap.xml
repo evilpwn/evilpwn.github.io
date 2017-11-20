@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://evilpwn.me/2017/he_xing/</loc>
+    <loc>https://evilpwn.me/2017/Python-file-and-dict/</loc>
     
-    <lastmod>2017-11-19T15:45:13.629Z</lastmod>
+    <lastmod>2017-11-20T12:28:23.190Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://evilpwn.me/2017/Python-file-and-dict/</loc>
+    <loc>https://evilpwn.me/2017/Python-turtle/</loc>
     
-    <lastmod>2017-11-18T15:50:53.507Z</lastmod>
+    <lastmod>2017-11-20T12:11:58.710Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://evilpwn.me/2017/Python-built-in-functions/</loc>
+    
+    <lastmod>2017-11-20T11:19:09.224Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://evilpwn.me/2017/he_xing/</loc>
+    
+    <lastmod>2017-11-19T15:45:13.629Z</lastmod>
     
   </url>
   
@@ -44,23 +58,9 @@
   </url>
   
   <url>
-    <loc>https://evilpwn.me/2017/Python-turtle/</loc>
-    
-    <lastmod>2017-11-06T12:56:27.894Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://evilpwn.me/2017/Python-basic/</loc>
     
     <lastmod>2017-11-01T15:32:54.299Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://evilpwn.me/2017/Python-built-in-functions/</loc>
-    
-    <lastmod>2017-11-01T15:05:39.152Z</lastmod>
     
   </url>
   
