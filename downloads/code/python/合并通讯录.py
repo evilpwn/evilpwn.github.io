@@ -17,12 +17,12 @@ def main():
  
     for line in lines1:# 获取第一个文本中的姓名和电话信息
         elements = line.split()
-        list1_name.append(str(elements[0].decode('gbk')))
-        list1_tele.append(str(elements[1].decode('gbk')))    #将文本读出来的bytes转换为str类型
+        list1_name.append(str(elements[0].decode('gbk')))   # 将文本读出来的bytes转换为str类型
+        list1_tele.append(str(elements[1].decode('gbk')))   # 用于解码中文字符，使其正确显示
  
     for line in lines2:#获取第二个文本中的姓名和邮件信息
         elements = line.split()
-        list2_name.append(str(elements[0].decode('gbk')))  # 解码中文字符，使其正确显示
+        list2_name.append(str(elements[0].decode('gbk')))  
         list2_email.append(str(elements[1].decode('gbk')))
  
     ###开始处理###
