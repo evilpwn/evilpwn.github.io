@@ -1,6 +1,6 @@
 https://evilpwn.me/2017/he_xing/
 https://evilpwn.me/2017/deeply-OSPF/
-https://evilpwn.me/2017/Python-file-and-dict/
+https://evilpwn.me/2017/Python_file/
 https://evilpwn.me/2017/OpenGL_entry/
 https://evilpwn.me/2017/sudoers_file/
 https://evilpwn.me/2017/Server-security-operations/

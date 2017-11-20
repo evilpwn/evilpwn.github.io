@@ -2,7 +2,7 @@
 
 # 利用字符串和列表将两个通讯录文本合并为一个文本
 def main():
-    ftele1=open('TeleAddressBook.txt','rb')
+    ftele1=open('TeleAddressBook.txt','rb') # 因为文本中有中文，为了确保程序正确处理中文而不出现乱码，此处作为二进制读取
     ftele2=open('EmailAddressBook.txt','rb')
  
     ftele1.readline()# 跳过第一行
