@@ -294,6 +294,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/RIP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="evilpwn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="evilpwn's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/RIP/" itemprop="url">RIP协议</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T18:22:53+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Routing-Switching/" itemprop="url" rel="index">
+                    <span itemprop="name">路由与交换</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/RIP/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/RIP/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/RIP/" class="leancloud_visitors" data-flag-title="RIP协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h2><p>RIP是一种基于距离矢量（distance-vector）的路由协议，以路由跳数(hop)作为计数单位的路由协议。适合用于比较小型的网络环境。</p>
+<h3 id="使用距离矢量来决定最优路径"><a href="#使用距离矢量来决定最优路径" class="headerlink" title="使用距离矢量来决定最优路径"></a>使用距离矢量来决定最优路径</h3><ul>
+<li>跳数（hop count）：一个报文从本节点到目的节点中途经的中转次数，也就是一个包到达目标所必须经过的路由器的数目。</li>
+<li>下一跳（next hop）：本网上的报文欲通过本网络节点到达目的节点，如不能直接送达，则本节点应把此报文送到某个中转站点，此中转站点称为下一跳。</li>
+<li>跳（hop） ：报文转发的中转过程。</li>
+</ul>
+<h3 id="RIP特点"><a href="#RIP特点" class="headerlink" title="RIP特点"></a>RIP特点</h3><p>原理和配置方法均简单，但有时不能准确地选择最优路径，收敛的时间也较长。</p>
+<ul>
+<li>最多支持的跳数为15 ，跳数16表示不可达 </li>
+<li>跳数最小即为最优路由，跳数相同则为等代价路由</li>
+<li>使用UDP 520端口交换路由信息</li>
+<li>周期性更新，路由更新为完整的路由表</li>
+<li>路由信息每经过一个路由器，跳数加1</li>
+<li>使用多个时钟以保证路由的有效性与及时性</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/RIP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/Routing-technology/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1890,7 +2073,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1912,7 +2095,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
