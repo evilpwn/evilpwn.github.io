@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/icos/apple-touch-icon.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="逆向," />
+  <meta name="keywords" content="逆向,">
 
 
 
@@ -94,12 +94,12 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/Windows-reverse-01.PNG">
-<meta property="og:updated_time" content="2017-11-14T14:13:33.109Z">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/Windows-reverse-01.png-sign">
+<meta property="og:updated_time" content="2018-11-27T18:21:11.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows逆向基础">
 <meta name="twitter:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
-<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/Windows-reverse-01.PNG">
+<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/Windows-reverse-01.png-sign">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://evilpwn.me/2017/windows_reverse/"/>
+  <link rel="canonical" href="https://evilpwn.me/2017/windows_reverse/">
 
 
 
@@ -147,7 +147,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -157,13 +157,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
@@ -193,7 +193,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -203,7 +203,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -213,7 +213,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -223,7 +223,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -233,7 +233,7 @@
         <li class="menu-item menu-item-excerpt">
           <a href="/excerpt/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br>
             
             摘录
           </a>
@@ -246,7 +246,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -267,9 +267,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -301,20 +299,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/windows_reverse/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="evilpwn's Note">
     </span>
 
@@ -346,7 +344,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -357,7 +355,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/reverse/" itemprop="url" rel="index">
                     <span itemprop="name">reverse</span>
                   </a>
@@ -429,14 +427,14 @@
 </blockquote>
 <h1 id="Windows-API"><a href="#Windows-API" class="headerlink" title="Windows API"></a>Windows API</h1><p>Windows 提供了应用程序可利用的丰富的函数调用，这些函数采用<font color="red">动态链接库(即DLL)</font>的形式实现。<br>三个主要的动态链接库：<font color="red">kernel32.dll、user32.dll、gdi32.dll</font>，分别提供操作系统核心功能服务、用户接口、图形设备接口。</p>
 <a id="more"></a>
-<h1 id="API常见函数"><a href="#API常见函数" class="headerlink" title="API常见函数"></a>API常见函数</h1><h2 id="MessageBox"><a href="#MessageBox" class="headerlink" title="MessageBox"></a>MessageBox</h2><p>在user32.dll用户模块中，<font color="red">创建和显示信息框</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MessageBox</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">  HWND hWnd,         <span class="comment">//父窗口句柄</span></span></span></div><div class="line"><span class="function"><span class="params">  LPCTSTR IpTest,    <span class="comment">//消息框文本地址（内容）</span></span></span></div><div class="line"><span class="function"><span class="params">  LPCTSTR IpCation,  <span class="comment">//消息框标题地址</span></span></span></div><div class="line"><span class="function"><span class="params">  UNIT uType         <span class="comment">//消息框样式</span></span></span></div><div class="line"><span class="function"><span class="params">)</span></span>;</div></pre></td></tr></table></figure></p>
+<h1 id="API常见函数"><a href="#API常见函数" class="headerlink" title="API常见函数"></a>API常见函数</h1><h2 id="MessageBox"><a href="#MessageBox" class="headerlink" title="MessageBox"></a>MessageBox</h2><p>在user32.dll用户模块中，<font color="red">创建和显示信息框</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MessageBox</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  HWND hWnd,         <span class="comment">//父窗口句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">  LPCTSTR IpTest,    <span class="comment">//消息框文本地址（内容）</span></span></span></span><br><span class="line"><span class="function"><span class="params">  LPCTSTR IpCation,  <span class="comment">//消息框标题地址</span></span></span></span><br><span class="line"><span class="function"><span class="params">  UNIT uType         <span class="comment">//消息框样式</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>根据用户单击了的按钮返回一个整数值。<br>ANSI版是MessageBoxA，Unicode版是MessageBoxW。</p>
 <blockquote>
 <p><b>句柄</b><br>Windows程序中，用来标识应用程序中的不同对象和同类中的不同的实例，如：一个窗口，按钮，图标，滚动条，输出设备，控件或者文件等。<br>应用程序能够通过句柄访问相应的对象的信息，但句柄不是指针，程序不能利用句柄来直接阅读文件中的信息。<br>句柄是Windows用来标志应用程序中建立的或是使用的唯一整数，Windows大量使用了句柄来标识对象。</p>
 </blockquote>
-<h2 id="GetDlgItemText"><a href="#GetDlgItemText" class="headerlink" title="GetDlgItemText"></a>GetDlgItemText</h2><p>在user32.dll用户模块中，<font color="red">获取对话框文本</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function">Unit <span class="title">GetDlgItemText</span><span class="params">(</span></span></div><div class="line"><span class="function"><span class="params">  HWND hDlg,         <span class="comment">//对话框句柄</span></span></span></div><div class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nlDDlgItem,    <span class="comment">//控件标识（ID号）</span></span></span></div><div class="line"><span class="function"><span class="params">  LPCTSTR IpString,  <span class="comment">//文本缓冲区指针</span></span></span></div><div class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nMaxCount      <span class="comment">//字符缓冲区的长度</span></span></span></div><div class="line"><span class="function"><span class="params">)</span></span>;</div></pre></td></tr></table></figure></p>
+<h2 id="GetDlgItemText"><a href="#GetDlgItemText" class="headerlink" title="GetDlgItemText"></a>GetDlgItemText</h2><p>在user32.dll用户模块中，<font color="red">获取对话框文本</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Unit <span class="title">GetDlgItemText</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  HWND hDlg,         <span class="comment">//对话框句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nlDDlgItem,    <span class="comment">//控件标识（ID号）</span></span></span></span><br><span class="line"><span class="function"><span class="params">  LPCTSTR IpString,  <span class="comment">//文本缓冲区指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nMaxCount      <span class="comment">//字符缓冲区的长度</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>执行成功返回缓冲区字符个数，失败返回0<br>ANSI版是GetDlgItemTexA，Unicode版是GetDlgItemTexW。</p>
-<h1 id="Windows消息机制"><a href="#Windows消息机制" class="headerlink" title="Windows消息机制"></a>Windows消息机制</h1><p>Windows是一个<font color="red">消息（Message）驱动</font>的系统。<br>Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。<br>应用程序想要实现的功能<font color="red">由消息来触发</font>，并且靠<font color="red">对消息的相应和处理</font>来完成功能。<br>Windows中，有两种消息队列：系统队列、应用程序消息队列。<br>一个事件的发生，到达处理它的窗口函数，必须经过如下过程：<br><img src="http://opkltmtvx.bkt.clouddn.com/Windows-reverse-01.PNG" alt="Windows消息机制"></p>
+<h1 id="Windows消息机制"><a href="#Windows消息机制" class="headerlink" title="Windows消息机制"></a>Windows消息机制</h1><p>Windows是一个<font color="red">消息（Message）驱动</font>的系统。<br>Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。<br>应用程序想要实现的功能<font color="red">由消息来触发</font>，并且靠<font color="red">对消息的相应和处理</font>来完成功能。<br>Windows中，有两种消息队列：系统队列、应用程序消息队列。<br>一个事件的发生，到达处理它的窗口函数，必须经过如下过程：<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/Windows-reverse-01.png-sign" alt="Windows消息机制"></p>
 
       
     </div>
@@ -550,11 +548,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/avatar.jpg"
-                alt="evilpwn" />
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
               <p class="site-description motion-element" itemprop="description"></p>

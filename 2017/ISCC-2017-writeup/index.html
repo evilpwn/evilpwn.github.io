@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/icos/apple-touch-icon.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="CTF,writeup,ISCC," />
+  <meta name="keywords" content="CTF,writeup,ISCC,">
 
 
 
@@ -94,14 +94,14 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="BasicWheel Cipher（50）身为二战时期的密码专家，你截获了通信员身上的一段密文、密钥序列和加密列表。你能看懂吗？123456789101112131415ZWAXJGDLUBVIQHKYPNTCRMOSFEKPBELNACZDTRXMJQOYHGVSFUWIBDMAIZVRNSJUWFHTEQGYXPLOCKRPLNDVHGFCUKTEBSXQYIZMJWAOIHFRLABEUOT">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/iscc17-basic03.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/iscc17-TCP-2.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/basic07.png">
-<meta property="og:updated_time" content="2018-04-21T10:01:44.255Z">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/iscc17-basic03.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/iscc17-TCP-2.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/basic07.png-sign">
+<meta property="og:updated_time" content="2018-11-27T18:22:30.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISCC-2017-writeup">
 <meta name="twitter:description" content="BasicWheel Cipher（50）身为二战时期的密码专家，你截获了通信员身上的一段密文、密钥序列和加密列表。你能看懂吗？123456789101112131415ZWAXJGDLUBVIQHKYPNTCRMOSFEKPBELNACZDTRXMJQOYHGVSFUWIBDMAIZVRNSJUWFHTEQGYXPLOCKRPLNDVHGFCUKTEBSXQYIZMJWAOIHFRLABEUOT">
-<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/iscc17-basic03.png">
+<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/iscc17-basic03.png-sign">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="https://evilpwn.me/2017/ISCC-2017-writeup/"/>
+  <link rel="canonical" href="https://evilpwn.me/2017/ISCC-2017-writeup/">
 
 
 
@@ -149,7 +149,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -159,13 +159,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
@@ -195,7 +195,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -205,7 +205,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +215,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -225,7 +225,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -235,7 +235,7 @@
         <li class="menu-item menu-item-excerpt">
           <a href="/excerpt/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br>
             
             摘录
           </a>
@@ -248,7 +248,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -269,9 +269,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -303,20 +301,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/ISCC-2017-writeup/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="evilpwn's Note">
     </span>
 
@@ -348,7 +346,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -359,7 +357,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
@@ -420,42 +418,42 @@
       
 
       
-        <h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h3 id="Wheel-Cipher（50）"><a href="#Wheel-Cipher（50）" class="headerlink" title="Wheel Cipher（50）"></a>Wheel Cipher（50）</h3><p>身为二战时期的密码专家，你截获了通信员身上的一段密文、密钥序列和加密列表。你能看懂吗？<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ZWAXJGDLUBVIQHKYPNTCRMOSFE</div><div class="line">KPBELNACZDTRXMJQOYHGVSFUWI</div><div class="line">BDMAIZVRNSJUWFHTEQGYXPLOCK</div><div class="line">RPLNDVHGFCUKTEBSXQYIZMJWAO</div><div class="line">IHFRLABEUOTSGJVDKCPMNZQWXY</div><div class="line">AMKGHIWPNYCJBFZDRUSLOQXVET</div><div class="line">GWTHSPYBXIZULVKMRAFDCEONJQ</div><div class="line">NOZUTWDCVRJLXKISEFAPMYGHBQ</div><div class="line">XPLTDSRFHENYVUBMCQWAOIKZGJ</div><div class="line">UDNAJFBOWTGVRSCZQKELMXYIHP</div><div class="line">MNBVCXZQWERTPOIUYALSKDJFHG</div><div class="line">LVNCMXZPQOWEIURYTASBKJDFHG</div><div class="line">JZQAWSXCDERFVBGTYHNUMKILOP</div><div class="line">密钥为：2，3，7，5，13,12,9，1，8，10，4，11，6</div><div class="line">密文为：NFQKSEVOQOFNP</div></pre></td></tr></table></figure></p>
-<p>其实就是<a href="https://en.wikipedia.org/wiki/Jefferson_disk" target="_blank" rel="external">Jefferson disk（杰弗逊圆盘）</a><br>解密方法：<br>密钥就是转盘的位置，根据密钥排序，轮盘第一轮对应给出的密文。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2: &lt; N ACZDTRXMJQOYHGVS F UWIKPBEL &lt;</div><div class="line">3: &lt; F HTEQGYXPLOCKBDMA I ZVRNSJUW &lt;</div><div class="line">7: &lt; Q GWTHSPYBXIZULVKM R AFDCEONJ&lt;</div><div class="line">5: &lt; K CPMNZQWXYIHFRLAB E UOTSGJVD &lt;</div><div class="line">13： S XCDERFVBGTYHNUMK I LOPJZQAW &lt;</div><div class="line">12： E IURYTASBKJDFHGLV N CMXZPQOW &lt;</div><div class="line">9: &lt; V UBMCQWAOIKZGJXPL T DSRFHENY &lt;</div><div class="line">1: &lt; O SFEZWAXJGDLUBVIQ H KYPNTCRM &lt;</div><div class="line">8: &lt; Q NOZUTWDCVRJLXKIS E FAPMYGHB&lt;</div><div class="line">10: &lt;O WTGVRSCZQKELMXYI H PUDNAJFB &lt;</div><div class="line">4: &lt; F CUKTEBSXQYIZMJWA O RPLNDVHG &lt;</div><div class="line">11： N BVCXZQWERTPOIUYA L SKDJFHGM &lt;</div><div class="line">6: &lt; P NYCJBFZDRUSLOQXV E TAMKGHIW &lt;</div></pre></td></tr></table></figure></p>
+        <h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h3 id="Wheel-Cipher（50）"><a href="#Wheel-Cipher（50）" class="headerlink" title="Wheel Cipher（50）"></a>Wheel Cipher（50）</h3><p>身为二战时期的密码专家，你截获了通信员身上的一段密文、密钥序列和加密列表。你能看懂吗？<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ZWAXJGDLUBVIQHKYPNTCRMOSFE</span><br><span class="line">KPBELNACZDTRXMJQOYHGVSFUWI</span><br><span class="line">BDMAIZVRNSJUWFHTEQGYXPLOCK</span><br><span class="line">RPLNDVHGFCUKTEBSXQYIZMJWAO</span><br><span class="line">IHFRLABEUOTSGJVDKCPMNZQWXY</span><br><span class="line">AMKGHIWPNYCJBFZDRUSLOQXVET</span><br><span class="line">GWTHSPYBXIZULVKMRAFDCEONJQ</span><br><span class="line">NOZUTWDCVRJLXKISEFAPMYGHBQ</span><br><span class="line">XPLTDSRFHENYVUBMCQWAOIKZGJ</span><br><span class="line">UDNAJFBOWTGVRSCZQKELMXYIHP</span><br><span class="line">MNBVCXZQWERTPOIUYALSKDJFHG</span><br><span class="line">LVNCMXZPQOWEIURYTASBKJDFHG</span><br><span class="line">JZQAWSXCDERFVBGTYHNUMKILOP</span><br><span class="line">密钥为：2，3，7，5，13,12,9，1，8，10，4，11，6</span><br><span class="line">密文为：NFQKSEVOQOFNP</span><br></pre></td></tr></table></figure></p>
+<p>其实就是<a href="https://en.wikipedia.org/wiki/Jefferson_disk" target="_blank" rel="noopener">Jefferson disk（杰弗逊圆盘）</a><br>解密方法：<br>密钥就是转盘的位置，根据密钥排序，轮盘第一轮对应给出的密文。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2: &lt; N ACZDTRXMJQOYHGVS F UWIKPBEL &lt;</span><br><span class="line">3: &lt; F HTEQGYXPLOCKBDMA I ZVRNSJUW &lt;</span><br><span class="line">7: &lt; Q GWTHSPYBXIZULVKM R AFDCEONJ&lt;</span><br><span class="line">5: &lt; K CPMNZQWXYIHFRLAB E UOTSGJVD &lt;</span><br><span class="line">13： S XCDERFVBGTYHNUMK I LOPJZQAW &lt;</span><br><span class="line">12： E IURYTASBKJDFHGLV N CMXZPQOW &lt;</span><br><span class="line">9: &lt; V UBMCQWAOIKZGJXPL T DSRFHENY &lt;</span><br><span class="line">1: &lt; O SFEZWAXJGDLUBVIQ H KYPNTCRM &lt;</span><br><span class="line">8: &lt; Q NOZUTWDCVRJLXKIS E FAPMYGHB&lt;</span><br><span class="line">10: &lt;O WTGVRSCZQKELMXYI H PUDNAJFB &lt;</span><br><span class="line">4: &lt; F CUKTEBSXQYIZMJWA O RPLNDVHG &lt;</span><br><span class="line">11： N BVCXZQWERTPOIUYA L SKDJFHGM &lt;</span><br><span class="line">6: &lt; P NYCJBFZDRUSLOQXV E TAMKGHIW &lt;</span><br></pre></td></tr></table></figure></p>
 <p>得到flag：FIREINTHEHOLE</p>
 <a id="more"></a>
-<h3 id="告诉你个秘密（100）"><a href="#告诉你个秘密（100）" class="headerlink" title="告诉你个秘密（100）"></a>告诉你个秘密（100）</h3><p>简单加密<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">636A56355279427363446C4A49454A7154534230526D6843</div><div class="line">56445A31614342354E326C4B4946467A5769426961453067</div></pre></td></tr></table></figure></p>
+<h3 id="告诉你个秘密（100）"><a href="#告诉你个秘密（100）" class="headerlink" title="告诉你个秘密（100）"></a>告诉你个秘密（100）</h3><p>简单加密<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">636A56355279427363446C4A49454A7154534230526D6843</span><br><span class="line">56445A31614342354E326C4B4946467A5769426961453067</span><br></pre></td></tr></table></figure></p>
 <p>十六禁止，先转字符：<br>cjV5RyBscDlJIEJqTSB0RmhC<br>VDZ1aCB5N2lKIFFzWiBiaE0g<br>4的整数倍，base64解码：<br>r5yG lp9I BjM tFhBT6uh y7iJ QsZ bhM<br>低头看键盘：tongyuan</p>
 <h3 id="神秘图片（100）"><a href="#神秘图片（100）" class="headerlink" title="神秘图片（100）"></a>神秘图片（100）</h3><p>小明最近参加一个叫共济会的社团，社长一天神秘失踪，在社长电脑桌面上同学们发现一张奇怪的照片，为找到社长，社员们正在努力解密这张照片，可是一直找不到答案，你们发现神秘蛛丝马迹吗?</p>
 <p>拿到图，先binwalk，foremost修复得到一张新图，好熟悉，想起了当年玩的刺客信条。</p>
-<p><img src="http://opkltmtvx.bkt.clouddn.com/iscc17-basic03.png" alt="神秘图片"></p>
-<p><a href="http://baike.baidu.com/item/%E7%8C%AA%E5%9C%88%E5%AF%86%E7%A0%81" target="_blank" rel="external">共济会密码（猪圈密码）</a><br>解出：goodluck</p>
-<h3 id="你猜猜（100）"><a href="#你猜猜（100）" class="headerlink" title="你猜猜（100）"></a>你猜猜（100）</h3><p>我们刚刚拦截了，敌军的文件传输获取一份机密文件，请君速速破解。<br>给了个txt文本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">504B03040A0001080000626D0A49F4B5091F1E0000001200000008000000666C61672E7478746C9F170D35D0A45826A03E161FB96870EDDFC7C89A11862F9199B4CD78E7504B01023F000A0001080000626D0A49F4B5091F1E00000012000000080024000000000000002000000000000000666C61672E7478740A0020000000000001001800AF150210CAF2D1015CAEAA05CAF2D1015CAEAA05CAF2D101504B050600000000010001005A000000440000000000</div></pre></td></tr></table></figure></p>
+<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/iscc17-basic03.png-sign" alt="神秘图片"></p>
+<p><a href="http://baike.baidu.com/item/%E7%8C%AA%E5%9C%88%E5%AF%86%E7%A0%81" target="_blank" rel="noopener">共济会密码（猪圈密码）</a><br>解出：goodluck</p>
+<h3 id="你猜猜（100）"><a href="#你猜猜（100）" class="headerlink" title="你猜猜（100）"></a>你猜猜（100）</h3><p>我们刚刚拦截了，敌军的文件传输获取一份机密文件，请君速速破解。<br>给了个txt文本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">504B03040A0001080000626D0A49F4B5091F1E0000001200000008000000666C61672E7478746C9F170D35D0A45826A03E161FB96870EDDFC7C89A11862F9199B4CD78E7504B01023F000A0001080000626D0A49F4B5091F1E00000012000000080024000000000000002000000000000000666C61672E7478740A0020000000000001001800AF150210CAF2D1015CAEAA05CAF2D1015CAEAA05CAF2D101504B050600000000010001005A000000440000000000</span><br></pre></td></tr></table></figure></p>
 <p><code>504B0304</code>，zip，十六进制保存为zip后，发现加密，而且不是伪加密，ziperello爆破：123456，解压得flag。</p>
 <blockquote>
 <p>附：<br>JPEG (jpg)，文件头：FFD8FF<br>PNG (png)，文件头：89504E47<br>GIF (gif)，文件头：47494638<br>TIFF (tif)，文件头：49492A00<br>Windows Bitmap (bmp)，文件头：424D<br>CAD (dwg)，文件头：41433130<br>Adobe Photoshop (psd)，文件头：38425053<br>Rich Text Format (rtf)，文件头：7B5C727466<br>XML (xml)，文件头：3C3F786D6C<br>HTML (html)，文件头：68746D6C3E<br>Email [thorough only] (eml)，文件头：44656C69766572792D646174653A<br>Outlook Express (dbx)，文件头：CFAD12FEC5FD746F<br>Outlook (pst)，文件头：2142444E<br>MS Word/Excel (xls.or.doc)，文件头：D0CF11E0<br>MS Access (mdb)，文件头：5374616E64617264204A<br>WordPerfect (wpd)，文件头：FF575043<br>Postscript (eps.or.ps)，文件头：252150532D41646F6265<br>Adobe Acrobat (pdf)，文件头：255044462D312E<br>Quicken (qdf)，文件头：AC9EBD8F<br>Windows Password (pwl)，文件头：E3828596<br>ZIP Archive (zip)，文件头：504B0304<br>RAR Archive (rar)，文件头：52617221<br>Wave (wav)，文件头：57415645<br>AVI (avi)，文件头：41564920<br>Real Audio (ram)，文件头：2E7261FD<br>Real Media (rm)，文件头：2E524D46<br>MPEG (mpg)，文件头：000001BA<br>MPEG (mpg)，文件头：000001B3<br>Quicktime (mov)，文件头：6D6F6F76<br>Windows Media (asf)，文件头：3026B2758E66CF11<br>MIDI (mid)，文件头：4D546864 </p>
 </blockquote>
 <h3 id="公邮密码（100）"><a href="#公邮密码（100）" class="headerlink" title="公邮密码（100）"></a>公邮密码（100）</h3><p>小明的U盘中毒了。病毒把小明的文档压缩并加密。现在小明忘了公邮密码，然而记录密码的文档却被病毒压缩并加密，你能帮助小明解开吗？<br>一个zip加密文件，爆破，得base64加密的flag，解密即可。</p>
 <h3 id="说我作弊，需要证据-（100）"><a href="#说我作弊，需要证据-（100）" class="headerlink" title="说我作弊，需要证据 （100）"></a>说我作弊，需要证据 （100）</h3><p>X老师怀疑一些调皮的学生在一次自动化计算机测试中作弊，他使用抓包工具捕获到了Alice和Bob的通信流量。狡猾的Alice和Bob同学好像使用某些加密方式隐藏通信内容，使得X老师无法破解它，也许你有办法帮助X老师。X老师知道Alice的RSA密钥为(n, e) = (0x53a121a11e36d7a84dde3f5d73cf, 0x10001) (192.168.0.13),Bob的RSA密钥为(n, e) =(0x99122e61dc7bede74711185598c7, 0x10001) (192.168.0.37)</p>
-<p>给了个pcapng包，追踪TCP流，得到一些base64编码的字符串。<br><img src="http://opkltmtvx.bkt.clouddn.com/iscc17-TCP-2.png" alt="tcp"></p>
-<p>解码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> base64</div><div class="line"></div><div class="line">fo = open(<span class="string">"out.txt"</span>, <span class="string">"w"</span>)</div><div class="line"><span class="keyword">with</span> open(<span class="string">'tcp.txt'</span>) <span class="keyword">as</span> ft:</div><div class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> ft:</div><div class="line">		decoded = base64.b64decode(line)</div><div class="line">		fo.write(decoded+<span class="string">"\n"</span>)</div><div class="line">fo.close()</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SEQ = 13; DATA = 0x3b04b26a0adada2f67326bb0c5d6L; SIG = 0x2e5ab24f9dc21df406a87de0b3b4L;</div><div class="line">SEQ = 0; DATA = 0x7492f4ec9001202dcb569df468b4L; SIG = 0xc9107666b1cc040a4fc2e89e3e7L;</div><div class="line">SEQ = 5; DATA = 0x94d97e04f52c2d6f42f9aacbf0b5L; SIG = 0x1e3b6d4eaf11582e85ead4bf90a9L;</div><div class="line">SEQ = 4; DATA = 0x2c29150f1e311ef09bc9f06735acL; SIG = 0x1665fb2da761c4de89f27ac80cbL;</div><div class="line">SEQ = 18; DATA = 0x181901c059de3b0f2d4840ab3aebL; SIG = 0x1b8bdf9468f81ce33a0da2a8bfbeL;</div><div class="line">......</div></pre></td></tr></table></figure>
-<p>可得到SEQ（序列），DATA，SIG（签名）。<br>分析完pcapng包，再来看题中给出的RSA密钥：<br>Alice：(n, e) = (0x53a121a11e36d7a84dde3f5d73cf, 0x10001)<br>Bob：(n, e) =(0x99122e61dc7bede74711185598c7, 0x10001)<br>可见n并不够大，可以分解出p和q，转换十进制后，利用<a href="http://factordb.com/index.php" target="_blank" rel="external">FactorDB</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Alice: </div><div class="line">n = p * q </div><div class="line">= 0x53a121a11e36d7a84dde3f5d73cf </div><div class="line">= 1696206139052948924304948333474767 </div><div class="line">= 38456719616722997 * 44106885765559411</div><div class="line">Bob: </div><div class="line">n = p * q </div><div class="line">= 0x99122e61dc7bede74711185598c7 </div><div class="line">= 3104649130901425335933838103517383 </div><div class="line">= 49662237675630289 * 62515288803124247</div></pre></td></tr></table></figure></p>
-<p>下面就可以利用pycrypto解出密文了，注意签名与数据匹配的数据包才被是有效数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</div><div class="line"><span class="keyword">import</span> gmpy</div><div class="line"><span class="comment"># Alice</span></div><div class="line">n1 = long(<span class="number">1696206139052948924304948333474767</span>)</div><div class="line">e = long(<span class="number">65537</span>)</div><div class="line"><span class="comment"># Bob</span></div><div class="line">n2 = long(<span class="number">3104649130901425335933838103517383</span>)</div><div class="line"><span class="comment"># 分解n得到的p和q</span></div><div class="line">p1 = <span class="number">38456719616722997</span></div><div class="line">q1 = <span class="number">44106885765559411</span></div><div class="line">p2 = <span class="number">49662237675630289</span></div><div class="line">q2 = <span class="number">62515288803124247</span></div><div class="line"><span class="comment"># 求出解密指数d</span></div><div class="line">phi1 = (p1<span class="number">-1</span>)*(q1<span class="number">-1</span>)</div><div class="line">phi2 = (p2<span class="number">-1</span>)*(q2<span class="number">-1</span>)</div><div class="line">d1 = long(gmpy.invert(e, phi1))</div><div class="line">d2 = long(gmpy.invert(e, phi2))</div><div class="line"><span class="comment"># 构建RSA</span></div><div class="line">rsa1 = RSA.construct( (n1, e, d1) )</div><div class="line">rsa2 = RSA.construct( (n2, e, d2) )</div><div class="line"><span class="comment"># 利用pcapfile读取转换格式后的pcap包</span></div><div class="line"><span class="keyword">from</span> pcapfile <span class="keyword">import</span> savefile</div><div class="line">cf = savefile.load_savefile(open(<span class="string">"new.pcap"</span>))</div><div class="line">output = &#123;&#125;</div><div class="line"><span class="keyword">for</span> p <span class="keyword">in</span> cf.packets:</div><div class="line">    pack = str(p.packet)[<span class="number">136</span>:].decode(<span class="string">'hex'</span>).decode(<span class="string">'base64'</span>)</div><div class="line">    <span class="keyword">if</span> <span class="string">'DATA'</span> <span class="keyword">in</span> pack:</div><div class="line">        seq = int(pack.split(<span class="string">';'</span>)[<span class="number">0</span>].split(<span class="string">' '</span>)[<span class="number">2</span>])</div><div class="line">        data = pack[<span class="number">16</span>:].split(<span class="string">';'</span>)[<span class="number">0</span>][:<span class="number">-1</span>]</div><div class="line">        sig = long(pack.split(<span class="string">';'</span>)[<span class="number">2</span>].split(<span class="string">' = '</span>)[<span class="number">1</span>], <span class="number">16</span>)</div><div class="line">        m = long(data, <span class="number">16</span>)</div><div class="line">        decrypted = rsa2.decrypt(m)</div><div class="line">        sigcheck = rsa1.sign(decrypted, <span class="string">''</span>)[<span class="number">0</span>]</div><div class="line">        val = str(hex(decrypted)).strip(<span class="string">'0x'</span>).rstrip(<span class="string">'L'</span>).zfill(<span class="number">2</span>).decode(<span class="string">'hex'</span>)</div><div class="line">        <span class="keyword">if</span> sig == sigcheck:</div><div class="line">            output[seq] = val</div><div class="line"><span class="keyword">print</span> <span class="string">''</span>.join(output.values())</div></pre></td></tr></table></figure></p>
-<p>该脚本来源<a href="https://www.honoki.net/2015/10/hack-lu-2015-creative-cheating" target="_blank" rel="external">@Hohoki</a><br>flag{n0th1ng_t0_533_h3r3_m0v3_0n}<br>nothing to see here move on，哈哈，果然是调皮的学生。</p>
-<h3 id="PHP-encrypt-1（150）"><a href="#PHP-encrypt-1（150）" class="headerlink" title="PHP_encrypt_1（150）"></a>PHP_encrypt_1（150）</h3><p>大黑阔在某数据库中提取到了管理员的密码，但是密码是加密的，本要放弃的黑阔突然发现加密竟然是可逆的，网页上的脚本被黑阔提取出来了，你能够帮助黑阔解密吗？黑阔感激不尽<br>加密数据：fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=<br>附件是index.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">encrypt</span><span class="params">($data,$key)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $key = md5(<span class="string">'ISCC'</span>);</div><div class="line">    $x = <span class="number">0</span>;</div><div class="line">    $len = strlen($data);</div><div class="line">    $klen = strlen($key);</div><div class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; $len; $i++) &#123; </div><div class="line">        <span class="keyword">if</span> ($x == $klen)</div><div class="line">        &#123;</div><div class="line">            $x = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        $char .= $key[$x];</div><div class="line">        $x+=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; $len; $i++) &#123;</div><div class="line">        $str .= chr((ord($data[$i]) + ord($char[$i])) % <span class="number">128</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> base64_encode($str);</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p>根据给出的加密数据和index.php，逆向得：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"> $data = &apos;fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=&apos;;</div><div class="line"> $data = base64_decode($data);</div><div class="line"> $str =&apos;&apos;;</div><div class="line"> $key = md5(&apos;ISCC&apos;);</div><div class="line"> $x = 0;</div><div class="line"> $len = strlen($data);</div><div class="line"> $klen = strlen($key);</div><div class="line"> for ($i=0; $i &lt; $len; $i++) &#123; </div><div class="line"> if ($x == $klen)</div><div class="line"> &#123;</div><div class="line"> $x = 0;</div><div class="line"> &#125;</div><div class="line"> $char .= $key[$x];</div><div class="line"> $x+=1;</div><div class="line"> &#125;</div><div class="line"> for ($i=0; $i &lt; $len; $i++) &#123;</div><div class="line"> if(ord($data[$i])&lt;ord($char[$i]))&#123;</div><div class="line"> $str .= chr(ord($data[$i])+128-ord($char[$i]));</div><div class="line"> &#125;else &#123;</div><div class="line"> $str .= chr(ord($data[$i])-ord($char[$i]));</div><div class="line"> &#125;</div><div class="line"> &#125;</div><div class="line"> echo $str;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="二维码（150）"><a href="#二维码（150）" class="headerlink" title="二维码（150）"></a>二维码（150）</h3><p>这是一个二维码<br><img src="http://opkltmtvx.bkt.clouddn.com/basic07.png" alt="二维码"><br>binwalk得到加密的zip，爆破解压得：C8-E7-D8-E8-E5-88_handshake.cap和破解记录.txt，破解记录里写着：前四位是ISCC 后四位由大写字母和数字构成。简单，crunch制作字典，跑一下就出来了。</p>
-<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Web签到题，来和我换flag啊！（100）"><a href="#Web签到题，来和我换flag啊！（100）" class="headerlink" title="Web签到题，来和我换flag啊！（100）"></a>Web签到题，来和我换flag啊！（100）</h3><p>Ps：比赛过程中严禁和其他队伍互换flag！！！<br><a href="http://139.129.108.53:3190/web-02/" target="_blank" rel="external">http://139.129.108.53:3190/web-02/</a><br>打开后提示“you give me a f1ag，I will give you a flag too”(记不清了，大致这个意思)<br>源代码中一个文本框，一个隐藏文本框，post提交f1ag后，得到提示，再要一个FLAG，ok，提交后，http头部得到flag。</p>
-<h3 id="WelcomeToMySQL（150）"><a href="#WelcomeToMySQL（150）" class="headerlink" title="WelcomeToMySQL（150）"></a>WelcomeToMySQL（150）</h3><p>Welcome to MySQL! SQL inject?<br><a href="http://139.129.108.53:8081/web-01/" target="_blank" rel="external">http://139.129.108.53:8081/web-01/</a><br>打开后发现是文件上传，又根据提示SQL注入，很明显上传一句话。<br>尝试了几种上传绕过，发现php5可以，菜刀连接后，在base.php（源码中也有提示）中，找到数据库的相关信息<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$servername=<span class="string">"localhost"</span>;</div><div class="line">	$username=<span class="string">"iscc2017"</span>;</div><div class="line">	$password=<span class="string">"iscc2017"</span>;</div><div class="line">	$db=<span class="string">"flag"</span>;</div><div class="line">	$tb=<span class="string">"flag"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>给了个pcapng包，追踪TCP流，得到一些base64编码的字符串。<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/iscc17-TCP-2.png-sign" alt="tcp"></p>
+<p>解码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">fo = open(<span class="string">"out.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'tcp.txt'</span>) <span class="keyword">as</span> ft:</span><br><span class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> ft:</span><br><span class="line">		decoded = base64.b64decode(line)</span><br><span class="line">		fo.write(decoded+<span class="string">"\n"</span>)</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SEQ = 13; DATA = 0x3b04b26a0adada2f67326bb0c5d6L; SIG = 0x2e5ab24f9dc21df406a87de0b3b4L;</span><br><span class="line">SEQ = 0; DATA = 0x7492f4ec9001202dcb569df468b4L; SIG = 0xc9107666b1cc040a4fc2e89e3e7L;</span><br><span class="line">SEQ = 5; DATA = 0x94d97e04f52c2d6f42f9aacbf0b5L; SIG = 0x1e3b6d4eaf11582e85ead4bf90a9L;</span><br><span class="line">SEQ = 4; DATA = 0x2c29150f1e311ef09bc9f06735acL; SIG = 0x1665fb2da761c4de89f27ac80cbL;</span><br><span class="line">SEQ = 18; DATA = 0x181901c059de3b0f2d4840ab3aebL; SIG = 0x1b8bdf9468f81ce33a0da2a8bfbeL;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>可得到SEQ（序列），DATA，SIG（签名）。<br>分析完pcapng包，再来看题中给出的RSA密钥：<br>Alice：(n, e) = (0x53a121a11e36d7a84dde3f5d73cf, 0x10001)<br>Bob：(n, e) =(0x99122e61dc7bede74711185598c7, 0x10001)<br>可见n并不够大，可以分解出p和q，转换十进制后，利用<a href="http://factordb.com/index.php" target="_blank" rel="noopener">FactorDB</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Alice: </span><br><span class="line">n = p * q </span><br><span class="line">= 0x53a121a11e36d7a84dde3f5d73cf </span><br><span class="line">= 1696206139052948924304948333474767 </span><br><span class="line">= 38456719616722997 * 44106885765559411</span><br><span class="line">Bob: </span><br><span class="line">n = p * q </span><br><span class="line">= 0x99122e61dc7bede74711185598c7 </span><br><span class="line">= 3104649130901425335933838103517383 </span><br><span class="line">= 49662237675630289 * 62515288803124247</span><br></pre></td></tr></table></figure></p>
+<p>下面就可以利用pycrypto解出密文了，注意签名与数据匹配的数据包才被是有效数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">import</span> gmpy</span><br><span class="line"><span class="comment"># Alice</span></span><br><span class="line">n1 = long(<span class="number">1696206139052948924304948333474767</span>)</span><br><span class="line">e = long(<span class="number">65537</span>)</span><br><span class="line"><span class="comment"># Bob</span></span><br><span class="line">n2 = long(<span class="number">3104649130901425335933838103517383</span>)</span><br><span class="line"><span class="comment"># 分解n得到的p和q</span></span><br><span class="line">p1 = <span class="number">38456719616722997</span></span><br><span class="line">q1 = <span class="number">44106885765559411</span></span><br><span class="line">p2 = <span class="number">49662237675630289</span></span><br><span class="line">q2 = <span class="number">62515288803124247</span></span><br><span class="line"><span class="comment"># 求出解密指数d</span></span><br><span class="line">phi1 = (p1<span class="number">-1</span>)*(q1<span class="number">-1</span>)</span><br><span class="line">phi2 = (p2<span class="number">-1</span>)*(q2<span class="number">-1</span>)</span><br><span class="line">d1 = long(gmpy.invert(e, phi1))</span><br><span class="line">d2 = long(gmpy.invert(e, phi2))</span><br><span class="line"><span class="comment"># 构建RSA</span></span><br><span class="line">rsa1 = RSA.construct( (n1, e, d1) )</span><br><span class="line">rsa2 = RSA.construct( (n2, e, d2) )</span><br><span class="line"><span class="comment"># 利用pcapfile读取转换格式后的pcap包</span></span><br><span class="line"><span class="keyword">from</span> pcapfile <span class="keyword">import</span> savefile</span><br><span class="line">cf = savefile.load_savefile(open(<span class="string">"new.pcap"</span>))</span><br><span class="line">output = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> cf.packets:</span><br><span class="line">    pack = str(p.packet)[<span class="number">136</span>:].decode(<span class="string">'hex'</span>).decode(<span class="string">'base64'</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'DATA'</span> <span class="keyword">in</span> pack:</span><br><span class="line">        seq = int(pack.split(<span class="string">';'</span>)[<span class="number">0</span>].split(<span class="string">' '</span>)[<span class="number">2</span>])</span><br><span class="line">        data = pack[<span class="number">16</span>:].split(<span class="string">';'</span>)[<span class="number">0</span>][:<span class="number">-1</span>]</span><br><span class="line">        sig = long(pack.split(<span class="string">';'</span>)[<span class="number">2</span>].split(<span class="string">' = '</span>)[<span class="number">1</span>], <span class="number">16</span>)</span><br><span class="line">        m = long(data, <span class="number">16</span>)</span><br><span class="line">        decrypted = rsa2.decrypt(m)</span><br><span class="line">        sigcheck = rsa1.sign(decrypted, <span class="string">''</span>)[<span class="number">0</span>]</span><br><span class="line">        val = str(hex(decrypted)).strip(<span class="string">'0x'</span>).rstrip(<span class="string">'L'</span>).zfill(<span class="number">2</span>).decode(<span class="string">'hex'</span>)</span><br><span class="line">        <span class="keyword">if</span> sig == sigcheck:</span><br><span class="line">            output[seq] = val</span><br><span class="line"><span class="keyword">print</span> <span class="string">''</span>.join(output.values())</span><br></pre></td></tr></table></figure></p>
+<p>该脚本来源<a href="https://www.honoki.net/2015/10/hack-lu-2015-creative-cheating" target="_blank" rel="noopener">@Hohoki</a><br>flag{n0th1ng_t0_533_h3r3_m0v3_0n}<br>nothing to see here move on，哈哈，果然是调皮的学生。</p>
+<h3 id="PHP-encrypt-1（150）"><a href="#PHP-encrypt-1（150）" class="headerlink" title="PHP_encrypt_1（150）"></a>PHP_encrypt_1（150）</h3><p>大黑阔在某数据库中提取到了管理员的密码，但是密码是加密的，本要放弃的黑阔突然发现加密竟然是可逆的，网页上的脚本被黑阔提取出来了，你能够帮助黑阔解密吗？黑阔感激不尽<br>加密数据：fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=<br>附件是index.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encrypt</span><span class="params">($data,$key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $key = md5(<span class="string">'ISCC'</span>);</span><br><span class="line">    $x = <span class="number">0</span>;</span><br><span class="line">    $len = strlen($data);</span><br><span class="line">    $klen = strlen($key);</span><br><span class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; $len; $i++) &#123; </span><br><span class="line">        <span class="keyword">if</span> ($x == $klen)</span><br><span class="line">        &#123;</span><br><span class="line">            $x = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        $char .= $key[$x];</span><br><span class="line">        $x+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">        $str .= chr((ord($data[$i]) + ord($char[$i])) % <span class="number">128</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> base64_encode($str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>根据给出的加密数据和index.php，逆向得：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> $data = &apos;fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=&apos;;</span><br><span class="line"> $data = base64_decode($data);</span><br><span class="line"> $str =&apos;&apos;;</span><br><span class="line"> $key = md5(&apos;ISCC&apos;);</span><br><span class="line"> $x = 0;</span><br><span class="line"> $len = strlen($data);</span><br><span class="line"> $klen = strlen($key);</span><br><span class="line"> for ($i=0; $i &lt; $len; $i++) &#123; </span><br><span class="line"> if ($x == $klen)</span><br><span class="line"> &#123;</span><br><span class="line"> $x = 0;</span><br><span class="line"> &#125;</span><br><span class="line"> $char .= $key[$x];</span><br><span class="line"> $x+=1;</span><br><span class="line"> &#125;</span><br><span class="line"> for ($i=0; $i &lt; $len; $i++) &#123;</span><br><span class="line"> if(ord($data[$i])&lt;ord($char[$i]))&#123;</span><br><span class="line"> $str .= chr(ord($data[$i])+128-ord($char[$i]));</span><br><span class="line"> &#125;else &#123;</span><br><span class="line"> $str .= chr(ord($data[$i])-ord($char[$i]));</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> echo $str;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="二维码（150）"><a href="#二维码（150）" class="headerlink" title="二维码（150）"></a>二维码（150）</h3><p>这是一个二维码<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/basic07.png-sign" alt="二维码"><br>binwalk得到加密的zip，爆破解压得：C8-E7-D8-E8-E5-88_handshake.cap和破解记录.txt，破解记录里写着：前四位是ISCC 后四位由大写字母和数字构成。简单，crunch制作字典，跑一下就出来了。</p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Web签到题，来和我换flag啊！（100）"><a href="#Web签到题，来和我换flag啊！（100）" class="headerlink" title="Web签到题，来和我换flag啊！（100）"></a>Web签到题，来和我换flag啊！（100）</h3><p>Ps：比赛过程中严禁和其他队伍互换flag！！！<br><a href="http://139.129.108.53:3190/web-02/" target="_blank" rel="noopener">http://139.129.108.53:3190/web-02/</a><br>打开后提示“you give me a f1ag，I will give you a flag too”(记不清了，大致这个意思)<br>源代码中一个文本框，一个隐藏文本框，post提交f1ag后，得到提示，再要一个FLAG，ok，提交后，http头部得到flag。</p>
+<h3 id="WelcomeToMySQL（150）"><a href="#WelcomeToMySQL（150）" class="headerlink" title="WelcomeToMySQL（150）"></a>WelcomeToMySQL（150）</h3><p>Welcome to MySQL! SQL inject?<br><a href="http://139.129.108.53:8081/web-01/" target="_blank" rel="noopener">http://139.129.108.53:8081/web-01/</a><br>打开后发现是文件上传，又根据提示SQL注入，很明显上传一句话。<br>尝试了几种上传绕过，发现php5可以，菜刀连接后，在base.php（源码中也有提示）中，找到数据库的相关信息<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	$servername=<span class="string">"localhost"</span>;</span><br><span class="line">	$username=<span class="string">"iscc2017"</span>;</span><br><span class="line">	$password=<span class="string">"iscc2017"</span>;</span><br><span class="line">	$db=<span class="string">"flag"</span>;</span><br><span class="line">	$tb=<span class="string">"flag"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>连接数据库，查到flag。</p>
-<h3 id="where-is-your-flag-（150）"><a href="#where-is-your-flag-（150）" class="headerlink" title="where is your flag （150）"></a>where is your flag （150）</h3><p>美国大黑阔Jack来窃取小明的flag，看上去确实很简单<br><a href="http://139.129.108.53:6980/web-08/" target="_blank" rel="external">http://139.129.108.53:6980/web-08/</a><br>宽字节注入，构造payload后得flag</p>
-<h3 id="我们一起来日站（150）"><a href="#我们一起来日站（150）" class="headerlink" title="我们一起来日站（150）"></a>我们一起来日站（150）</h3><p>老司机发挥所长，利用平时拿站的技巧来解题吧<br><a href="http://139.129.108.53:5090/web-04/" target="_blank" rel="external">http://139.129.108.53:5090/web-04/</a><br>根据rebots.txt找到后台登陆地址admin.php<br>万能密码<code>&#39; or &#39;1&#39;=&#39;1</code>直接得flag。</p>
-<h3 id="自相矛盾（150）"><a href="#自相矛盾（150）" class="headerlink" title="自相矛盾（150）"></a>自相矛盾（150）</h3><p>打破常规，毁你三观！<br><a href="http://139.129.108.53:8083/web-09/" target="_blank" rel="external">http://139.129.108.53:8083/web-09/</a><br>php弱类型，<a href="http://bobao.360.cn/learning/detail/188.html" target="_blank" rel="external">原题</a>改了个字符串，构造payload：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://139.129.108.53:8083/web-09/index.php?iscc=&#123;%22bar1%22:%222017e%22,%22bar2%22:[[1],1,2,3,0]&#125;&amp;cat[0]=00isccctf2017&amp;cat[1][]=1111&amp;dog=%00</div></pre></td></tr></table></figure></p>
-<h3 id="I-have-a-jpg-i-upload-a-txt-（200）"><a href="#I-have-a-jpg-i-upload-a-txt-（200）" class="headerlink" title="I have a jpg,i upload a txt.（200）"></a>I have a jpg,i upload a txt.（200）</h3><p>小明发现，php将上传的jpg文件流写入一个txt中，再重命名后缀为jpg还可以正常读取，于是写了一段上传代码，会不会有什么漏洞呢？<br><a href="http://139.129.108.53:3366/web-03" target="_blank" rel="external">http://139.129.108.53:3366/web-03</a></p>
+<h3 id="where-is-your-flag-（150）"><a href="#where-is-your-flag-（150）" class="headerlink" title="where is your flag （150）"></a>where is your flag （150）</h3><p>美国大黑阔Jack来窃取小明的flag，看上去确实很简单<br><a href="http://139.129.108.53:6980/web-08/" target="_blank" rel="noopener">http://139.129.108.53:6980/web-08/</a><br>宽字节注入，构造payload后得flag</p>
+<h3 id="我们一起来日站（150）"><a href="#我们一起来日站（150）" class="headerlink" title="我们一起来日站（150）"></a>我们一起来日站（150）</h3><p>老司机发挥所长，利用平时拿站的技巧来解题吧<br><a href="http://139.129.108.53:5090/web-04/" target="_blank" rel="noopener">http://139.129.108.53:5090/web-04/</a><br>根据rebots.txt找到后台登陆地址admin.php<br>万能密码<code>&#39; or &#39;1&#39;=&#39;1</code>直接得flag。</p>
+<h3 id="自相矛盾（150）"><a href="#自相矛盾（150）" class="headerlink" title="自相矛盾（150）"></a>自相矛盾（150）</h3><p>打破常规，毁你三观！<br><a href="http://139.129.108.53:8083/web-09/" target="_blank" rel="noopener">http://139.129.108.53:8083/web-09/</a><br>php弱类型，<a href="http://bobao.360.cn/learning/detail/188.html" target="_blank" rel="noopener">原题</a>改了个字符串，构造payload：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://139.129.108.53:8083/web-09/index.php?iscc=&#123;%22bar1%22:%222017e%22,%22bar2%22:[[1],1,2,3,0]&#125;&amp;cat[0]=00isccctf2017&amp;cat[1][]=1111&amp;dog=%00</span><br></pre></td></tr></table></figure></p>
+<h3 id="I-have-a-jpg-i-upload-a-txt-（200）"><a href="#I-have-a-jpg-i-upload-a-txt-（200）" class="headerlink" title="I have a jpg,i upload a txt.（200）"></a>I have a jpg,i upload a txt.（200）</h3><p>小明发现，php将上传的jpg文件流写入一个txt中，再重命名后缀为jpg还可以正常读取，于是写了一段上传代码，会不会有什么漏洞呢？<br><a href="http://139.129.108.53:3366/web-03" target="_blank" rel="noopener">http://139.129.108.53:3366/web-03</a></p>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="眼见非实（100）"><a href="#眼见非实（100）" class="headerlink" title="眼见非实（100）"></a>眼见非实（100）</h3><p>附件是docx，改名zip后解压，从/word/document.xml中得flag。</p>
-<h3 id="就在其中（150）"><a href="#就在其中（150）" class="headerlink" title="就在其中（150）"></a>就在其中（150）</h3><p>啊。我好像捕获到了什么不得了的东西。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-----BEGIN RSA PRIVATE KEY-----</div><div class="line">MIICXgIBAAKBgQD0UN0A+70iM0VCJ1ni0n/U1BRj0u8yMWH4Qi+xTbjHgbE7wOuk</div><div class="line">OaO+2PyQXiqIzZnf5jCkJuVDYjALGcKrZM4OCQBBd85B/LTc36XZ7JVfX5kGy5tI</div><div class="line">R3tquuPIVKNdAsHlSqh9S7YSS39RdnSa5rOUyGhrLzxwzzM9IO4e+QQ+CQIDAQAB</div><div class="line">AoGADiaw5mGubtCxbkeBOVYf+V/fXnjVSf76QbrzsD1kOooUjfV6sKR2C5Pd7S7H</div><div class="line">H+1owENBBgEKvoBtb/cqA2tvU9vQ4l5TMBJcHv6LEcb9WPpnMxPV2GNjO+DTPGPy</div><div class="line">Xnu1UZlZjwx+NaF5rESoSSVS2ZaaIixBs4RWRXk+lHEbTFECQQD6Rp6jMweRgPHO</div><div class="line">pR3mgIK83zL+kzqYM5isIPv3DIC5JQN2kXqK73IDQCFVlfXnr9lAAVRzLDsAXLqv</div><div class="line">le/o6yQLAkEA+edY+GERlLuD1t2k9Js0Dc7EwnLcxoFUE60ivj8Gf9jzLskGHxsv</div><div class="line">0IV6J5OHwPh54kAxAnqCjSqNRAWGNzr+uwJBALYEjDUm1LdGrxXZ0jAkgHC6Z0zs</div><div class="line">aK3uwHdXGcinqCp+t9EQpq3KzQF+L4AeKxRQONEq5m9I2LQ/vGocwrmD4dcCQQDb</div><div class="line">rTyOinWz8upAFPKOe2hUwvA/pkzgyosoCMhDyI9kD0gmVlvlODbd7Jem9o8dWM97</div><div class="line">zcXHUf41LbSkmN6U6m1FAkEAqmZbr35bPfkeoiikwNl6OVQytg12TZjw2vIbvfub</div><div class="line">f9Rvti8Lh/tbrmhZroiz8/l3aAZmugI1NBcbeZR0gz8ggg==</div><div class="line">-----END RSA PRIVATE KEY-----</div></pre></td></tr></table></figure></p>
-<p>给了个私钥和pcapng包，binwalk提取出一个压缩包，解压得一个加密的key.txt，把私钥保存为private.key，利用<a href="http://www.cnblogs.com/aLittleBitCool/archive/2011/09/22/2185418.html" target="_blank" rel="external">openssl</a>解密即可。<br><code>openssl rsautl -decrypt -in key.txt -inkey private.key -out key_flag.txt</code></p>
+<h3 id="就在其中（150）"><a href="#就在其中（150）" class="headerlink" title="就在其中（150）"></a>就在其中（150）</h3><p>啊。我好像捕获到了什么不得了的东西。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MIICXgIBAAKBgQD0UN0A+70iM0VCJ1ni0n/U1BRj0u8yMWH4Qi+xTbjHgbE7wOuk</span><br><span class="line">OaO+2PyQXiqIzZnf5jCkJuVDYjALGcKrZM4OCQBBd85B/LTc36XZ7JVfX5kGy5tI</span><br><span class="line">R3tquuPIVKNdAsHlSqh9S7YSS39RdnSa5rOUyGhrLzxwzzM9IO4e+QQ+CQIDAQAB</span><br><span class="line">AoGADiaw5mGubtCxbkeBOVYf+V/fXnjVSf76QbrzsD1kOooUjfV6sKR2C5Pd7S7H</span><br><span class="line">H+1owENBBgEKvoBtb/cqA2tvU9vQ4l5TMBJcHv6LEcb9WPpnMxPV2GNjO+DTPGPy</span><br><span class="line">Xnu1UZlZjwx+NaF5rESoSSVS2ZaaIixBs4RWRXk+lHEbTFECQQD6Rp6jMweRgPHO</span><br><span class="line">pR3mgIK83zL+kzqYM5isIPv3DIC5JQN2kXqK73IDQCFVlfXnr9lAAVRzLDsAXLqv</span><br><span class="line">le/o6yQLAkEA+edY+GERlLuD1t2k9Js0Dc7EwnLcxoFUE60ivj8Gf9jzLskGHxsv</span><br><span class="line">0IV6J5OHwPh54kAxAnqCjSqNRAWGNzr+uwJBALYEjDUm1LdGrxXZ0jAkgHC6Z0zs</span><br><span class="line">aK3uwHdXGcinqCp+t9EQpq3KzQF+L4AeKxRQONEq5m9I2LQ/vGocwrmD4dcCQQDb</span><br><span class="line">rTyOinWz8upAFPKOe2hUwvA/pkzgyosoCMhDyI9kD0gmVlvlODbd7Jem9o8dWM97</span><br><span class="line">zcXHUf41LbSkmN6U6m1FAkEAqmZbr35bPfkeoiikwNl6OVQytg12TZjw2vIbvfub</span><br><span class="line">f9Rvti8Lh/tbrmhZroiz8/l3aAZmugI1NBcbeZR0gz8ggg==</span><br><span class="line">-----END RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure></p>
+<p>给了个私钥和pcapng包，binwalk提取出一个压缩包，解压得一个加密的key.txt，把私钥保存为private.key，利用<a href="http://www.cnblogs.com/aLittleBitCool/archive/2011/09/22/2185418.html" target="_blank" rel="noopener">openssl</a>解密即可。<br><code>openssl rsautl -decrypt -in key.txt -inkey private.key -out key_flag.txt</code></p>
 <h3 id="待更"><a href="#待更" class="headerlink" title="待更"></a>待更</h3>
       
     </div>
@@ -573,11 +571,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/avatar.jpg"
-                alt="evilpwn" />
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
               <p class="site-description motion-element" itemprop="description"></p>

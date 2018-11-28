@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/icos/apple-touch-icon.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="oracle,表空间," />
+  <meta name="keywords" content="oracle,表空间,">
 
 
 
@@ -94,15 +94,15 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="表空间介绍数据库可划分为若干的逻辑存储单元，这些单元被称为表空间。 表空间的分类 数据库、表空间和数据文件的关系  每个表空间由一个或多个数据文件组成。数据文件用于在物理上存储表空间中所有逻辑结构的数据。 表空间中数据文件的大小之和就是表空间的存储容量（图中系统表空间存储容量为2MB，用户表空间的存储容量为4MB）。 数据库中表空间的存储容量之和就是数据库的存储容量。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj02.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj03.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj04.png">
-<meta property="og:updated_time" content="2017-05-09T12:41:48.000Z">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj02.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj03.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj04.png-sign">
+<meta property="og:updated_time" content="2018-11-27T18:22:32.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle存储管理1">
 <meta name="twitter:description" content="表空间介绍数据库可划分为若干的逻辑存储单元，这些单元被称为表空间。 表空间的分类 数据库、表空间和数据文件的关系  每个表空间由一个或多个数据文件组成。数据文件用于在物理上存储表空间中所有逻辑结构的数据。 表空间中数据文件的大小之和就是表空间的存储容量（图中系统表空间存储容量为2MB，用户表空间的存储容量为4MB）。 数据库中表空间的存储容量之和就是数据库的存储容量。">
-<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj.png">
+<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj.png-sign">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="https://evilpwn.me/2017/Oracle-store-management-1/"/>
+  <link rel="canonical" href="https://evilpwn.me/2017/Oracle-store-management-1/">
 
 
 
@@ -150,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -160,13 +160,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
@@ -196,7 +196,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -206,7 +206,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -216,7 +216,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -226,7 +226,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -236,7 +236,7 @@
         <li class="menu-item menu-item-excerpt">
           <a href="/excerpt/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br>
             
             摘录
           </a>
@@ -249,7 +249,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -270,9 +270,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -304,20 +302,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/Oracle-store-management-1/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="evilpwn's Note">
     </span>
 
@@ -349,7 +347,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -360,7 +358,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/oracle/" itemprop="url" rel="index">
                     <span itemprop="name">oracle</span>
                   </a>
@@ -422,8 +420,8 @@
 
       
         <h2 id="表空间介绍"><a href="#表空间介绍" class="headerlink" title="表空间介绍"></a>表空间介绍</h2><p>数据库可划分为若干的逻辑存储单元，这些单元被称为表空间。</p>
-<h3 id="表空间的分类"><a href="#表空间的分类" class="headerlink" title="表空间的分类"></a>表空间的分类</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj.png" alt="表空间分类"></p>
-<h3 id="数据库、表空间和数据文件的关系"><a href="#数据库、表空间和数据文件的关系" class="headerlink" title="数据库、表空间和数据文件的关系"></a>数据库、表空间和数据文件的关系</h3><p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj02.png" alt="数据库、表空间和数据文件的关系"></p>
+<h3 id="表空间的分类"><a href="#表空间的分类" class="headerlink" title="表空间的分类"></a>表空间的分类</h3><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj.png-sign" alt="表空间分类"></p>
+<h3 id="数据库、表空间和数据文件的关系"><a href="#数据库、表空间和数据文件的关系" class="headerlink" title="数据库、表空间和数据文件的关系"></a>数据库、表空间和数据文件的关系</h3><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj02.png-sign" alt="数据库、表空间和数据文件的关系"></p>
 <ul>
 <li>每个表空间由一个或多个数据文件组成。数据文件用于在物理上存储表空间中所有逻辑结构的数据。</li>
 <li>表空间中数据文件的大小之和就是表空间的存储容量（图中系统表空间存储容量为2MB，用户表空间的存储容量为4MB）。</li>
@@ -441,11 +439,11 @@
 <li>DBA_FREE_SPACE，用于查询表空间的空闲区间信息。</li>
 <li>DBA_TABLESPACES，用于查询所有表空间的信息。</li>
 </ul>
-<p>1.统计所有表空间的总空间大小<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> tablespace_name <span class="keyword">AS</span> 表空间名,<span class="keyword">SUM</span>(<span class="keyword">bytes</span>)</div><div class="line"><span class="keyword">FROM</span> DBA_DATA_FILES</div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> tablespace_name;</div></pre></td></tr></table></figure></p>
-<p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj03.png" alt="统计所有表空间的总空间大小"></p>
-<p>2.统计所有表空间的空闲空间大小<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.tablespace_name, NVL(<span class="keyword">SUM</span>(b.bytes),<span class="number">0</span>) <span class="keyword">bytes</span> </div><div class="line"><span class="keyword">FROM</span> DBA_DATA_FILES a, DBA_FREE_SPACE b </div><div class="line"><span class="keyword">WHERE</span> a.tablespace_name = b.tablespace_name (+) <span class="keyword">AND</span> a.file_id = b.file_id (+) <span class="keyword">GROUP</span> <span class="keyword">BY</span> a.tablespace_name;</div></pre></td></tr></table></figure></p>
-<p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj04.png" alt="统计所有表空间的总空间大小"></p>
-<h2 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h2><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> [<span class="keyword">BIGFILE</span>|<span class="keyword">SMALLFILE</span>|<span class="keyword">UNDO</span>|<span class="keyword">TEMPORARY</span>]</div><div class="line"> <span class="keyword">TABLESPACE</span> &lt;表空间名&gt;</div><div class="line">    <span class="keyword">DATAFILE</span> |TEMPFILE‘数据文件名称和位置’ <span class="keyword">SIZE</span> &lt;大小&gt;</div><div class="line">    [<span class="keyword">REUSE</span>]</div><div class="line">    [<span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span>|DICTIONARY]</div><div class="line">    [<span class="keyword">AUTOALLOCATE</span>|<span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> &lt;大小&gt;]</div><div class="line">    [<span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">AUTO</span>|<span class="keyword">MANUAL</span>]</div><div class="line">    [<span class="keyword">BLOCKSIZE</span> &lt;大小&gt; ]</div></pre></td></tr></table></figure>
+<p>1.统计所有表空间的总空间大小<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> tablespace_name <span class="keyword">AS</span> 表空间名,<span class="keyword">SUM</span>(<span class="keyword">bytes</span>)</span><br><span class="line"><span class="keyword">FROM</span> DBA_DATA_FILES</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> tablespace_name;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj03.png-sign" alt="统计所有表空间的总空间大小"></p>
+<p>2.统计所有表空间的空闲空间大小<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.tablespace_name, NVL(<span class="keyword">SUM</span>(b.bytes),<span class="number">0</span>) <span class="keyword">bytes</span> </span><br><span class="line"><span class="keyword">FROM</span> DBA_DATA_FILES a, DBA_FREE_SPACE b </span><br><span class="line"><span class="keyword">WHERE</span> a.tablespace_name = b.tablespace_name (+) <span class="keyword">AND</span> a.file_id = b.file_id (+) <span class="keyword">GROUP</span> <span class="keyword">BY</span> a.tablespace_name;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj04.png-sign" alt="统计所有表空间的总空间大小"></p>
+<h2 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h2><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">BIGFILE</span>|<span class="keyword">SMALLFILE</span>|<span class="keyword">UNDO</span>|<span class="keyword">TEMPORARY</span>]</span><br><span class="line"> <span class="keyword">TABLESPACE</span> &lt;表空间名&gt;</span><br><span class="line">    <span class="keyword">DATAFILE</span> |TEMPFILE‘数据文件名称和位置’ <span class="keyword">SIZE</span> &lt;大小&gt;</span><br><span class="line">    [<span class="keyword">REUSE</span>]</span><br><span class="line">    [<span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span>|DICTIONARY]</span><br><span class="line">    [<span class="keyword">AUTOALLOCATE</span>|<span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> &lt;大小&gt;]</span><br><span class="line">    [<span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">AUTO</span>|<span class="keyword">MANUAL</span>]</span><br><span class="line">    [<span class="keyword">BLOCKSIZE</span> &lt;大小&gt; ]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>参数说明<ul>
 <li>DATAFILE子句：用于定义表空间中包含的数据文件。</li>
@@ -467,34 +465,34 @@
 </ul>
 </li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="本地管理表空间"><a href="#本地管理表空间" class="headerlink" title="本地管理表空间"></a>本地管理表空间</h4><p>【例1】在CREATE TABLESPACE语句中使用EXTENT MANAGEMENT LOCAL子句，可以创建一个本地管理表空间<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS01</div><div class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">50</span>M</div><div class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </div><div class="line">   <span class="keyword">AUTOALLOCATE</span>;</div></pre></td></tr></table></figure></p>
-<p>【例2】创建表空间OrclTBS02时，指定其统一区间大小为128KB<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS02</div><div class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS02.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</div><div class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </div><div class="line">    <span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> <span class="number">128</span>K;</div></pre></td></tr></table></figure></p>
-<h4 id="大文件表空间"><a href="#大文件表空间" class="headerlink" title="大文件表空间"></a>大文件表空间</h4><p>【例】在CREATE TABLESPACE语句中使用BIGFILE关键词可以创建大文件表空间<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">BIGFILE</span> <span class="keyword">TABLESPACE</span> bigtbs</div><div class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\bigtbs.dbf'</span> <span class="keyword">SIZE</span> <span class="number">1</span>G;</div></pre></td></tr></table></figure></p>
-<h4 id="临时表空间"><a href="#临时表空间" class="headerlink" title="临时表空间"></a>临时表空间</h4><p>【例】创建临时表空间tmptbs<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> tmptbs</div><div class="line">    TEMPFILE <span class="string">'C:\app\Administrator\oradata\orcl\tmptbs.dbf'</span></div><div class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M </div><div class="line">    <span class="keyword">REUSE</span></div><div class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </div><div class="line">    <span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> <span class="number">16</span>K;</div></pre></td></tr></table></figure></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="本地管理表空间"><a href="#本地管理表空间" class="headerlink" title="本地管理表空间"></a>本地管理表空间</h4><p>【例1】在CREATE TABLESPACE语句中使用EXTENT MANAGEMENT LOCAL子句，可以创建一个本地管理表空间<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS01</span><br><span class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">50</span>M</span><br><span class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </span><br><span class="line">   <span class="keyword">AUTOALLOCATE</span>;</span><br></pre></td></tr></table></figure></p>
+<p>【例2】创建表空间OrclTBS02时，指定其统一区间大小为128KB<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS02</span><br><span class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS02.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</span><br><span class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </span><br><span class="line">    <span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> <span class="number">128</span>K;</span><br></pre></td></tr></table></figure></p>
+<h4 id="大文件表空间"><a href="#大文件表空间" class="headerlink" title="大文件表空间"></a>大文件表空间</h4><p>【例】在CREATE TABLESPACE语句中使用BIGFILE关键词可以创建大文件表空间<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">BIGFILE</span> <span class="keyword">TABLESPACE</span> bigtbs</span><br><span class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\bigtbs.dbf'</span> <span class="keyword">SIZE</span> <span class="number">1</span>G;</span><br></pre></td></tr></table></figure></p>
+<h4 id="临时表空间"><a href="#临时表空间" class="headerlink" title="临时表空间"></a>临时表空间</h4><p>【例】创建临时表空间tmptbs<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> tmptbs</span><br><span class="line">    TEMPFILE <span class="string">'C:\app\Administrator\oradata\orcl\tmptbs.dbf'</span></span><br><span class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M </span><br><span class="line">    <span class="keyword">REUSE</span></span><br><span class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> </span><br><span class="line">    <span class="keyword">UNIFORM</span> <span class="keyword">SIZE</span> <span class="number">16</span>K;</span><br></pre></td></tr></table></figure></p>
 <h2 id="段和数据块管理"><a href="#段和数据块管理" class="headerlink" title="段和数据块管理"></a>段和数据块管理</h2><p>进行插入、更新和删除操作时，段中的数据块的空间会发生变化，块的状态也会发生变化。 </p>
 <h3 id="两种方法进行块管理："><a href="#两种方法进行块管理：" class="headerlink" title="两种方法进行块管理："></a>两种方法进行块管理：</h3><ul>
 <li>手动管理（Manual Segment Space Management）<br>Oracle使用自由列表（Free List）管理段中的块，自由列表列出允许进行插入操作的数据块</li>
 <li>自动管理（Automatic Segment Space Management，ASSM）<br>自动管理使用位图来管理数据快。当块发生变化时，Oracle会更新位图，以反映这个块是否允许INSERT操作。位图使Oracle自动管理自由空间。</li>
 </ul>
-<h3 id="定义段空间管理方式"><a href="#定义段空间管理方式" class="headerlink" title="定义段空间管理方式"></a>定义段空间管理方式</h3><p><code>SEGMENT SPACE MANAGEMENT</code><br>【例】创建自动段管理方式的表空间MyTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> MyTBS01</div><div class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</div><div class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></div><div class="line">    <span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">AUTO</span>;</div></pre></td></tr></table></figure></p>
-<p>【例】创建手动段管理方式的表空间MyTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> MyTBS01</div><div class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</div><div class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></div><div class="line">    <span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">MANUAL</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="定义段空间管理方式"><a href="#定义段空间管理方式" class="headerlink" title="定义段空间管理方式"></a>定义段空间管理方式</h3><p><code>SEGMENT SPACE MANAGEMENT</code><br>【例】创建自动段管理方式的表空间MyTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> MyTBS01</span><br><span class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</span><br><span class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></span><br><span class="line">    <span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">AUTO</span>;</span><br></pre></td></tr></table></figure></p>
+<p>【例】创建手动段管理方式的表空间MyTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> MyTBS01</span><br><span class="line">    <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</span><br><span class="line">    <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></span><br><span class="line">    <span class="keyword">SEGMENT</span> <span class="keyword">SPACE</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">MANUAL</span>;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>数据块是Oracle数据库的最小存储单元，在初始化参数DB_BLOCK_SIZE中定义了标准数据块的大小。<br>在创建表空间时，如果不特殊指定，将使用DB_BLOCK_SIZE中定义的数据作为数据块的大小。</p>
 </blockquote>
-<p>【例】可以在CREATE TABLESPACE语句中使用BLOCKSIZE子句指定非标准数据块的大小：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS01</div><div class="line">   <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</div><div class="line">   <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></div><div class="line">   <span class="keyword">BLOCKSIZE</span> <span class="number">8</span>K;</div><div class="line">新创建的表空间数据块大小为8K。</div></pre></td></tr></table></figure></p>
+<p>【例】可以在CREATE TABLESPACE语句中使用BLOCKSIZE子句指定非标准数据块的大小：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> OrclTBS01</span><br><span class="line">   <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">30</span>M</span><br><span class="line">   <span class="keyword">EXTENT</span> <span class="keyword">MANAGEMENT</span> <span class="keyword">LOCAL</span> <span class="keyword">AUTOALLOCATE</span></span><br><span class="line">   <span class="keyword">BLOCKSIZE</span> <span class="number">8</span>K;</span><br><span class="line">新创建的表空间数据块大小为8K。</span><br></pre></td></tr></table></figure></p>
 <h2 id="撤销表空间"><a href="#撤销表空间" class="headerlink" title="撤销表空间"></a>撤销表空间</h2><p>撤销记录可以用于完成如下功能：</p>
 <ul>
 <li>当执行ROLLBACK命令时，完成回滚操作。</li>
 <li>恢复数据库。</li>
 <li>使用闪回查询分析以前时间点的数据。</li>
-<li>使用闪回技术从逻辑破坏中恢复数据。<br>初始化参数UNDO_TABLESPACE设置默认的撤销表空间。<br>【例】使用CREATE UNDO TABLESPACE语句创建撤销表空间：<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">UNDO</span> <span class="keyword">TABLESPACE</span> undotbs01</div><div class="line">     <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\undotbs01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">2</span>M <span class="keyword">REUSE</span>;</div><div class="line">表空间已创建。</div></pre></td></tr></table></figure>
+<li>使用闪回技术从逻辑破坏中恢复数据。<br>初始化参数UNDO_TABLESPACE设置默认的撤销表空间。<br>【例】使用CREATE UNDO TABLESPACE语句创建撤销表空间：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNDO</span> <span class="keyword">TABLESPACE</span> undotbs01</span><br><span class="line">     <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\undotbs01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">2</span>M <span class="keyword">REUSE</span>;</span><br><span class="line">表空间已创建。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="设置和修改表空间属性"><a href="#设置和修改表空间属性" class="headerlink" title="设置和修改表空间属性"></a>设置和修改表空间属性</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> &lt;表空间名&gt;</div><div class="line"><span class="keyword">RENAME</span> <span class="keyword">TO</span></div><div class="line">|<span class="keyword">ADD</span> <span class="keyword">DATAFILE</span>|<span class="keyword">ADD</span> TEMPFILE</div><div class="line">|<span class="keyword">OFFLINE</span>|<span class="keyword">ONLINE</span></div><div class="line">|<span class="keyword">READ</span> <span class="keyword">ONLY</span>|<span class="keyword">READ</span> WRITE</div><div class="line">|<span class="keyword">RESIZE</span>     </div><div class="line">…</div></pre></td></tr></table></figure>
-<h3 id="重命名表空间"><a href="#重命名表空间" class="headerlink" title="重命名表空间"></a>重命名表空间</h3><p><code>ALTER TABLESPACE …RENAME TO …</code><br>【例】将表空间OrclTBS02修改为OrclTBS03，可以使用下面的语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS02 <span class="keyword">RENAME</span> <span class="keyword">TO</span> OrclTBS03;</div><div class="line">表空间已更改。</div></pre></td></tr></table></figure></p>
-<h3 id="扩展本地管理表空间"><a href="#扩展本地管理表空间" class="headerlink" title="扩展本地管理表空间"></a>扩展本地管理表空间</h3><p>【例】在ALTER TABLESPACE语句中使用ADD DATAFILE子句，可以在本地管理表空间中增加数据文件<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS01</div><div class="line">    <span class="keyword">ADD</span> <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS011.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>M;</div><div class="line">表空间已更改。</div></pre></td></tr></table></figure></p>
-<h3 id="更改大文件表空间大小"><a href="#更改大文件表空间大小" class="headerlink" title="更改大文件表空间大小"></a>更改大文件表空间大小</h3><p>【例】修改大文件表空间bigtbs的数据文件大小为4GB<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> bigtbs</div><div class="line">    <span class="keyword">RESIZE</span> <span class="number">4</span>G;</div><div class="line">表空间已更改。</div></pre></td></tr></table></figure></p>
-<h3 id="扩展临时表空间"><a href="#扩展临时表空间" class="headerlink" title="扩展临时表空间"></a>扩展临时表空间</h3><p>【例】在临时表空间tmptbs中添加临时文件，tmptbs01.dbf，文件大小为20MB：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> tmptbs</div><div class="line">    <span class="keyword">ADD</span> TEMPFILE <span class="string">'C:\app\Administrator\oradata\orcl\tmptbs01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">20</span>M;</div><div class="line">表空间已更改。</div></pre></td></tr></table></figure></p>
+<h2 id="设置和修改表空间属性"><a href="#设置和修改表空间属性" class="headerlink" title="设置和修改表空间属性"></a>设置和修改表空间属性</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> &lt;表空间名&gt;</span><br><span class="line"><span class="keyword">RENAME</span> <span class="keyword">TO</span></span><br><span class="line">|<span class="keyword">ADD</span> <span class="keyword">DATAFILE</span>|<span class="keyword">ADD</span> TEMPFILE</span><br><span class="line">|<span class="keyword">OFFLINE</span>|<span class="keyword">ONLINE</span></span><br><span class="line">|<span class="keyword">READ</span> <span class="keyword">ONLY</span>|<span class="keyword">READ</span> WRITE</span><br><span class="line">|<span class="keyword">RESIZE</span>     </span><br><span class="line">…</span><br></pre></td></tr></table></figure>
+<h3 id="重命名表空间"><a href="#重命名表空间" class="headerlink" title="重命名表空间"></a>重命名表空间</h3><p><code>ALTER TABLESPACE …RENAME TO …</code><br>【例】将表空间OrclTBS02修改为OrclTBS03，可以使用下面的语句：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS02 <span class="keyword">RENAME</span> <span class="keyword">TO</span> OrclTBS03;</span><br><span class="line">表空间已更改。</span><br></pre></td></tr></table></figure></p>
+<h3 id="扩展本地管理表空间"><a href="#扩展本地管理表空间" class="headerlink" title="扩展本地管理表空间"></a>扩展本地管理表空间</h3><p>【例】在ALTER TABLESPACE语句中使用ADD DATAFILE子句，可以在本地管理表空间中增加数据文件<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS01</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">DATAFILE</span> <span class="string">'C:\app\Administrator\oradata\orcl\OrclTBS011.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>M;</span><br><span class="line">表空间已更改。</span><br></pre></td></tr></table></figure></p>
+<h3 id="更改大文件表空间大小"><a href="#更改大文件表空间大小" class="headerlink" title="更改大文件表空间大小"></a>更改大文件表空间大小</h3><p>【例】修改大文件表空间bigtbs的数据文件大小为4GB<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> bigtbs</span><br><span class="line">    <span class="keyword">RESIZE</span> <span class="number">4</span>G;</span><br><span class="line">表空间已更改。</span><br></pre></td></tr></table></figure></p>
+<h3 id="扩展临时表空间"><a href="#扩展临时表空间" class="headerlink" title="扩展临时表空间"></a>扩展临时表空间</h3><p>【例】在临时表空间tmptbs中添加临时文件，tmptbs01.dbf，文件大小为20MB：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> tmptbs</span><br><span class="line">    <span class="keyword">ADD</span> TEMPFILE <span class="string">'C:\app\Administrator\oradata\orcl\tmptbs01.dbf'</span> <span class="keyword">SIZE</span> <span class="number">20</span>M;</span><br><span class="line">表空间已更改。</span><br></pre></td></tr></table></figure></p>
 <h3 id="设置联机和脱机"><a href="#设置联机和脱机" class="headerlink" title="设置联机和脱机"></a>设置联机和脱机</h3><p>如下情况可将表空间设置为<strong>脱机状态</strong>：</p>
 <ul>
 <li>将数据库的一部分设置为不可访问，而其他部分可以访问。</li>
@@ -503,11 +501,11 @@
 <li>重命名或重新分配表空间。</li>
 </ul>
 <h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>ALTER TABLESPACE…OFFLINE</code>设置表空间为脱机状态<br><code>ALTER TABLESPACE…ONLINE</code>设置表空间为联机状态。</p>
-<p>【例】将表空间OrclTBS01设置为脱机状态<br><figure class="highlight plain"><figcaption><span>TABLESPACE OrclTBS01 OFFLINE;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">此时无法查看表空间状态，会出现错误ORA-01542:表空间’OrclTBS01’脱机，无法在其中分配空间。</div><div class="line">【例】将表空间OrclTBS01设置为联机状态</div><div class="line">```ALTER TABLESPACE OrclTBS01 ONLINE;</div></pre></td></tr></table></figure></p>
-<h3 id="设置只读表空间"><a href="#设置只读表空间" class="headerlink" title="设置只读表空间"></a>设置只读表空间</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><p><code>ALTER TABLESPACE…READ ONLY</code> 只读状态。<br><code>ALTER TABLESPACE…READ WRITE</code> 可读写状态。<br>【例】将表空间OrclTBS01设置为只读表空间<br><figure class="highlight sql"><figcaption><span>ALTER TABLESPACE OrclTBS01 READ ONLY;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">【例】将表空间OrclTBS01设置为可读写状态：</div><div class="line">```sql <span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS01 <span class="keyword">READ</span> WRITE;</div></pre></td></tr></table></figure></p>
-<h2 id="删除表空间"><a href="#删除表空间" class="headerlink" title="删除表空间"></a>删除表空间</h2><p><code>DROP TABLESPACE</code> 删除表空间。<br>【例】删除空的表空间OrclTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS01;</div><div class="line">表空间已删除。</div><div class="line">//删除非空表空间</div></pre></td></tr></table></figure></p>
-<p><code>INCLUDING CONTENTS</code>子句可以在删除表空间的同时删除其中的段，例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS01 <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span>;</div><div class="line">//该语句只会从数据字典中删除表空间信息，相关的数据文件依然在磁盘上。</div></pre></td></tr></table></figure></p>
-<p><code>INCLUDING CONTENTS AND DATAFILES</code> 子句可以在删除表空间的同时，删除包含的段和数据文件：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS03 <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span> <span class="keyword">AND</span> <span class="keyword">DATAFILES</span>;</div><div class="line">//删除操作系统级的文件</div></pre></td></tr></table></figure></p>
+<p>【例】将表空间OrclTBS01设置为脱机状态<br><figure class="highlight plain"><figcaption><span>TABLESPACE OrclTBS01 OFFLINE;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">此时无法查看表空间状态，会出现错误ORA-01542:表空间’OrclTBS01’脱机，无法在其中分配空间。</span><br><span class="line">【例】将表空间OrclTBS01设置为联机状态</span><br><span class="line">```ALTER TABLESPACE OrclTBS01 ONLINE;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置只读表空间"><a href="#设置只读表空间" class="headerlink" title="设置只读表空间"></a>设置只读表空间</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><p><code>ALTER TABLESPACE…READ ONLY</code> 只读状态。<br><code>ALTER TABLESPACE…READ WRITE</code> 可读写状态。<br>【例】将表空间OrclTBS01设置为只读表空间<br><figure class="highlight sql"><figcaption><span>ALTER TABLESPACE OrclTBS01 READ ONLY;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">【例】将表空间OrclTBS01设置为可读写状态：</span><br><span class="line">```sql <span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> OrclTBS01 <span class="keyword">READ</span> WRITE;</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除表空间"><a href="#删除表空间" class="headerlink" title="删除表空间"></a>删除表空间</h2><p><code>DROP TABLESPACE</code> 删除表空间。<br>【例】删除空的表空间OrclTBS01：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS01;</span><br><span class="line">表空间已删除。</span><br><span class="line">//删除非空表空间</span><br></pre></td></tr></table></figure></p>
+<p><code>INCLUDING CONTENTS</code>子句可以在删除表空间的同时删除其中的段，例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS01 <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span>;</span><br><span class="line">//该语句只会从数据字典中删除表空间信息，相关的数据文件依然在磁盘上。</span><br></pre></td></tr></table></figure></p>
+<p><code>INCLUDING CONTENTS AND DATAFILES</code> 子句可以在删除表空间的同时，删除包含的段和数据文件：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> OrclTBS03 <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span> <span class="keyword">AND</span> <span class="keyword">DATAFILES</span>;</span><br><span class="line">//删除操作系统级的文件</span><br></pre></td></tr></table></figure></p>
 <h2 id="Oracle存储管理2"><a href="#Oracle存储管理2" class="headerlink" title="Oracle存储管理2"></a>Oracle存储管理2</h2><ul>
 <li>回滚段管理 </li>
 <li>数据库文件管理<br><a href="../Oracle-store-management-2">回滚段管理 &amp; 数据库文件管理</a></li>
@@ -627,11 +625,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/avatar.jpg"
-                alt="evilpwn" />
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
               <p class="site-description motion-element" itemprop="description"></p>

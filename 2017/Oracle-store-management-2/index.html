@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/icos/apple-touch-icon.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="回滚段,数据库文件," />
+  <meta name="keywords" content="回滚段,数据库文件,">
 
 
 
@@ -94,14 +94,14 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="Oracle存储管理1表空间管理 回滚段管理回滚段来实现未提交数据或因系统故障导致实例崩溃时进行回滚操作，每一个表空间需要创建回滚段，各个表空间对回滚段实现各自的管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj05.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj06.png">
-<meta property="og:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj07.png">
-<meta property="og:updated_time" content="2017-05-09T12:56:02.000Z">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj05.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj06.png-sign">
+<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj07.png-sign">
+<meta property="og:updated_time" content="2018-11-27T18:22:32.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle存储管理2">
 <meta name="twitter:description" content="Oracle存储管理1表空间管理 回滚段管理回滚段来实现未提交数据或因系统故障导致实例崩溃时进行回滚操作，每一个表空间需要创建回滚段，各个表空间对回滚段实现各自的管理">
-<meta name="twitter:image" content="http://opkltmtvx.bkt.clouddn.com/oracle-bkj05.png">
+<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj05.png-sign">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="https://evilpwn.me/2017/Oracle-store-management-2/"/>
+  <link rel="canonical" href="https://evilpwn.me/2017/Oracle-store-management-2/">
 
 
 
@@ -149,7 +149,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -159,13 +159,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
@@ -195,7 +195,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -205,7 +205,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +215,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -225,7 +225,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -235,7 +235,7 @@
         <li class="menu-item menu-item-excerpt">
           <a href="/excerpt/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br>
             
             摘录
           </a>
@@ -248,7 +248,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -269,9 +269,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -303,20 +301,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://evilpwn.me/2017/Oracle-store-management-2/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="evilpwn's Note">
     </span>
 
@@ -348,7 +346,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -359,7 +357,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/oracle/" itemprop="url" rel="index">
                     <span itemprop="name">oracle</span>
                   </a>
@@ -423,27 +421,27 @@
         <h2 id="Oracle存储管理1"><a href="#Oracle存储管理1" class="headerlink" title="Oracle存储管理1"></a>Oracle存储管理1</h2><p><a href="../Oracle-store-management-1">表空间管理</a></p>
 <h2 id="回滚段管理"><a href="#回滚段管理" class="headerlink" title="回滚段管理"></a>回滚段管理</h2><p>回滚段来实现未提交数据或因系统故障导致实例崩溃时进行回滚操作，每一个表空间需要创建回滚段，各个表空间对回滚段实现各自的管理</p>
 <a id="more"></a>
-<h3 id="查看回滚段信息"><a href="#查看回滚段信息" class="headerlink" title="查看回滚段信息"></a>查看回滚段信息</h3><p>使用视图DBA_SEGMENTS可以查看当前数据库中所有段的信息。回滚段的类型（SEGMENT_TYPE）值为ROLLBACK。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">COL 回滚段名 FOR A20</div><div class="line"><span class="keyword">SELECT</span> SEGMENT_NAME 回滚段名, TABLESPACE_NAME 所在表空间, <span class="keyword">BYTES</span> 大小</div><div class="line"><span class="keyword">FROM</span> DBA_SEGMENTS <span class="keyword">WHERE</span> SEGMENT_TYPE=<span class="string">'ROLLBACK'</span>;</div></pre></td></tr></table></figure></p>
-<p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj05.png" alt="回滚段信息"></p>
-<p>查看回滚段的当前工作情况 ：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">COL NAME FOR A12</div><div class="line"><span class="keyword">SELECT</span> s.USN, n.NAME, s.EXTENTS, s.RSSIZE, s.STATUS </div><div class="line"><span class="keyword">FROM</span> V$ROLLSTAT s, V$ROLLNAME n</div><div class="line"><span class="keyword">WHERE</span> s.USN=n.USN;</div></pre></td></tr></table></figure></p>
-<p><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj06.png" alt="回滚段当前工作情况"></p>
+<h3 id="查看回滚段信息"><a href="#查看回滚段信息" class="headerlink" title="查看回滚段信息"></a>查看回滚段信息</h3><p>使用视图DBA_SEGMENTS可以查看当前数据库中所有段的信息。回滚段的类型（SEGMENT_TYPE）值为ROLLBACK。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COL 回滚段名 FOR A20</span><br><span class="line"><span class="keyword">SELECT</span> SEGMENT_NAME 回滚段名, TABLESPACE_NAME 所在表空间, <span class="keyword">BYTES</span> 大小</span><br><span class="line"><span class="keyword">FROM</span> DBA_SEGMENTS <span class="keyword">WHERE</span> SEGMENT_TYPE=<span class="string">'ROLLBACK'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj05.png-sign" alt="回滚段信息"></p>
+<p>查看回滚段的当前工作情况 ：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COL NAME FOR A12</span><br><span class="line"><span class="keyword">SELECT</span> s.USN, n.NAME, s.EXTENTS, s.RSSIZE, s.STATUS </span><br><span class="line"><span class="keyword">FROM</span> V$ROLLSTAT s, V$ROLLNAME n</span><br><span class="line"><span class="keyword">WHERE</span> s.USN=n.USN;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj06.png-sign" alt="回滚段当前工作情况"></p>
 <h3 id="查看和设置回滚段的管理模式"><a href="#查看和设置回滚段的管理模式" class="headerlink" title="查看和设置回滚段的管理模式"></a>查看和设置回滚段的管理模式</h3><ul>
 <li>Oracle数据库可以自动管理回滚段，也可以由用户来手动管理。</li>
 <li>使用初始化参数UNDO_MANAGEMENT可以设置管理回滚段的方式。</li>
 </ul>
-<p>查看UNDO_MANAGEMENT参数的值：<br><code>SHOW PARAMETER UNDO_MANAGEMENT</code><br><img src="http://opkltmtvx.bkt.clouddn.com/oracle-bkj07.png" alt="UNDO_MANAGEMENT参数的值"></p>
+<p>查看UNDO_MANAGEMENT参数的值：<br><code>SHOW PARAMETER UNDO_MANAGEMENT</code><br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/oracle-bkj07.png-sign" alt="UNDO_MANAGEMENT参数的值"></p>
 <p>将回滚段管理方式设置为手动管理：<br><code>ALTER SYSTEM SET UNDO_MANAGEMENT=MANUAL SCOPE=SPFILE;</code><br>SCOPE=SPFILE表示对初始化参数的修改应用于SPFILE，需要重新启动数据库实例才能生效。</p>
-<h3 id="创建回滚段"><a href="#创建回滚段" class="headerlink" title="创建回滚段"></a>创建回滚段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> [<span class="keyword">PUBLIC</span>] <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> 回滚段名称 </div><div class="line"><span class="keyword">TABLESPACE</span>所属表空间名称</div><div class="line"><span class="keyword">STORAGE</span> 存储选项</div></pre></td></tr></table></figure>
-<p>示例：为表空间OrclTBS01创建回滚段OrclRs01<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01</div><div class="line"><span class="keyword">TABLESPACE</span> UndoTBS1</div><div class="line"><span class="keyword">STORAGE</span> (<span class="keyword">INITIAL</span> <span class="number">5</span>M</div><div class="line">          <span class="keyword">NEXT</span> <span class="number">2</span>M</div><div class="line">          <span class="keyword">MAXEXTENTS</span> <span class="keyword">UNLIMITED</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="创建回滚段"><a href="#创建回滚段" class="headerlink" title="创建回滚段"></a>创建回滚段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">PUBLIC</span>] <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> 回滚段名称 </span><br><span class="line"><span class="keyword">TABLESPACE</span>所属表空间名称</span><br><span class="line"><span class="keyword">STORAGE</span> 存储选项</span><br></pre></td></tr></table></figure>
+<p>示例：为表空间OrclTBS01创建回滚段OrclRs01<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01</span><br><span class="line"><span class="keyword">TABLESPACE</span> UndoTBS1</span><br><span class="line"><span class="keyword">STORAGE</span> (<span class="keyword">INITIAL</span> <span class="number">5</span>M</span><br><span class="line">          <span class="keyword">NEXT</span> <span class="number">2</span>M</span><br><span class="line">          <span class="keyword">MAXEXTENTS</span> <span class="keyword">UNLIMITED</span>);</span><br></pre></td></tr></table></figure></p>
 <h3 id="修改回滚段的属性"><a href="#修改回滚段的属性" class="headerlink" title="修改回滚段的属性"></a>修改回滚段的属性</h3><ol>
 <li>修改回滚段的在线状态<br><code>ALTER ROLLBACK SEGMENT 回滚段名称 回滚段状态</code><br>状态：ONLINE（联机）和OFFLINE（脱机），新建回滚段的状态为ONLINE。</li>
-<li>手动收缩回滚段<br>如果在创建回滚段时指定的初始大小（INITIAL参数）过大，可以手动收缩回滚段的大小。<br><code>ALTER ROLLBACK SEGMENT 回滚段名称 SHRINK TO 回滚段的初始大小</code><br>示例：回滚段OrclRs01的大小收缩为1MB<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01 <span class="keyword">SHRINK</span> <span class="keyword">TO</span> <span class="number">1</span>M;</div></pre></td></tr></table></figure>
+<li>手动收缩回滚段<br>如果在创建回滚段时指定的初始大小（INITIAL参数）过大，可以手动收缩回滚段的大小。<br><code>ALTER ROLLBACK SEGMENT 回滚段名称 SHRINK TO 回滚段的初始大小</code><br>示例：回滚段OrclRs01的大小收缩为1MB<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01 <span class="keyword">SHRINK</span> <span class="keyword">TO</span> <span class="number">1</span>M;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="删除回滚段"><a href="#删除回滚段" class="headerlink" title="删除回滚段"></a>删除回滚段</h3><blockquote>
 <p>需要先将回滚段设置为<strong>脱机状态</strong>。<br>ALTER ROLLBACK SEGMENT 回滚段名 OFFLINE;</p>
 </blockquote>
-<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01 <span class="keyword">OFFLINE</span>;</div><div class="line"><span class="keyword">DROP</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01;</div></pre></td></tr></table></figure></p>
+<p>示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01 <span class="keyword">OFFLINE</span>;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">ROLLBACK</span> <span class="keyword">SEGMENT</span> OrclRs01;</span><br></pre></td></tr></table></figure></p>
 <h2 id="数据库文件管理"><a href="#数据库文件管理" class="headerlink" title="数据库文件管理"></a>数据库文件管理</h2><p>（待整理）</p>
 
       
@@ -560,11 +558,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/avatar.jpg"
-                alt="evilpwn" />
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
               <p class="site-description motion-element" itemprop="description"></p>
