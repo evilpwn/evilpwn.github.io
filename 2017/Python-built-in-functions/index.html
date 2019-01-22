@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="内置函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-20T11:19:11.000Z">
+<meta property="og:updated_time" content="2019-01-10T08:48:48.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python内置函数">
 <meta name="twitter:description" content="内置函数">
@@ -520,6 +520,8 @@
 <h1 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h1><p>根据提供的函数对指定序列做映射。<br>map()函数接收两个参数，一个是<font color="red">函数</font>，一个是<font color="red">序列</font>，map将传入的函数依次作用到序列的每个元素，并把结果作为新的list返回。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map(function, iterable, ...)</span><br><span class="line">function -- 函数</span><br><span class="line">iterable -- 一个或多个序列</span><br></pre></td></tr></table></figure>
 <p><b>举例：</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span> :</span>            <span class="comment"># 计算平方数</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(square, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])   <span class="comment"># 计算列表和：1+2+3+4+5</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])  <span class="comment"># 使用 lambda 匿名函数</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提供了两个列表，对相同位置的列表数据进行相加</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x, y: x + y, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>])</span><br><span class="line">[<span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>, <span class="number">19</span>]</span><br></pre></td></tr></table></figure></p>
+<h1 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h1><p>把分隔符加入到序列（或str）中，结果为str<br>分隔符.jion(str)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="string">"-"</span></span><br><span class="line">a=<span class="string">"abc"</span> <span class="comment"># str、list、tuple、dic 都行</span></span><br><span class="line">        <span class="comment"># 但字典只能对键操作、序列里元素必须是str</span></span><br><span class="line">print(x.join(a)) <span class="comment"># join后结果为str</span></span><br><span class="line">----------------------------</span><br><span class="line">a-b-c</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -648,7 +650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -670,7 +672,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -719,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#print"><span class="nav-number">1.</span> <span class="nav-text">print()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#format"><span class="nav-number">2.</span> <span class="nav-text">format()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eval-和-repr"><span class="nav-number">3.</span> <span class="nav-text">eval() 和 repr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">4.</span> <span class="nav-text">map()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#print"><span class="nav-number">1.</span> <span class="nav-text">print()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#format"><span class="nav-number">2.</span> <span class="nav-text">format()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eval-和-repr"><span class="nav-number">3.</span> <span class="nav-text">eval() 和 repr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">4.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#join"><span class="nav-number">5.</span> <span class="nav-text">join()</span></a></li></ol></div>
             
 
           </div>
