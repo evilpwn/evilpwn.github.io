@@ -115,12 +115,12 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://image.evilpwn.me/blog/Windows-reverse-01.png-sign">
-<meta property="og:updated_time" content="2019-01-31T05:37:16.908Z">
+<meta property="og:image" content="https://image.evilpwn.me/blog/Windows-reverse-01.png-sign">
+<meta property="og:updated_time" content="2019-01-31T06:40:44.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows逆向基础">
 <meta name="twitter:description" content="ASCII与UNICODE字符集 ASCII（美国信息交换标准码）7位编码，共128个代码，最通用的单字节编码，主要用于显示现代英语和其他西欧语言。如：“good”的ASCII编码：67h 6fh 6fh 64h  Unicode是ASCII的扩展，Windows中，用两个字节（16位）对其进行编码，也称宽字节集（Widechars）。高位填充0。如：“good”的Unicode编码：67 00">
-<meta name="twitter:image" content="http://image.evilpwn.me/blog/Windows-reverse-01.png-sign">
+<meta name="twitter:image" content="https://image.evilpwn.me/blog/Windows-reverse-01.png-sign">
 
 
 
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-31 13:37:16" itemprop="dateModified" datetime="2019-01-31T13:37:16+08:00">2019-01-31</time>
+                <time title="修改时间：2019-01-31 14:40:44" itemprop="dateModified" datetime="2019-01-31T14:40:44+08:00">2019-01-31</time>
               
             
           </span>
@@ -527,7 +527,7 @@
 </blockquote>
 <h2 id="GetDlgItemText"><a href="#GetDlgItemText" class="headerlink" title="GetDlgItemText"></a>GetDlgItemText</h2><p>在user32.dll用户模块中，<font color="red">获取对话框文本</font>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Unit <span class="title">GetDlgItemText</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  HWND hDlg,         <span class="comment">//对话框句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nlDDlgItem,    <span class="comment">//控件标识（ID号）</span></span></span></span><br><span class="line"><span class="function"><span class="params">  LPCTSTR IpString,  <span class="comment">//文本缓冲区指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">int</span> nMaxCount      <span class="comment">//字符缓冲区的长度</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>执行成功返回缓冲区字符个数，失败返回0<br>ANSI版是GetDlgItemTexA，Unicode版是GetDlgItemTexW。</p>
-<h1 id="Windows消息机制"><a href="#Windows消息机制" class="headerlink" title="Windows消息机制"></a>Windows消息机制</h1><p>Windows是一个<font color="red">消息（Message）驱动</font>的系统。<br>Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。<br>应用程序想要实现的功能<font color="red">由消息来触发</font>，并且靠<font color="red">对消息的相应和处理</font>来完成功能。<br>Windows中，有两种消息队列：系统队列、应用程序消息队列。<br>一个事件的发生，到达处理它的窗口函数，必须经过如下过程：<br><img src="http://image.evilpwn.me/blog/Windows-reverse-01.png-sign" alt="Windows消息机制"></p>
+<h1 id="Windows消息机制"><a href="#Windows消息机制" class="headerlink" title="Windows消息机制"></a>Windows消息机制</h1><p>Windows是一个<font color="red">消息（Message）驱动</font>的系统。<br>Windows消息提供应用程序与应用程序之间、应用程序与Windows操作系统之间进行通信的手段。<br>应用程序想要实现的功能<font color="red">由消息来触发</font>，并且靠<font color="red">对消息的相应和处理</font>来完成功能。<br>Windows中，有两种消息队列：系统队列、应用程序消息队列。<br>一个事件的发生，到达处理它的窗口函数，必须经过如下过程：<br><img src="https://image.evilpwn.me/blog/Windows-reverse-01.png-sign" alt="Windows消息机制"></p>
 
       
     </div>

@@ -115,12 +115,12 @@
 <meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="turtle简介turtle 海龟绘图">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://image.evilpwn.me/blog/Python_turtle_01.gif">
-<meta property="og:updated_time" content="2019-01-31T05:37:57.258Z">
+<meta property="og:image" content="https://image.evilpwn.me/blog/Python_turtle_01.gif">
+<meta property="og:updated_time" content="2019-01-31T06:40:44.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python模块——Turtle">
 <meta name="twitter:description" content="turtle简介turtle 海龟绘图">
-<meta name="twitter:image" content="http://image.evilpwn.me/blog/Python_turtle_01.gif">
+<meta name="twitter:image" content="https://image.evilpwn.me/blog/Python_turtle_01.gif">
 
 
 
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-31 13:37:57" itemprop="dateModified" datetime="2019-01-31T13:37:57+08:00">2019-01-31</time>
+                <time title="修改时间：2019-01-31 14:40:44" itemprop="dateModified" datetime="2019-01-31T14:40:44+08:00">2019-01-31</time>
               
             
           </span>
@@ -512,7 +512,7 @@
         <h1 id="turtle简介"><a href="#turtle简介" class="headerlink" title="turtle简介"></a>turtle简介</h1><p>turtle 海龟绘图</p>
 <a id="more"></a>
 <h1 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h1><p>用turtle画一个python小蟒蛇<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawSnake</span><span class="params">(rad,angle,len,neckrad)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len):</span><br><span class="line">        turtle.circle(rad,angle)   <span class="comment"># 圆形轨迹爬行，rad半径（找到原点，开始画圆）   </span></span><br><span class="line">        turtle.circle(-rad,angle)  <span class="comment"># 正表示原点在轨迹左侧，负表示在轨迹右侧</span></span><br><span class="line">    turtle.circle(rad,angel/<span class="number">2</span>)     <span class="comment"># angle表示沿圆形爬行的弧度值</span></span><br><span class="line">	</span><br><span class="line">    turtle.fd(rad)             <span class="comment"># turtle.forward();表示向前直线爬行，参数表距离</span></span><br><span class="line">    turtle.circle(neckrad+<span class="number">1</span>,<span class="number">180</span>)</span><br><span class="line">    turtle.fd(rad*<span class="number">2</span>/<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    turtle.setup(<span class="number">1300</span>,<span class="number">800</span>,<span class="number">0</span>,<span class="number">0</span>)  <span class="comment"># 在屏幕左上角创建一个1300x800的画布</span></span><br><span class="line">    pythonsize=<span class="number">30</span>               <span class="comment"># 轨迹宽度为30像素</span></span><br><span class="line">    turtle.pensize(pythonsize)</span><br><span class="line">    turtle.pencolor(<span class="string">"blue"</span>)     <span class="comment"># 轨迹颜色,也可输入RPG，如："#3B9909"</span></span><br><span class="line">    turtle.seth(<span class="number">-40</span>)            <span class="comment"># 初始轨迹方向，参数为角度值</span></span><br><span class="line">    drawSnake(<span class="number">40</span>,<span class="number">80</span>,<span class="number">5</span>,pythonsize/<span class="number">2</span>)   <span class="comment"># 绘制</span></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://image.evilpwn.me/blog/Python_turtle_01.gif" alt="小蟒蛇"></p>
+<p><img src="https://image.evilpwn.me/blog/Python_turtle_01.gif" alt="小蟒蛇"></p>
 <h1 id="库函数详解"><a href="#库函数详解" class="headerlink" title="库函数详解"></a>库函数详解</h1><h2 id="画笔绘制状态函数（共3个）"><a href="#画笔绘制状态函数（共3个）" class="headerlink" title="画笔绘制状态函数（共3个）"></a>画笔绘制状态函数（共3个）</h2><table>
 <thead>
 <tr>
