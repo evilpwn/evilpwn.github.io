@@ -47,6 +47,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
 
 
 
@@ -82,7 +86,7 @@
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -108,7 +112,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python_OS模块">
 <meta property="og:url" content="https://evilpwn.me/2018/Python-OS/index.html">
-<meta property="og:site_name" content="evilpwn&#39;s note">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="12345678import &amp;lt;库名&amp;gt;&amp;lt;库名&amp;gt;.&amp;lt;函数名&amp;gt;from &amp;lt;库名&amp;gt; import *from &amp;lt;库名&amp;gt; import &amp;lt;函数名&amp;gt;&amp;lt;函数名&amp;gt;from的这两种方式调用函数时，不再需要库名。注意此时代码中不能再创建与库函数名一样的变量或函数。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-01-10T07:00:05.531Z">
@@ -131,7 +135,7 @@
   };
 </script>
 
-  <title>Python_OS模块 | evilpwn's note</title>
+  <title>Python_OS模块 | evilpwn's Note</title>
   
 
 
@@ -190,7 +194,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">evilpwn's note</span>
+        <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -384,12 +388,12 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
-      <meta itemprop="description" content="许自己一个未来，用一生去努力">
+      <meta itemprop="description" content="许自己一个未来,用一生去努力">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="evilpwn's note">
+      <meta itemprop="name" content="evilpwn's Note">
     </span>
 
     
@@ -467,18 +471,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/Python-OS/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/Python-OS/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -616,6 +608,7 @@
 
   
     <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU4Ni84MTUw"></div>
     </div>
 
   
@@ -660,7 +653,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
-              <p class="site-description motion-element" itemprop="description">许自己一个未来，用一生去努力</p>
+              <p class="site-description motion-element" itemprop="description">许自己一个未来,用一生去努力</p>
           </div>
 
           
@@ -713,6 +706,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -725,6 +720,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -955,6 +952,8 @@
 
 
 
+  
+
 
 
   
@@ -983,6 +982,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1018,44 +1020,22 @@
 
 
   
+
+
   
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz',
-    appKey: 'BxBScgSxibHb3t956iPFXsAd',
-    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  // >>>>>>>>>>>>>>>>>>>>>>> custom 移除.info下所有子节点,实现移除powered by >>>>>>>>>>>>>>>>>>>
-  var infoEle = document.querySelector('#comments .info');
-  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-    infoEle.childNodes.forEach(function(item) {
-      item.parentNode.removeChild(item);
-    });
-  }
-  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< custom end <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    <script>
+  window.livereOptions = {
+    refer: '2018/Python-OS/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
 </script>
-
-
-
 
   
 

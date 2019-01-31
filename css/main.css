@@ -1918,7 +1918,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ba12d7;
+  background: #09ff65;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3060,9 +3060,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
-}
-.header-inner {
-  opacity: 0.8;
 }
 .main-inner {
   opacity: 0.8;

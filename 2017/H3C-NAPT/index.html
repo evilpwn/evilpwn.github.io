@@ -47,6 +47,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
 
 
 
@@ -82,7 +86,7 @@
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -108,18 +112,18 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="H3C-NAPT配置">
 <meta property="og:url" content="https://evilpwn.me/2017/H3C-NAPT/index.html">
-<meta property="og:site_name" content="evilpwn&#39;s note">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="配置命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-01.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-02.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-03.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-04.png-sign">
-<meta property="og:updated_time" content="2018-11-27T18:22:30.093Z">
+<meta property="og:image" content="http://image.evilpwn.me/blog/H3C-NAPT-01.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/H3C-NAPT-02.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/H3C-NAPT-03.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/H3C-NAPT-04.png-sign">
+<meta property="og:updated_time" content="2019-01-31T05:37:57.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H3C-NAPT配置">
 <meta name="twitter:description" content="配置命令">
-<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-01.png-sign">
+<meta name="twitter:image" content="http://image.evilpwn.me/blog/H3C-NAPT-01.png-sign">
 
 
 
@@ -136,7 +140,7 @@
   };
 </script>
 
-  <title>H3C-NAPT配置 | evilpwn's note</title>
+  <title>H3C-NAPT配置 | evilpwn's Note</title>
   
 
 
@@ -195,7 +199,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">evilpwn's note</span>
+        <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -389,12 +393,12 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
-      <meta itemprop="description" content="许自己一个未来，用一生去努力">
+      <meta itemprop="description" content="许自己一个未来,用一生去努力">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="evilpwn's note">
+      <meta itemprop="name" content="evilpwn's Note">
     </span>
 
     
@@ -445,7 +449,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-28 02:22:30" itemprop="dateModified" datetime="2018-11-28T02:22:30+08:00">2018-11-28</time>
+                <time title="修改时间：2019-01-31 13:37:57" itemprop="dateModified" datetime="2019-01-31T13:37:57+08:00">2019-01-31</time>
               
             
           </span>
@@ -472,18 +476,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2017/H3C-NAPT/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/H3C-NAPT/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -521,11 +513,11 @@
 
       
         <h1 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h1><a id="more"></a>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-01.png-sign" alt="拓扑图"></p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img src="http://image.evilpwn.me/blog/H3C-NAPT-01.png-sign" alt="拓扑图"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### 全网互通 ###</span><br><span class="line">[RT1]ip route-static 0.0.0.0 0 192.68.0.2</span><br><span class="line">[RT2]ip route-static 0.0.0.0 0 192.68.0.1</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">### NAPT配置 ###</span><br><span class="line">[RT1]acl basic 2001</span><br><span class="line">[RT1-acl-ipv4-basic-2001]rule permit source 10.0.0.0 0.0.0.255</span><br><span class="line">[RT1]nat address-group 1</span><br><span class="line">[RT1-address-group-1]address 192.68.0.11 192.68.0.20</span><br><span class="line">[RT1-address-group-1]int g 0/1</span><br><span class="line">[RT1-GigabitEthernet0/1]nat outbound 2001 address-group 1</span><br><span class="line"></span><br><span class="line">[RT2]acl basic 2001</span><br><span class="line">[RT2-acl-ipv4-basic-2001]rule permit source 20.0.0.0 0.0.0.255</span><br><span class="line">[RT2]nat address-group 1</span><br><span class="line">[RT2-address-group-1]address 192.68.0.21 192.68.0.30</span><br><span class="line">[RT2-address-group-1]int g 0/1</span><br><span class="line">[RT2-GigabitEthernet0/1]nat outbound 2001 address-group 1</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结果验证：<br>dis nat session verbose<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-02.png-sign" alt="RT1"><br>PC1报文：<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-03.png-sign" alt="PC1"><br>PC2报文：<br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/H3C-NAPT-04.png-sign" alt="PC2"></li>
+<li>结果验证：<br>dis nat session verbose<br><img src="http://image.evilpwn.me/blog/H3C-NAPT-02.png-sign" alt="RT1"><br>PC1报文：<br><img src="http://image.evilpwn.me/blog/H3C-NAPT-03.png-sign" alt="PC1"><br>PC2报文：<br><img src="http://image.evilpwn.me/blog/H3C-NAPT-04.png-sign" alt="PC2"></li>
 </ul>
 
       
@@ -624,6 +616,7 @@
 
   
     <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU4Ni84MTUw"></div>
     </div>
 
   
@@ -668,7 +661,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
-              <p class="site-description motion-element" itemprop="description">许自己一个未来，用一生去努力</p>
+              <p class="site-description motion-element" itemprop="description">许自己一个未来,用一生去努力</p>
           </div>
 
           
@@ -721,6 +714,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -733,6 +728,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -963,6 +960,8 @@
 
 
 
+  
+
 
 
   
@@ -991,6 +990,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1026,44 +1028,22 @@
 
 
   
+
+
   
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz',
-    appKey: 'BxBScgSxibHb3t956iPFXsAd',
-    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  // >>>>>>>>>>>>>>>>>>>>>>> custom 移除.info下所有子节点,实现移除powered by >>>>>>>>>>>>>>>>>>>
-  var infoEle = document.querySelector('#comments .info');
-  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-    infoEle.childNodes.forEach(function(item) {
-      item.parentNode.removeChild(item);
-    });
-  }
-  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< custom end <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    <script>
+  window.livereOptions = {
+    refer: '2017/H3C-NAPT/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
 </script>
-
-
-
 
   
 

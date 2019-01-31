@@ -47,6 +47,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
 
 
 
@@ -82,7 +86,7 @@
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -104,16 +108,16 @@
 
 
   <meta name="description" content="404 Not Found —对不起，您所访问的页面不存在或者已删除你可以点击此处返回首页.我的Github：http://github.com/evilpwn我的邮箱：i@evilpwn.me">
-<meta name="keywords" content="evilpwn,evilpwn.me,evlim,evil pwn,evilpwn&#39;s note">
+<meta name="keywords" content="evilpwn,evilpwn.me,evlim,evil pwn,evilpwn&#39;s Note">
 <meta property="og:type" content="website">
-<meta property="og:title" content="evilpwn&#39;s note">
+<meta property="og:title" content="evilpwn&#39;s Note">
 <meta property="og:url" content="https://evilpwn.me/404.html">
-<meta property="og:site_name" content="evilpwn&#39;s note">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="404 Not Found —对不起，您所访问的页面不存在或者已删除你可以点击此处返回首页.我的Github：http://github.com/evilpwn我的邮箱：i@evilpwn.me">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-01-22T10:02:10.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="evilpwn&#39;s note">
+<meta name="twitter:title" content="evilpwn&#39;s Note">
 <meta name="twitter:description" content="404 Not Found —对不起，您所访问的页面不存在或者已删除你可以点击此处返回首页.我的Github：http://github.com/evilpwn我的邮箱：i@evilpwn.me">
 
 
@@ -131,7 +135,7 @@
   };
 </script>
 
-  <title> | evilpwn's note</title>
+  <title> | evilpwn's Note</title>
   
 
 
@@ -190,7 +194,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">evilpwn's note</span>
+        <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -462,7 +466,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
-              <p class="site-description motion-element" itemprop="description">许自己一个未来，用一生去努力</p>
+              <p class="site-description motion-element" itemprop="description">许自己一个未来,用一生去努力</p>
           </div>
 
           
@@ -515,6 +519,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -527,6 +533,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -740,6 +748,8 @@
 
 
 
+  
+
 
 
   
@@ -768,6 +778,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -803,43 +816,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz',
-    appKey: 'BxBScgSxibHb3t956iPFXsAd',
-    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  // >>>>>>>>>>>>>>>>>>>>>>> custom 移除.info下所有子节点,实现移除powered by >>>>>>>>>>>>>>>>>>>
-  var infoEle = document.querySelector('#comments .info');
-  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-    infoEle.childNodes.forEach(function(item) {
-      item.parentNode.removeChild(item);
-    });
-  }
-  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< custom end <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-</script>
-
-
 
 
 

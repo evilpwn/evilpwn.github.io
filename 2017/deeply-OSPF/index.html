@@ -47,6 +47,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
 
 
 
@@ -82,7 +86,7 @@
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -108,26 +112,26 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解OSPF开放式最短路径优先协议">
 <meta property="og:url" content="https://evilpwn.me/2017/deeply-OSPF/index.html">
-<meta property="og:site_name" content="evilpwn&#39;s note">
+<meta property="og:site_name" content="evilpwn&#39;s Note">
 <meta property="og:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_08.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_09.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_10.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_11.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_01.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_02.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_03.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_04.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_12.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_05.jpg">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_06.png-sign">
-<meta property="og:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_07.png-sign">
-<meta property="og:updated_time" content="2018-11-27T18:22:28.635Z">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_08.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_09.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_10.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_11.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_01.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_02.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_03.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_04.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_12.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_05.jpg">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_06.png-sign">
+<meta property="og:image" content="http://image.evilpwn.me/blog/deeply_OSPF_07.png-sign">
+<meta property="og:updated_time" content="2019-01-31T05:37:57.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解OSPF开放式最短路径优先协议">
 <meta name="twitter:description" content="RIP缺陷 以跳数评估的路由并非最优路径 最大跳数16导致网络尺度小 收敛速度慢 更新发送全部路由表浪费网络资源">
-<meta name="twitter:image" content="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_08.png-sign">
+<meta name="twitter:image" content="http://image.evilpwn.me/blog/deeply_OSPF_08.png-sign">
 
 
 
@@ -144,7 +148,7 @@
   };
 </script>
 
-  <title>深入理解OSPF开放式最短路径优先协议 | evilpwn's note</title>
+  <title>深入理解OSPF开放式最短路径优先协议 | evilpwn's Note</title>
   
 
 
@@ -203,7 +207,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">evilpwn's note</span>
+        <span class="site-title">evilpwn's Note</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -397,12 +401,12 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="evilpwn">
-      <meta itemprop="description" content="许自己一个未来，用一生去努力">
+      <meta itemprop="description" content="许自己一个未来,用一生去努力">
       <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="evilpwn's note">
+      <meta itemprop="name" content="evilpwn's Note">
     </span>
 
     
@@ -453,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-28 02:22:28" itemprop="dateModified" datetime="2018-11-28T02:22:28+08:00">2018-11-28</time>
+                <time title="修改时间：2019-01-31 13:37:57" itemprop="dateModified" datetime="2019-01-31T13:37:57+08:00">2019-01-31</time>
               
             
           </span>
@@ -480,18 +484,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2017/deeply-OSPF/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/deeply-OSPF/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -535,13 +527,13 @@
 <li>更新发送全部路由表浪费网络资源</li>
 </ul>
 <a id="more"></a>
-<h2 id="以跳数评估的路由并非最优路径"><a href="#以跳数评估的路由并非最优路径" class="headerlink" title="以跳数评估的路由并非最优路径"></a>以跳数评估的路由并非最优路径</h2><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_08.png-sign" alt="跳数评估的路由并非最优路径"></p>
+<h2 id="以跳数评估的路由并非最优路径"><a href="#以跳数评估的路由并非最优路径" class="headerlink" title="以跳数评估的路由并非最优路径"></a>以跳数评估的路由并非最优路径</h2><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_08.png-sign" alt="跳数评估的路由并非最优路径"></p>
 <p>如果RTA选择S0/0传输，传输需时会大大缩短为3s</p>
-<h2 id="最大跳数16导致网络尺度小"><a href="#最大跳数16导致网络尺度小" class="headerlink" title="最大跳数16导致网络尺度小"></a>最大跳数16导致网络尺度小</h2><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_09.png-sign" alt="最大跳数16导致网络尺度小"></p>
+<h2 id="最大跳数16导致网络尺度小"><a href="#最大跳数16导致网络尺度小" class="headerlink" title="最大跳数16导致网络尺度小"></a>最大跳数16导致网络尺度小</h2><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_09.png-sign" alt="最大跳数16导致网络尺度小"></p>
 <p>RIP协议限制网络直径不能超过16跳！</p>
-<h2 id="收敛速度慢"><a href="#收敛速度慢" class="headerlink" title="收敛速度慢"></a>收敛速度慢</h2><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_10.png-sign" alt="收敛速度慢"></p>
+<h2 id="收敛速度慢"><a href="#收敛速度慢" class="headerlink" title="收敛速度慢"></a>收敛速度慢</h2><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_10.png-sign" alt="收敛速度慢"></p>
 <p>RTA和RTB收到路由不可达信息后进入抑制时间<br>抑制时间结束前，即使有新的设备发布路由RTA和RTB的路由也不能更新</p>
-<h2 id="更新发送全部路由表浪费网络资源"><a href="#更新发送全部路由表浪费网络资源" class="headerlink" title="更新发送全部路由表浪费网络资源"></a>更新发送全部路由表浪费网络资源</h2><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_11.png-sign" alt="收敛速度慢"></p>
+<h2 id="更新发送全部路由表浪费网络资源"><a href="#更新发送全部路由表浪费网络资源" class="headerlink" title="更新发送全部路由表浪费网络资源"></a>更新发送全部路由表浪费网络资源</h2><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_11.png-sign" alt="收敛速度慢"></p>
 <p>假设RTA和RTB各有1000条路由，每条路由需占用20个字节<br>每次路由更新时，RTA和RTB之间单向需消耗至少160Kb的带宽资源</p>
 <p>由此可见，RIP协议并不适合大规模的网络，OSPF可以很好地解决了上述问题，因此得到广泛使用。</p>
 <h1 id="链路状态路由协议的特点"><a href="#链路状态路由协议的特点" class="headerlink" title="链路状态路由协议的特点"></a>链路状态路由协议的特点</h1><ul>
@@ -550,7 +542,7 @@
 <li>发送周期性更新（链路状态刷新），间隔时间为30分钟。</li>
 </ul>
 <p>OSPF是一种链路状态路由选择协议。</p>
-<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_01.png-sign" alt="链路状态协议"></p>
+<p><img src="http://image.evilpwn.me/blog/deeply_OSPF_01.png-sign" alt="链路状态协议"></p>
 <p>链路状态路由协议只在网络拓扑发生变化以后产生路由更新。链路状态发生变化后，检测到变化的路由器生成并发送<font color="red">LSA（Link-State Advertisement，链路状态通告）</font>，并通过组播地址发送给所有的邻居路由器。接受到LSA的每个路由器会复制一份LSA，更新它自己的<font color="red">LSDB（Link-State Database）</font>，再将LSA转发给其他邻居。这种扩散机制被称为<font color="red">泛洪（Flooding）</font>。</p>
 <p>OSPF必须维护以下信息：</p>
 <ul>
@@ -659,14 +651,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="OSPF邻居关系"><a href="#OSPF邻居关系" class="headerlink" title="OSPF邻居关系"></a>OSPF邻居关系</h2><p><b>广播网络中的Hello报文：</b><br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_02.png-sign" alt="广播网络中的Hello报文"><br>交换Hello报文进行邻接：</p>
+<h2 id="OSPF邻居关系"><a href="#OSPF邻居关系" class="headerlink" title="OSPF邻居关系"></a>OSPF邻居关系</h2><p><b>广播网络中的Hello报文：</b><br><img src="http://image.evilpwn.me/blog/deeply_OSPF_02.png-sign" alt="广播网络中的Hello报文"><br>交换Hello报文进行邻接：</p>
 <ol>
 <li>路由器和别的路由器交换hello包,目标地址采用多播地址 </li>
 <li>hello包交换完毕，邻接关系形成。</li>
 <li>接下来通过交换LSA和对接收方的确认进行同步LSDB。对于OSPF路由器而言，进入完全邻接状态。</li>
 <li>如果需要的话，路由器转发新的LSA给其他的邻居，来保证整个区域内LSDB的完全同步。</li>
 </ol>
-<h2 id="OSPF泛洪机制"><a href="#OSPF泛洪机制" class="headerlink" title="OSPF泛洪机制"></a>OSPF泛洪机制</h2><p><b>LSA工作原理：</b><br><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_03.png-sign" alt="LSA工作原理"></p>
+<h2 id="OSPF泛洪机制"><a href="#OSPF泛洪机制" class="headerlink" title="OSPF泛洪机制"></a>OSPF泛洪机制</h2><p><b>LSA工作原理：</b><br><img src="http://image.evilpwn.me/blog/deeply_OSPF_03.png-sign" alt="LSA工作原理"></p>
 <h2 id="OSPF路由类型"><a href="#OSPF路由类型" class="headerlink" title="OSPF路由类型"></a>OSPF路由类型</h2><p>。。。。。。待补充。。。。。。</p>
 <h2 id="LSDB"><a href="#LSDB" class="headerlink" title="LSDB"></a>LSDB</h2><p>LSA：描述本地路由器或网络的数据单元，对路由器来说，它描述了路由器的接口状态和邻接状态。 </p>
 <table>
@@ -714,7 +706,7 @@
 <h2 id="SPF算法"><a href="#SPF算法" class="headerlink" title="SPF算法"></a>SPF算法</h2><blockquote>
 <p>在地区内部,每台路由器都计算到达同一地区中每个网络的最佳/最短路径。这种计算基于拓扑数据库中收集的信息和一种称为最短路径优先(SPF)的算法。假想地区中的每台路由器都会构造一棵树,很像是一棵家谱树,在那里该路由器就是树根,而其他网络则沿树枝和树叶被编排。最短路径树被路由器用来将路由插人到路由表中。<br>如果某个路由器的接口存在于多个地区中,那么需要为每个地区都构建一棵单独的树。在路由器执行SPF算法时,一个关键标准是去往某网络的每个潜在路径的度量或开销值。</p>
 </blockquote>
-<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_04.png-sign" alt="SPF算法"><br>SPF算法也称Dijkstra算法（Dijkstra发明的），是OSPF路由协议的基础。</p>
+<p><img src="http://image.evilpwn.me/blog/deeply_OSPF_04.png-sign" alt="SPF算法"><br>SPF算法也称Dijkstra算法（Dijkstra发明的），是OSPF路由协议的基础。</p>
 <p>。。。。。。待补充。。。。。。</p>
 <h1 id="OSPF报文类型"><a href="#OSPF报文类型" class="headerlink" title="OSPF报文类型"></a>OSPF报文类型</h1><h1 id="邻居状态和数据库同步"><a href="#邻居状态和数据库同步" class="headerlink" title="邻居状态和数据库同步"></a>邻居状态和数据库同步</h1><h1 id="OSPF区域"><a href="#OSPF区域" class="headerlink" title="OSPF区域"></a>OSPF区域</h1><p>将OSPF创建为层次结构的原因包括:</p>
 <ul>
@@ -738,7 +730,7 @@
 <li>将LSA扩散限制在区域内。</li>
 <li>要求采取层次网络设计。</li>
 </ul>
-<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_12.png-sign" alt="OSPF区域"><br>A,B骨干路由器，C,D,E是ABR（区域边界路由器）</p>
+<p><img src="http://image.evilpwn.me/blog/deeply_OSPF_12.png-sign" alt="OSPF区域"><br>A,B骨干路由器，C,D,E是ABR（区域边界路由器）</p>
 <p>ABR特征：</p>
 <ul>
 <li>分隔LSA泛洪的区域</li>
@@ -749,10 +741,10 @@
 <blockquote>
 <p>常规区域只能和骨干区域交换LSA，常规区域与常规区域之间即使直连也无法互换LSA，</p>
 </blockquote>
-<p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_05.jpg" alt="虚链路"></p>
+<p><img src="http://image.evilpwn.me/blog/deeply_OSPF_05.jpg" alt="虚链路"></p>
 <p>虚连接是指在两台ABR（Area Border Routers，区域边界路由器）之间，穿过一个非骨干区域（也称为转换区域，Transit Area），建立的一条逻辑上的连接通道（须在两端的ABR上同时配置）。如上图，在路由器C和路由器E之间建立了一条虚链接，使Area 3和骨干区域Area 0之间有了逻辑连接，Area 1为转换区域。<br>“逻辑通道”是指两台ABR之间的其它运行OSPF的路由器只是转发报文，相当于在两个ABR之间形成了一个点到点的连接。因此在这个连接上，和物理接口一样可以配置接口的各类参数。</p>
-<h2 id="常见模型"><a href="#常见模型" class="headerlink" title="常见模型"></a>常见模型</h2><h3 id="骨干区域被分割"><a href="#骨干区域被分割" class="headerlink" title="骨干区域被分割"></a>骨干区域被分割</h3><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_06.png-sign" alt="骨干区域被分割"></p>
-<h3 id="非骨干区域无法和骨干区域保持连通"><a href="#非骨干区域无法和骨干区域保持连通" class="headerlink" title="非骨干区域无法和骨干区域保持连通"></a>非骨干区域无法和骨干区域保持连通</h3><p><img src="http://evilpwn-image.oss-cn-beijing.aliyuncs.com/blog/deeply_OSPF_07.png-sign" alt="非骨干区域无法和骨干区域保持连通"></p>
+<h2 id="常见模型"><a href="#常见模型" class="headerlink" title="常见模型"></a>常见模型</h2><h3 id="骨干区域被分割"><a href="#骨干区域被分割" class="headerlink" title="骨干区域被分割"></a>骨干区域被分割</h3><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_06.png-sign" alt="骨干区域被分割"></p>
+<h3 id="非骨干区域无法和骨干区域保持连通"><a href="#非骨干区域无法和骨干区域保持连通" class="headerlink" title="非骨干区域无法和骨干区域保持连通"></a>非骨干区域无法和骨干区域保持连通</h3><p><img src="http://image.evilpwn.me/blog/deeply_OSPF_07.png-sign" alt="非骨干区域无法和骨干区域保持连通"></p>
 <h1 id="OSPF网络类型"><a href="#OSPF网络类型" class="headerlink" title="OSPF网络类型"></a>OSPF网络类型</h1><h1 id="OSPF基本配置"><a href="#OSPF基本配置" class="headerlink" title="OSPF基本配置"></a>OSPF基本配置</h1><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
       
     </div>
@@ -850,6 +842,7 @@
 
   
     <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTU4Ni84MTUw"></div>
     </div>
 
   
@@ -894,7 +887,7 @@
               <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="evilpwn">
             
               <p class="site-author-name" itemprop="name">evilpwn</p>
-              <p class="site-description motion-element" itemprop="description">许自己一个未来，用一生去努力</p>
+              <p class="site-description motion-element" itemprop="description">许自己一个未来,用一生去努力</p>
           </div>
 
           
@@ -947,6 +940,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -959,6 +954,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -1189,6 +1186,8 @@
 
 
 
+  
+
 
 
   
@@ -1217,6 +1216,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1252,44 +1254,22 @@
 
 
   
+
+
   
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz',
-    appKey: 'BxBScgSxibHb3t956iPFXsAd',
-    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  // >>>>>>>>>>>>>>>>>>>>>>> custom 移除.info下所有子节点,实现移除powered by >>>>>>>>>>>>>>>>>>>
-  var infoEle = document.querySelector('#comments .info');
-  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-    infoEle.childNodes.forEach(function(item) {
-      item.parentNode.removeChild(item);
-    });
-  }
-  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< custom end <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    <script>
+  window.livereOptions = {
+    refer: '2017/deeply-OSPF/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
 </script>
-
-
-
 
   
 
