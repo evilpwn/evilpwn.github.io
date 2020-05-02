@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>test</title>
+      <link href="/2019/test/"/>
+      <url>/2019/test/</url>
+      
+        <content type="html"><![CDATA[<p>爆破，用于获取系统的认证信息，使用大量的认证信息对认证接口进行尝试登陆，直到获取正确结果。<br><a id="more"></a></p><h1 id="爆破概述"><a href="#爆破概述" class="headerlink" title="爆破概述"></a>爆破概述</h1><p>爆破：连续性尝试+字典+自动化</p><h2 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h2><p>网站没有对登陆接口进行防暴力破解，或者防暴力破解的措施不合理。</p><h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><ul><li>常用的账号密码（弱口令）</li><li>被脱裤后账号密码（社工库）</li><li>对指定的人，按照一定规则对指定字符排列组合，从而生成的密码字典（手机号、姓名、生日、爱好等），可结合社会工程学</li></ul><h2 id="认证策略"><a href="#认证策略" class="headerlink" title="认证策略"></a>认证策略</h2><p>常见的认证安全策略：</p><ol><li>设置复杂密码</li><li>认证时使用安全验证码（不会被绕过）</li><li>对登陆行为做判断和限制（连错5次锁定账号或IP等）</li><li>双因素认证（USB Key、OTP动态口令）</li></ol><h1 id="爆破流程"><a href="#爆破流程" class="headerlink" title="爆破流程"></a>爆破流程</h1><ol><li>确认登陆接口的脆弱性<br>抓包观察验证元素和response信息，判断是否存在暴力破解的可能</li><li>优化字典<br>提高爆破效率</li><li>使用工具自动化<br>配置自动化工具或者写脚本，考虑线程、超时时间、重试次数等因素</li></ol><h2 id="字典优化技巧"><a href="#字典优化技巧" class="headerlink" title="字典优化技巧"></a>字典优化技巧</h2><ol><li>根据注册提示确定<b>密码位数区间、特殊字符、是否字母开头等</b>信息，去掉不符合要求的密码。</li><li>若爆破的是管理员账号密码，要先确定管理员账号后再爆破密码<br>默认的管理员账号admin/administrator/root，使用其中一个账号+随便一个密码尝试登陆，观察返回结果，确定用户名。<br>如： xxx/abc 返回“用户名或密码错误”，但是 admin/abc 返回“密码错误”，则可以确定用户名是admin。</li></ol><h1 id="Burp-Suite"><a href="#Burp-Suite" class="headerlink" title="Burp Suite"></a>Burp Suite</h1><h2 id="intruder-模块"><a href="#intruder-模块" class="headerlink" title="intruder 模块"></a>intruder 模块</h2><p>positios 选项卡中指定需要爆破的参数，并选择攻击类型</p><ul><li>Sniper 狙击手<br>设置一个payload，先对第一个设置的变量使用字典进行测试，然后再对第二个进行测试</li><li>Battering ram 冲击车<br>设置一个payload，所有变量一起用字典内容替换，然后一起尝试</li><li>Pitchfork 草叉型<br>每个变量对应一个payload，分别使用对应的字典对变量同时进行替换</li><li>Cluster bomb 焦束炸弹 （常用）<br>每个变量对应一个payload，分别使用字典组合对变量进行替换</li></ul><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="笔记目录"><a href="#笔记目录" class="headerlink" title="笔记目录"></a>笔记目录</h2><ul><li>暴力破解&amp;暴力破解漏洞概述</li><li>暴力破解漏洞测试流程<br>基于表单的暴力破解(基于 burp suite)</li><li>暴力破解之不安全的验证码分析<br>– on client<br>– on server</li><li>Token可以防暴力破解吗?</li><li>暴力破解常见的防范措施</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+            <tag> 常见漏洞 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>王卡热点ml踩坑小记</title>
       <link href="/2019/wangka-ml/"/>
       <url>/2019/wangka-ml/</url>
