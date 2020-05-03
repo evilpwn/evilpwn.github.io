@@ -14,14 +14,14 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"evilpwn.me","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"width":260},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"evilpwn.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"width":260},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="许自己一个未来,用一生去努力">
@@ -43,8 +43,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: false
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -97,15 +98,12 @@
 
   <div class="site-meta">
 
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">evilpwn's Note</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">记录所学的一些知识,用来分享和备忘</h1>
-      
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">evilpwn's Note</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录所学的一些知识,用来分享和备忘</p>
   </div>
 
   <div class="site-nav-right">
@@ -116,32 +114,33 @@
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-摘录">
 
-    <a href="/excerpt/" rel="section"><i class="fa fa-fw fa-edit"></i>摘录</a>
+    <a href="/excerpt/" rel="section"><i class="edit fa-fw"></i>摘录</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -149,27 +148,32 @@
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 
 
 <script src="https://cdn.jsdelivr.net/gh/evilpwn/live2d-widget@0.7.2.5/autoload.js"></script>
@@ -191,7 +195,7 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content archive">
             
 
   
@@ -206,7 +210,7 @@
 
       
     <div class="collection-year">
-      <h2 class="collection-header">2017</h2>
+      <span class="collection-header">2017</span>
     </div>
 
   <article itemscope itemtype="http://schema.org/Article">
@@ -220,11 +224,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/Python-built-in-functions/" itemprop="url">
             <span itemprop="name">Python内置函数</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -240,11 +244,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/Python-basic/" itemprop="url">
             <span itemprop="name">Python基础学习</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -260,11 +264,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/PE-file/" itemprop="url">
             <span itemprop="name">PE文件格式</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -280,11 +284,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/windows_reverse/" itemprop="url">
             <span itemprop="name">Windows逆向基础</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -300,11 +304,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/Assembly-Language/" itemprop="url">
             <span itemprop="name">汇编基础</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -320,11 +324,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/s03/" itemprop="url">
             <span itemprop="name">算法03-贪心算法</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -340,11 +344,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/s02/" itemprop="url">
             <span itemprop="name">算法02-动态规划</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -360,11 +364,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/s01/" itemprop="url">
             <span itemprop="name">算法01-分治法</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -380,11 +384,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/ISCC-2017-writeup/" itemprop="url">
             <span itemprop="name">ISCC-2017-writeup</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -400,11 +404,11 @@
         </time>
       </div>
 
-      <h3 class="post-title">
+      <div class="post-title">
           <a class="post-title-link" href="/2017/acquaintance-metasploit/" itemprop="url">
             <span itemprop="name">初识Metasploit</span>
           </a>
-      </h3>
+      </div>
 
     </header>
   </article>
@@ -428,7 +432,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -505,10 +509,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/evilpwn" title="GitHub → https://github.com/evilpwn" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/evilpwn" title="GitHub → https://github.com/evilpwn" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:i@evilpwn.me" title="E-Mail → mailto:i@evilpwn.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:i@evilpwn.me" title="E-Mail → mailto:i@evilpwn.me"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -528,15 +532,19 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 2017 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-hacker-news"></i>
+    <i class="hacker-news"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">evilpwn</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
         
 
@@ -545,30 +553,30 @@
 
 
 
-  <script>
-  function leancloudSelector(url) {
-    url = encodeURI(url);
-    return document.getElementById(url).querySelector('.leancloud-visitors-count');
-  }
-  if (CONFIG.page.isPost) {
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
     function addCount(Counter) {
       var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.getAttribute('id'));
-      var title = visitors.getAttribute('data-flag-title');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
 
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
         .then(response => response.json())
         .then(({ results }) => {
           if (results.length > 0) {
             var counter = results[0];
-              leancloudSelector(url).innerText = counter.time + 1;
+            leancloudSelector(url).innerText = counter.time + 1;
             Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .then(response => response.json())
               .catch(error => {
                 console.error('Failed to save visitor count', error);
-              })
+              });
           } else {
-              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
                 .then(response => response.json())
                 .then(() => {
                   leancloudSelector(url).innerText = 1;
@@ -582,48 +590,34 @@
           console.error('LeanCloud Counter Error', error);
         });
     }
-  } else {
+
     function showTime(Counter) {
       var visitors = document.querySelectorAll('.leancloud_visitors');
       var entries = [...visitors].map(element => {
-        return decodeURI(element.getAttribute('id'));
+        return decodeURI(element.id);
       });
 
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
         .then(response => response.json())
         .then(({ results }) => {
-          if (results.length === 0) {
-            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
-              element.innerText = 0;
-            });
-            return;
-          }
-          for (let item of results) {
-            let { url, time } = item;
-            leancloudSelector(url).innerText = time;
-          }
           for (let url of entries) {
-            var element = leancloudSelector(url);
-            if (element.innerText == '') {
-              element.innerText = 0;
-            }
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
           }
         })
         .catch(error => {
           console.error('LeanCloud Counter Error', error);
         });
     }
-  }
 
-  fetch('https://app-router.leancloud.cn/2/route?appId=0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz')
-    .then(response => response.json())
-    .then(({ api_server }) => {
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz","app_key":"BxBScgSxibHb3t956iPFXsAd","server_url":null,"security":false,"betterPerformance":true};
+    function fetchData(api_server) {
       var Counter = (method, url, data) => {
-        return fetch(`https://${api_server}/1.1${url}`, {
-          method: method,
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
           headers: {
-            'X-LC-Id'     : '0gG2wfuwez6JELFilgiyuFXz-gzGzoHsz',
-            'X-LC-Key'    : 'BxBScgSxibHb3t956iPFXsAd',
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(data)
@@ -635,8 +629,21 @@
       } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
